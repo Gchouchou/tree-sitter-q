@@ -1,0 +1,135 @@
+===
+Regular Number list
+===
+1 2 3 4 1e-40 1.3;
+---
+
+(program
+  (progn
+    (number_list
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number))
+    (semicolon)))
+
+===
+number list with func
+===
+11 2 3 f
+---
+
+(program
+  (progn
+    (func_app
+      (number_list
+        (number)
+        (number)
+        (number))
+      (variable
+        (identifier)))))
+
+===
+number list with negative numbers
+===
+11 2 3 -23 -1.2 32
+---
+
+(program
+  (progn
+    (number_list
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number))))
+
+===
+number list with function application
+===
+11 2 f 3 -23 -1.2 32
+---
+
+(program
+  (progn
+    (func_app
+      (number_list
+        (number)
+        (number))
+      (func_app
+        (variable
+          (identifier))
+        (number_list
+          (number)
+          (number)
+          (number)
+          (number))))))
+
+===
+datetime list
+===
+2020.01.02 2043.05.12D12: 2061.04.30D10:23 2001.12.25D12:44:53.991
+---
+
+(program
+  (progn
+    (temporal_list
+      (temporal)
+      (temporal)
+      (temporal)
+      (temporal))))
+
+===
+datetime list with number list
+===
+2003.06.01 2034.05.01 2333 552f 1b
+---
+
+(program
+  (progn
+    (func_app
+      (temporal_list
+        (temporal)
+        (temporal))
+      (number_list
+        (number)
+        (number)
+        (number)))))
+
+===
+String is a list
+===
+"asdf33\n342"
+---
+
+(program
+  (progn
+    (string
+      (string_fragment)
+      (escape_sequence)
+      (string_fragment))))
+
+===
+char with escape character
+===
+"\n"
+---
+
+(program
+  (progn
+    (char
+      (escape_sequence))))
+
+===
+String starting on space
+===
+  " seventh"
+---
+
+(program
+  (progn
+    (string
+      (string_fragment))))

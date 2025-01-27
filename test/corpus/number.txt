@@ -1,0 +1,159 @@
+===
+regular number
+===
+51
+---
+
+(program
+  (progn
+    (number)))
+
+===
+negative number
+===
+-51
+---
+
+(program
+  (progn
+    (number)))
+
+===
+negative number with decimals
+===
+-1.523
+---
+
+(program
+  (progn
+    (number)))
+
+===
+decimal number
+===
+20001.5223534
+---
+
+(program
+  (progn
+    (number)))
+
+===
+scientific notation
+===
+1.2523e10
+---
+
+(program
+  (progn
+    (number)))
+
+===
+scientific notation with negative power
+===
+-125.323e-120
+---
+
+(program
+  (progn
+    (number)))
+
+===
+hexadecimal
+===
+0x12af3
+---
+
+(program
+  (progn
+    (byte_list)))
+
+===
+typed float
+===
+241.242f
+---
+
+(program
+  (progn
+    (number)))
+
+===
+typed bool
+===
+1b
+---
+
+(program
+  (progn
+    (number)))
+
+===
+typed long
+===
+23423412443j
+---
+
+(program
+  (progn
+    (number)))
+
+===
+typed short
+===
+12h
+---
+
+(program
+  (progn
+    (number)))
+
+===
+typed int
+===
+12i
+---
+
+(program
+  (progn
+    (number)))
+
+===
+typed int
+===
+12i
+---
+
+(program
+  (progn
+    (number)))
+
+===
+typed real
+===
+1.32e
+---
+
+(program
+  (progn
+    (number)))
+
+===
+combining float and exponent
+===
+1.22e433f
+---
+
+(program
+  (progn
+    (number)))
+
+===
+combining exponent and real type
+===
+122e1211e
+---
+
+(program
+  (progn
+    (number)))

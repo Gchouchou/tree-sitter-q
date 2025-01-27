@@ -1,0 +1,145 @@
+===
+progn many statements
+===
+a;b;c;d
+---
+
+(program
+  (progn
+    (variable
+      (identifier))
+    (semicolon)
+    (variable
+      (identifier))
+    (semicolon)
+    (variable
+      (identifier))
+    (semicolon)
+    (variable
+      (identifier))))
+
+====
+multiline progn
+====
+1+
+ 2; 3
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))
+    (semicolon)
+    (number)))
+
+===
+2 lines progn
+===
+1+1
+2+2
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number)))
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))
+
+===
+progn with comment
+===
+1+ / comment
+ 2
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (comment)
+      (number))))
+
+===
+progn through a comment
+===
+1+ / comment1
+ /a line here with comment
+ 2
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (comment)
+      (comment)
+      (number))))
+
+===
+progn through empty lines
+===
+1+
+
+ 1
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (newline_extra)
+      (number))))
+
+===
+progn through empty lines, comments and a normal comment
+===
+1+
+
+/
+a
+\
+/ comment
+ 1
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (newline_extra)
+      (comment_block)
+      (comment)
+      (number))))
+
+===
+number list through empty lines, comments and a normal comment
+===
+1
+
+/
+a
+\
+/ comment
+ 1
+---
+
+(program
+  (progn
+    (number_list
+      (number)
+      (newline_extra)
+      (comment_block)
+      (comment)
+      (number))))

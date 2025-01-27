@@ -1,0 +1,99 @@
+===
+full date
+===
+2024.12.31
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+time in minutes
+===
+12:54
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+full timestamp
+===
+2024.12.31D12:50:59.1
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+time in seconds
+===
+12:53:10
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+time in miliseconds
+===
+12:53:10.255
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+time in seconds with period
+===
+12:51:21.
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+time in days
+===
+12D
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+time in days with hours
+===
+100D12:
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+0 time in days
+===
+0D
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+time in days with miliseconds
+===
+399D10:32:12.333
+---
+
+(program
+  (progn
+    (temporal)))

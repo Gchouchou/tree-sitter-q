@@ -1,0 +1,248 @@
+===
+Simple exec
+===
+exec c from t;
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (variable
+          (identifier)))
+      (variable
+        (identifier)))
+    (semicolon)))
+
+===
+Simple select
+===
+select from t;
+---
+
+(program
+  (progn
+    (sql_expression
+      (variable
+        (identifier)))
+    (semicolon)))
+
+===
+Simple update
+===
+update from t;
+---
+
+(program
+  (progn
+    (sql_expression
+      (variable
+        (identifier)))
+    (semicolon)))
+
+===
+Simple delete
+===
+delete from t;
+---
+
+(program
+  (progn
+    (sql_expression
+      (variable
+        (identifier)))
+    (semicolon)))
+
+===
+select with table rows
+===
+select a,b,c from t;
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (variable
+          (identifier))
+        (variable
+          (identifier))
+        (variable
+          (identifier)))
+      (variable
+        (identifier)))
+    (semicolon)))
+
+===
+update with table conditions
+===
+update from t where a,b,c;
+---
+
+(program
+  (progn
+    (sql_expression
+      (variable
+        (identifier))
+      (table_conditions
+        (variable
+          (identifier))
+        (variable
+          (identifier))
+        (variable
+          (identifier))))
+    (semicolon)))
+
+===
+delete from function application
+===
+delete from f x;
+---
+
+(program
+  (progn
+    (sql_expression
+      (func_app
+        (variable
+          (identifier))
+        (variable
+          (identifier))))
+    (semicolon)))
+
+===
+select with expressive columns
+===
+select a:x, b:(x,y) from t;
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (func_app
+          (variable
+            (identifier))
+          (assignment_func)
+          (variable
+            (identifier)))
+        (func_app
+          (variable
+            (identifier))
+          (assignment_func)
+          (parenthesis_exp
+            (func_app
+              (variable
+                (identifier))
+              (builtin_infix_func)
+              (variable
+                (identifier))))))
+      (variable
+        (identifier)))
+    (semicolon)))
+
+===
+select with complicated conditions
+===
+select from t where x>1,b<=2;
+---
+
+(program
+  (progn
+    (sql_expression
+      (variable
+        (identifier))
+      (table_conditions
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number))
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number))))
+    (semicolon)))
+
+===
+by phrase
+===
+select a by b from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (variable
+          (identifier)))
+      (table_columns
+        (variable
+          (identifier)))
+      (variable
+        (identifier)))))
+
+===
+select parameters
+===
+select[100] a from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (limit_expression
+        (number))
+      (table_columns
+        (variable
+          (identifier)))
+      (variable
+        (identifier)))))
+
+===
+select order expression
+===
+select[>p] from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (limit_expression
+        (order_expression
+          (variable
+            (identifier))))
+      (variable
+        (identifier)))))
+
+===
+Distinct keyword
+===
+exec distinct from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (variable
+        (identifier)))))
+
+===
+distinct as a variable
+===
+exec a, distinct b from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (variable
+          (identifier))
+        (func_app
+          (variable
+            (identifier))
+          (variable
+            (identifier))))
+      (variable
+        (identifier)))))

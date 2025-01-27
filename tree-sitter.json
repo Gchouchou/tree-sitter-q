@@ -1,0 +1,33 @@
+{
+  "grammars": [
+    {
+      "name": "q",
+      "camelcase": "Q",
+      "scope": "source.q",
+      "path": ".",
+      "file-types": ["q"],
+      "injection-regex": "^q$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "A treesitter parser for q",
+    "authors": [
+      {
+        "name": "Justin Yu"
+      }
+    ],
+    "links": {
+      "repository": "https://gitlab.com/GChouChou/tree-sitter-q.git"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}

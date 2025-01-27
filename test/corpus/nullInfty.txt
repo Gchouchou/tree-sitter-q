@@ -1,0 +1,279 @@
+===
+null guid
+===
+0Ng
+---
+
+(program
+  (progn
+    (number)))
+
+===
+null short
+===
+0Nh
+---
+
+(program
+  (progn
+    (number)))
+
+===
+null int
+===
+0Ni
+---
+
+(program
+  (progn
+    (number)))
+
+===
+null long
+===
+0Nj
+---
+
+(program
+  (progn
+    (number)))
+
+===
+null long
+===
+0N
+---
+
+(program
+  (progn
+    (number)))
+
+===
+null real
+===
+0Ne
+---
+
+(program
+  (progn
+    (number)))
+
+===
+null float
+===
+0n
+---
+
+(program
+  (progn
+    (number)))
+
+===
+null float
+===
+0Nf
+---
+
+(program
+  (progn
+    (number)))
+
+===
+null timestamp
+===
+0Np
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+null month
+===
+0Nm
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+null date
+===
+0Nd
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+null datetime
+===
+0Nz
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+null timespan
+===
+0Nn
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+null minute
+===
+0Nu
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+null second
+===
+0Nv
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+null time
+===
+0Nt
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+infinity short
+===
+0Wh
+---
+
+(program
+  (progn
+    (number)))
+
+===
+infinity int
+===
+0Wi
+---
+
+(program
+  (progn
+    (number)))
+
+===
+infinity long
+===
+0Wj
+---
+
+(program
+  (progn
+    (number)))
+
+===
+infinity long
+===
+0W
+---
+
+(program
+  (progn
+    (number)))
+
+===
+infinity real
+===
+0We
+---
+
+(program
+  (progn
+    (number)))
+
+===
+infinity float
+===
+0w
+---
+
+(program
+  (progn
+    (number)))
+
+===
+infinity timestamp
+===
+0Wp
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+infinity date
+===
+0Wd
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+infinity datetime
+===
+0wz
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+infinity minute
+===
+0Wu
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+infinity second
+===
+0Wv
+---
+
+(program
+  (progn
+    (temporal)))
+
+===
+infinity time
+===
+0Wt
+---
+
+(program
+  (progn
+    (temporal)))

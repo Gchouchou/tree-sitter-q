@@ -1,0 +1,78 @@
+===
+variable name
+===
+table
+---
+
+(program
+  (progn
+    (variable
+      (identifier))))
+
+===
+underscores
+===
+big_table
+---
+
+(program
+  (progn
+    (variable
+      (identifier))))
+
+===
+namespaces
+===
+.plotly
+---
+
+(program
+  (progn
+    (variable
+      (namespace))))
+
+===
+namespaces inside namespaces
+===
+.plotly.plot_hist
+---
+
+(program
+  (progn
+    (variable
+      (namespace)
+      (identifier))))
+
+===
+numbers
+===
+t2
+---
+
+(program
+  (progn
+    (variable
+      (identifier))))
+
+===
+global dictionary application
+===
+a.b
+---
+
+(program
+  (progn
+    (variable
+      (identifier)
+      (identifier))))
+
+===
+starting with space
+===
+   .a
+---
+
+(program
+  (progn
+    (variable
+      (namespace))))

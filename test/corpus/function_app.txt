@@ -1,0 +1,155 @@
+===
+1 parameter no space
+===
+f[a]
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (parameter_pass
+        (variable
+          (identifier))))))
+
+===
+1 parameter with spacing
+===
+f [ a ]
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (parameter_pass
+        (variable
+          (identifier))))))
+
+===
+2 parameter without spacing
+===
+f[1;2]
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (parameter_pass
+        (number)
+        (semicolon)
+        (number)))))
+
+===
+2 parameter with spacing
+===
+f [ 1 ; 2 ]
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (parameter_pass
+        (number)
+        (semicolon)
+        (number)))))
+
+===
+glyph function application
+===
++[1;2]
+---
+
+(program
+  (progn
+    (func_app
+      (builtin_infix_func)
+      (parameter_pass
+        (number)
+        (semicolon)
+        (number)))))
+
+===
+comma function application
+===
+,[1;2]
+---
+
+(program
+  (progn
+    (func_app
+      (builtin_infix_func)
+      (parameter_pass
+        (number)
+        (semicolon)
+        (number)))))
+
+===
+assignment function application
+===
+:[a;2]
+---
+
+(program
+  (progn
+    (func_app
+      (assignment_func)
+      (parameter_pass
+        (variable
+          (identifier))
+        (semicolon)
+        (number)))))
+
+===
+infix cannot be used as unary, minus
+===
+- 1
+---
+
+(program
+  (ERROR)
+  (progn
+    (number)))
+
+===
+infix cannot be used as unary, plus
+===
++ 1
+---
+
+(program
+  (ERROR)
+  (progn
+    (number)))
+
+===
+infix cannot be used as unary, setenv
+===
+setenv 1
+---
+
+(program
+  (ERROR)
+  (progn
+    (number)))
+
+===
+Builtin that looks like number
+===
+"," 1: x
+---
+
+(program
+  (progn
+    (func_app
+      (char
+        (regular_char))
+      (builtin_infix_func)
+      (variable
+        (identifier)))))

@@ -1,0 +1,89 @@
+===
+f modify each
+===
+(f')
+---
+
+(program
+  (progn
+    (parenthesis_exp
+      (infix_mod_func
+        (variable
+          (identifier))
+        (infix_func_modifier)))))
+
+===
+f modify scan
+===
+f\
+---
+
+(program
+  (progn
+    (infix_mod_func
+      (variable
+        (identifier))
+      (infix_func_modifier))))
+
+===
+g modify over
+===
+g/
+---
+
+(program
+  (progn
+    (infix_mod_func
+      (variable
+        (identifier))
+      (infix_func_modifier))))
+
+===
+Fake infix application
+===
+f (g') 1
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (func_app
+        (parenthesis_exp
+          (infix_mod_func
+            (variable
+              (identifier))
+            (infix_func_modifier)))
+        (number)))))
+
+===
+Function Scan
+===
+1 f/ 2
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (infix_mod_func
+        (variable
+          (identifier))
+        (infix_func_modifier))
+      (number))))
+
+===
+Function Scan 1
+===
+1 f/
+---
+
+(program
+  (progn
+    (infix_projection
+      (number)
+      (infix_mod_func
+        (variable
+          (identifier))
+        (infix_func_modifier)))))

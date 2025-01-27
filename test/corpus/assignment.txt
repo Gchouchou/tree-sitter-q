@@ -1,0 +1,116 @@
+===
+simple assignment
+===
+a:1
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (assignment_func)
+      (number))))
+
+===
+assignment passthrough
+===
+1+a:1
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (func_app
+        (variable
+          (identifier))
+        (assignment_func)
+        (number)))))
+
+===
+assignment through parameter
+===
+:[a;1]
+---
+
+(program
+  (progn
+    (func_app
+      (assignment_func)
+      (parameter_pass
+        (variable
+          (identifier))
+        (semicolon)
+        (number)))))
+
+===
+naked assignment
+===
+:
+---
+
+(program
+  (progn
+    (assignment_func)))
+
+===
+assignment in parenthesis
+===
+(:)
+---
+
+(program
+  (progn
+    (parenthesis_exp
+      (assignment_func))))
+
+===
+view
+===
+a::b
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (assignment_func)
+      (variable
+        (identifier)))))
+
+===
+function lambda global ammend
+===
+{abc::x}[1]
+---
+
+(program
+  (progn
+    (func_app
+      (func_definition
+        (func_body
+          (func_app
+            (variable
+              (identifier))
+            (assignment_func)
+            (variable
+              (identifier)))))
+      (parameter_pass
+        (number)))))
+
+===
+operator assignment
+===
+a+:1
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (assignment_func)
+      (number))))

@@ -1,0 +1,110 @@
+===
+change console
+===
+\c 122 333
+---
+
+(program
+  (system_command
+    (command)
+    (number_list
+      (number)
+      (number))))
+
+===
+open port
+===
+\p 3332
+---
+
+(program
+  (system_command
+    (command)
+    (number)))
+
+===
+time and space
+===
+\ts log til 1000
+---
+
+(program
+  (system_command
+    (command)
+    (func_app
+      (variable
+        (identifier))
+      (func_app
+        (variable
+          (identifier))
+        (number)))))
+
+===
+exit
+===
+\\
+---
+
+(program
+  (system_command
+    (command)))
+
+===
+invalid command error
+===
+\tz
+---
+
+(program
+  (system_command
+    (shell_command)))
+
+===
+multiline syscommands
+===
+\c
+ 23
+---
+
+(program
+  (system_command
+    (command)
+    (number)))
+
+===
+shell commands
+===
+\tmux new-session -s hello
+---
+
+(program
+  (system_command
+    (shell_command)))
+
+===
+shebang
+===
+#!ahha
+---
+
+(program
+  (shebang
+    (bang)
+    (interpreter)))
+
+===
+shebang with some code
+===
+#!/usr/env
+1+1
+---
+
+(program
+  (shebang
+    (bang)
+    (interpreter))
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))

@@ -1,0 +1,283 @@
+======
+minus sign with space but attached to number
+======
+f -1;
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (number))
+    (semicolon)))
+
+====
+minus sign with space on both side
+====
+f - 1;
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (builtin_infix_func)
+      (number))
+    (semicolon)))
+
+===
+minus sign with no space on the right
+===
+f- 1;
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (builtin_infix_func)
+      (number))
+    (semicolon)))
+
+===
+minus sign with no space on both side
+===
+f-1;
+----
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (builtin_infix_func)
+      (number))
+    (semicolon)))
+
+===
+minus sign but it's a sub expression
+===
+f-1+2
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (builtin_infix_func)
+      (func_app
+        (number)
+        (builtin_infix_func)
+        (number)))))
+
+===
+minus sign in a number list
+===
+1 -1 -344.11f 5999
+---
+
+(program
+  (progn
+    (number_list
+      (number)
+      (number)
+      (number)
+      (number))))
+
+===
+Double minus sign
+===
+f--1
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (builtin_infix_func)
+      (number))))
+
+===
+Minus sign in tables no space
+===
+select f-1 from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number)))
+      (variable
+        (identifier)))))
+
+===
+Minus sign in tables all space
+===
+select f - 1 from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number)))
+      (variable
+        (identifier)))))
+
+===
+Minus sign in tables space on right
+===
+select f- 1 from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number)))
+      (variable
+        (identifier)))))
+
+===
+Minus sign in tables space on left
+===
+select f -1 from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (func_app
+          (variable
+            (identifier))
+          (number)))
+      (variable
+        (identifier)))))
+
+===
+Minus sign with space with list
+===
+1 - 1 2 3
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number_list
+        (number)
+        (number)
+        (number)))))
+
+===
+Minus sign without space with list
+===
+1-1 2 3
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number_list
+        (number)
+        (number)
+        (number)))))
+
+===
+Minus sign list to var with space
+===
+1 3 -4 5 - a
+---
+
+(program
+  (progn
+    (func_app
+      (number_list
+        (number)
+        (number)
+        (number)
+        (number))
+      (builtin_infix_func)
+      (variable
+        (identifier)))))
+
+===
+Minus sign list to var without space
+===
+1 3 -4 5-a
+---
+
+(program
+  (progn
+    (func_app
+      (number_list
+        (number)
+        (number)
+        (number)
+        (number))
+      (builtin_infix_func)
+      (variable
+        (identifier)))))
+
+===
+Minus sign between number lists
+===
+1 3 24 - 43 54
+---
+
+(program
+  (progn
+    (func_app
+      (number_list
+        (number)
+        (number)
+        (number))
+      (builtin_infix_func)
+      (number_list
+        (number)
+        (number)))))
+
+===
+Two Minus sign between number lists
+===
+1 3 24 - 43 54 - 234 664
+---
+
+(program
+  (progn
+    (func_app
+      (number_list
+        (number)
+        (number)
+        (number))
+      (builtin_infix_func)
+      (func_app
+        (number_list
+          (number)
+          (number))
+        (builtin_infix_func)
+        (number_list
+          (number)
+          (number))))))

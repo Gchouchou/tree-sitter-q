@@ -1,0 +1,119 @@
+===
+alot of periods with no space
+===
+1.1.2.3.4
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+malformed date
+===
+2032.12.511
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+malformed time
+===
+12:42:62346.123
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+exponents and short
+===
+1e2h
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+exponent and int
+===
+1e22i
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+decimal int
+===
+1.22i
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+decimal short
+===
+1.22h
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+decimal long
+===
+1.22j
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+decimal boolean
+===
+1.22b
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+out of range boolean
+===
+3b
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+decimal exponents
+===
+12e12.33
+---
+
+(program
+  (progn
+    (invalid_atom)))
+
+===
+Invalid date
+===
+32D12:3
+---
+
+(program
+  (progn
+    (invalid_atom)))

@@ -1,0 +1,221 @@
+===
+just a trailing comment
+===
+/ this is a comment
+---
+
+(program
+  (comment))
+
+===
+some expression with trailing comment
+===
+1+1; / this is 1+1
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))
+    (semicolon)
+    (comment)))
+
+===
+multiple trailing comments
+===
+f:1; / this is f
+g:2 / this is g
+/ I sure want to know what do here
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (assignment_func)
+      (number))
+    (semicolon)
+    (comment))
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (assignment_func)
+      (number)))
+  (comment)
+  (comment))
+
+===
+multiline comments
+===
+aa
+/
+adsfsadfasdf
+f+b:1232
+\
+1+1
+---
+
+(program
+  (progn
+    (variable
+      (identifier)))
+  (comment_block)
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))
+
+=====
+Multiline comment that EOF
+=====
+b
+/
+asdfasd
+1+!
+-------
+
+(program
+  (progn
+    (variable
+      (identifier)))
+  (comment_block))
+
+===
+Terminal comment block
+===
+das
+\
+1+1
+what the hell can I do
+---
+
+(program
+  (progn
+    (variable
+      (identifier)))
+  (comment))
+
+===
+comment blocks with terminal comments
+===
+bad;
+\
+Here is a comment block
+/
+1+1=1b;
+---
+
+(program
+  (progn
+    (variable
+      (identifier))
+    (semicolon))
+  (comment))
+
+===
+Comment block in comment blockception
+===
+best;
+1+1
+\
+ddd
+/
+Is it escaped?
+\
+---
+
+(program
+  (progn
+    (variable
+      (identifier))
+    (semicolon))
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number)))
+  (comment))
+
+===
+comments and newlines
+===
+f / comment
+  1
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (comment)
+      (number))))
+
+===
+comment block at the start
+===
+/
+a
+\
+1+1
+---
+
+(program
+  (comment_block)
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))
+
+===
+comment block with empty spaces
+===
+1
+/
+a
+
+\
+1+1
+---
+
+(program
+  (progn
+    (number))
+  (comment_block)
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))
+
+===
+fake terminal comment block
+===
+1
+/
+a
+b
+c
+---
+
+(program
+  (progn
+    (number))
+  (comment_block))
+
+===
+BOF with spaces
+===
+    /
+    a
+\
+---
+
+(program
+  (comment_block))

@@ -1,0 +1,128 @@
+===
+one line function with parameters
+===
+{[a] a+1}
+---
+
+(program
+  (progn
+    (func_definition
+      (parameter_pass
+        (variable
+          (identifier)))
+      (func_body
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number))))))
+
+===
+implicit parameters func one line
+===
+{x_y+1}
+---
+
+(program
+  (progn
+    (func_definition
+      (func_body
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number))))))
+
+===
+multi statement oneline func
+===
+{[a] a;b;a}
+---
+
+(program
+  (progn
+    (func_definition
+      (parameter_pass
+        (variable
+          (identifier)))
+      (func_body
+        (variable
+          (identifier))
+        (semicolon)
+        (variable
+          (identifier))
+        (semicolon)
+        (variable
+          (identifier))))))
+
+===
+multiline func with return statement
+===
+{[a]
+ x;
+ y;
+ :z}
+---
+
+(program
+  (progn
+    (func_definition
+      (parameter_pass
+        (variable
+          (identifier)))
+      (func_body
+        (variable
+          (identifier))
+        (semicolon)
+        (variable
+          (identifier))
+        (semicolon)
+        (func_app
+          (return)
+          (variable
+            (identifier)))))))
+
+===
+multiline parameter pass function
+===
+{[
+ a;
+ x;
+ y
+ ]
+ x}
+---
+
+(program
+  (progn
+    (func_definition
+      (parameter_pass
+        (variable
+          (identifier))
+        (semicolon)
+        (variable
+          (identifier))
+        (semicolon)
+        (variable
+          (identifier)))
+      (func_body
+        (variable
+          (identifier))))))
+
+===
+double return function
+===
+{[x] :a}
+---
+
+(program
+  (progn
+    (func_definition
+      (parameter_pass
+        (variable
+          (identifier)))
+      (func_body
+        (func_app
+          (return)
+          (variable
+            (identifier)))))))

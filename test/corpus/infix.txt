@@ -1,0 +1,192 @@
+===
+simple infix
+===
+1+a
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (variable
+        (identifier)))))
+
+===
+simple infix minus no space
+===
+1-1
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))
+
+===
+period infix
+===
+1 . 1
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))
+
+===
+infix projection
+===
+(1 +)
+---
+
+(program
+  (progn
+    (parenthesis_exp
+      (infix_projection
+        (number)
+        (builtin_infix_func)))))
+
+===
+infix projection with minus no space
+===
+a-
+---
+
+(program
+  (progn
+    (infix_projection
+      (variable
+        (identifier))
+      (builtin_infix_func))))
+
+===
+infix projection with minus with space
+===
+a -
+---
+
+(program
+  (progn
+    (infix_projection
+      (variable
+        (identifier))
+      (builtin_infix_func))))
+
+===
+infix projection with minus, a number with space
+===
+1 -
+---
+
+(program
+  (progn
+    (infix_projection
+      (number)
+      (builtin_infix_func))))
+
+===
+infix projection with minus, a number without space
+===
+1-
+---
+
+(program
+  (progn
+    (infix_projection
+      (number)
+      (builtin_infix_func))))
+
+===
+setenv builtin function
+===
+`a setenv "asdf"
+---
+
+(program
+  (progn
+    (func_app
+      (symbol
+        (regular_symbol))
+      (builtin_infix_func)
+      (string
+        (string_fragment)))))
+
+===
+infix projection with each
+===
+f g'
+---
+
+(program
+  (progn
+    (infix_projection
+      (variable
+        (identifier))
+      (infix_mod_func
+        (variable
+          (identifier))
+        (infix_func_modifier)))))
+
+===
+Chaining function application without spacing
+===
+1#f[a]
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (func_app
+        (variable
+          (identifier))
+        (parameter_pass
+          (variable
+            (identifier)))))))
+
+===
+infix assign
+===
+a:
+---
+
+(program
+  (progn
+    (infix_projection
+      (variable
+        (identifier))
+      (assignment_func))))
+
+===
+infix in parenthesis
+===
+(+)[a;b]
+---
+
+(program
+  (progn
+    (func_app
+      (parenthesis_exp
+        (builtin_infix_func))
+      (parameter_pass
+        (variable
+          (identifier))
+        (semicolon)
+        (variable
+          (identifier))))))
+
+===
+infix naked
+===
+setenv
+---
+
+(program
+  (progn
+    (builtin_infix_func)))

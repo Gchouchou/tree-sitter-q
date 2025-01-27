@@ -1,0 +1,53 @@
+===
+List declaration
+===
+(1;2;3;1+1;f x)
+---
+
+(program
+  (progn
+    (list_definition
+      (number)
+      (semicolon)
+      (number)
+      (semicolon)
+      (number)
+      (semicolon)
+      (func_app
+        (number)
+        (builtin_infix_func)
+        (number))
+      (semicolon)
+      (func_app
+        (variable
+          (identifier))
+        (variable
+          (identifier))))))
+
+===
+Table declaration
+===
+([]Time;Price)
+---
+
+(program
+  (progn
+    (table_definition
+      (variable
+        (identifier))
+      (semicolon)
+      (variable
+        (identifier)))))
+
+===
+many empty statements
+===
+;;;;
+---
+
+(program
+  (progn
+    (semicolon)
+    (semicolon)
+    (semicolon)
+    (semicolon)))

@@ -1,0 +1,93 @@
+===
+multiline parameters
+===
+f[
+ x
+ ]
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (parameter_pass
+        (variable
+          (identifier))))))
+
+===
+many multiline parameters
+===
+f[
+ x;
+ y;
+ 1+1
+ ]
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (parameter_pass
+        (variable
+          (identifier))
+        (semicolon)
+        (variable
+          (identifier))
+        (semicolon)
+        (func_app
+          (number)
+          (builtin_infix_func)
+          (number))))))
+
+===
+ambiguous multiline
+===
+1 +
+      1
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))
+
+===
+multiline through comments
+===
+1 +
+/ a
+/
+a
+\
+ 22
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (comment)
+      (comment_block)
+      (number))))
+
+===
+multline var
+===
+1+
+    .a
+
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (variable
+        (namespace)))))

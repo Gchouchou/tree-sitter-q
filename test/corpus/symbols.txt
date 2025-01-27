@@ -1,0 +1,114 @@
+===
+symbol a
+===
+`a
+---
+
+(program
+  (progn
+    (symbol
+      (regular_symbol))))
+
+===
+symbol 1
+===
+`1
+---
+
+(program
+  (progn
+    (symbol
+      (regular_symbol))))
+
+===
+symbol :a
+===
+`:a
+---
+
+(program
+  (progn
+    (symbol
+      (regular_symbol))))
+
+===
+symbol a\
+===
+`a\
+---
+
+(program
+  (progn
+    (infix_mod_func
+      (symbol
+        (regular_symbol))
+      (infix_func_modifier))))
+
+===
+symbol filepath
+===
+`:a/b/c
+---
+
+(program
+  (progn
+    (symbol
+      (file_symbol))))
+
+===
+symbol with scan
+===
+`/
+---
+
+(program
+  (progn
+    (infix_mod_func
+      (symbol
+        (regular_symbol))
+      (infix_func_modifier))))
+
+===
+symbol with over
+===
+`\
+---
+
+(program
+  (progn
+    (infix_mod_func
+      (symbol
+        (regular_symbol))
+      (infix_func_modifier))))
+
+===
+symbol list 1
+===
+`a`b`:ad
+---
+
+(program
+  (progn
+    (symbol_list
+      (symbol
+        (regular_symbol))
+      (symbol
+        (regular_symbol))
+      (symbol
+        (regular_symbol)))))
+
+===
+symbol list 2
+===
+`a32`2`:ad
+---
+
+(program
+  (progn
+    (symbol_list
+      (symbol
+        (regular_symbol))
+      (symbol
+        (regular_symbol))
+      (symbol
+        (regular_symbol)))))

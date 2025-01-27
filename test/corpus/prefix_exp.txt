@@ -1,0 +1,42 @@
+===
+signal
+===
+'a
+---
+
+(program
+  (progn
+    (func_app
+      (signal)
+      (variable
+        (identifier)))))
+
+===
+signal something weird
+===
+'"abbc","dfff"
+---
+
+(program
+  (progn
+    (func_app
+      (signal)
+      (func_app
+        (string
+          (string_fragment))
+        (builtin_infix_func)
+        (string
+          (string_fragment))))))
+
+===
+signal twice
+===
+'"a"
+---
+
+(program
+  (progn
+    (func_app
+      (signal)
+      (char
+        (regular_char)))))
