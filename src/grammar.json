@@ -708,6 +708,15 @@
                     {
                       "type": "SYMBOL",
                       "name": "assignment_func"
+                    },
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "STRING",
+                        "value": "'"
+                      },
+                      "named": true,
+                      "value": "composition"
                     }
                   ]
                 }

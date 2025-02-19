@@ -167,7 +167,8 @@ module.exports = grammar({
     func_app: $ => prec.right(
       choice(
         // expressions and builtins can use parameter pass
-        seq(field("function", choice($._subexpression, $.builtin_infix_func, $.assignment_func)),
+        seq(field("function", choice($._subexpression, $.builtin_infix_func,
+          $.assignment_func, alias('\'', $.composition))),
             field("parameters",$.parameter_pass)),
         // implicit currying or unary application
         seq(field("function", $._nonterminal_exp),

@@ -63,6 +63,10 @@
             "named": true
           },
           {
+            "type": "composition",
+            "named": true
+          },
+          {
             "type": "func_app",
             "named": true
           },
@@ -2401,6 +2405,10 @@
   },
   {
     "type": "command",
+    "named": true
+  },
+  {
+    "type": "composition",
     "named": true
   },
   {
