@@ -69,6 +69,7 @@ multiline syscommands
 (program
   (system_command
     (command)
+    (newline_extra)
     (number)))
 
 ===

@@ -154,6 +154,7 @@ f / comment
       (variable
         (identifier))
       (comment)
+      (newline_extra)
       (number))))
 
 ===

@@ -30,6 +30,7 @@ multiline progn
     (func_app
       (number)
       (builtin_infix_func)
+      (newline_extra)
       (number))
     (semicolon)
     (number)))
@@ -66,6 +67,7 @@ progn with comment
       (number)
       (builtin_infix_func)
       (comment)
+      (newline_extra)
       (number))))
 
 ===
@@ -82,7 +84,9 @@ progn through a comment
       (number)
       (builtin_infix_func)
       (comment)
+      (newline_extra)
       (comment)
+      (newline_extra)
       (number))))
 
 ===
@@ -98,6 +102,7 @@ progn through empty lines
     (func_app
       (number)
       (builtin_infix_func)
+      (newline_extra)
       (newline_extra)
       (number))))
 
@@ -121,6 +126,7 @@ a
       (newline_extra)
       (comment_block)
       (comment)
+      (newline_extra)
       (number))))
 
 ===
@@ -142,4 +148,5 @@ a
       (newline_extra)
       (comment_block)
       (comment)
+      (newline_extra)
       (number))))

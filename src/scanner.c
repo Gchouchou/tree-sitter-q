@@ -40,14 +40,15 @@ bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
             lexer->result_symbol = ONE_CHAR;
             return true;
         }
-        }
+    }
 
     // match newline with lookahead newline
     if (valid_symbols[NEW_LINE_EXTRA] && lexer->lookahead == '\n') {
         lexer->advance(lexer, false);
         lexer->mark_end(lexer);
         // new line into new line
-        if (lexer->lookahead == '\n') {
+        if (lexer->lookahead == '\n' || lexer->lookahead == '\t' ||
+            lexer->lookahead == ' ') {
             lexer->result_symbol = NEW_LINE_EXTRA;
             return true;
         }

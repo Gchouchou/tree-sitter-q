@@ -70,13 +70,16 @@ multiline func with return statement
       (parameter_pass
         (variable
           (identifier)))
+      (newline_extra)
       (func_body
         (variable
           (identifier))
         (semicolon)
+        (newline_extra)
         (variable
           (identifier))
         (semicolon)
+        (newline_extra)
         (func_app
           (return)
           (variable
@@ -97,14 +100,19 @@ multiline parameter pass function
   (progn
     (func_definition
       (parameter_pass
+        (newline_extra)
         (variable
           (identifier))
         (semicolon)
+        (newline_extra)
         (variable
           (identifier))
         (semicolon)
+        (newline_extra)
         (variable
-          (identifier)))
+          (identifier))
+        (newline_extra))
+      (newline_extra)
       (func_body
         (variable
           (identifier))))))

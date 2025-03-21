@@ -12,8 +12,10 @@ f[
       (variable
         (identifier))
       (parameter_pass
+        (newline_extra)
         (variable
-          (identifier))))))
+          (identifier))
+        (newline_extra)))))
 
 ===
 many multiline parameters
@@ -31,16 +33,20 @@ f[
       (variable
         (identifier))
       (parameter_pass
+        (newline_extra)
         (variable
           (identifier))
         (semicolon)
+        (newline_extra)
         (variable
           (identifier))
         (semicolon)
+        (newline_extra)
         (func_app
           (number)
           (builtin_infix_func)
-          (number))))))
+          (number))
+        (newline_extra)))))
 
 ===
 ambiguous multiline
@@ -54,6 +60,7 @@ ambiguous multiline
     (func_app
       (number)
       (builtin_infix_func)
+      (newline_extra)
       (number))))
 
 ===
@@ -74,6 +81,7 @@ a
       (builtin_infix_func)
       (comment)
       (comment_block)
+      (newline_extra)
       (number))))
 
 ===
@@ -89,5 +97,6 @@ multline var
     (func_app
       (number)
       (builtin_infix_func)
+      (newline_extra)
       (variable
         (namespace)))))

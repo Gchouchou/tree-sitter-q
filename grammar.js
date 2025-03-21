@@ -13,7 +13,7 @@ module.exports = grammar({
   word: $ => $._init_identifier,
 
   extras: $ => [
-    prec(1, /\n?[ \t]+/), // new line and space to skip
+    prec(1, /[ \t]+/), // new line and space to skip
     $.newline_extra,
     $.comment,
     $.comment_block
