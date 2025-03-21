@@ -153,3 +153,20 @@ Builtin that looks like number
       (builtin_infix_func)
       (variable
         (identifier)))))
+
+===
+composition
+===
+'[f;g]
+---
+
+(program
+  (progn
+    (func_app
+      (composition)
+      (parameter_pass
+        (variable
+          (identifier))
+        (semicolon)
+        (variable
+          (identifier))))))

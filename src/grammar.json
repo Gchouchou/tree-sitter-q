@@ -293,42 +293,73 @@
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
-        "type": "SEQ",
+        "type": "CHOICE",
         "members": [
           {
-            "type": "FIELD",
-            "name": "function",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "STRING",
-                    "value": ":"
-                  },
-                  "named": true,
-                  "value": "return"
-                },
-                {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "function",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "STRING",
+                        "value": ":"
+                      },
+                      "named": true,
+                      "value": "return"
+                    },
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "STRING",
+                        "value": "'"
+                      },
+                      "named": true,
+                      "value": "signal"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "parameter1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_subexpression"
+                }
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "function",
+                "content": {
                   "type": "ALIAS",
                   "content": {
                     "type": "STRING",
                     "value": "'"
                   },
                   "named": true,
-                  "value": "signal"
+                  "value": "composition"
                 }
-              ]
-            }
-          },
-          {
-            "type": "FIELD",
-            "name": "parameter1",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_subexpression"
-            }
+              },
+              {
+                "type": "FIELD",
+                "name": "parameters",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "parameter_pass"
+                }
+              }
+            ]
           }
         ]
       }

@@ -85,9 +85,15 @@ module.exports = grammar({
       ),
     ),
 
-    _prefix_expression: $ => prec.right(seq(
-      field("function", choice( alias(':', $.return), alias('\'', $.signal) )),
-      field("parameter1", $._subexpression)
+    _prefix_expression: $ => prec.right(choice(
+      seq(
+        field("function", choice( alias(':', $.return), alias('\'', $.signal) )),
+        field("parameter1", $._subexpression)
+      ),
+      seq(
+        field("function", alias('\'', $.composition)),
+        field("parameters",$.parameter_pass)
+      )
     )),
 
     _subexpression: $ => prec.right(
