@@ -29,6 +29,21 @@ bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
         return true;
     }
 
+    // match newline with lookahead newline
+    if (valid_symbols[NEW_LINE_EXTRA] && lexer->lookahead == '\n') {
+        lexer->advance(lexer, false);
+        lexer->mark_end(lexer);
+        // new line into new line
+        if (lexer->lookahead == '\n' || lexer->lookahead == '\t' ||
+            lexer->lookahead == ' ') {
+            lexer->result_symbol = NEW_LINE_EXTRA;
+            return true;
+        } else {
+            // it is a regular new line and we should not match anything
+            return false;
+        }
+    }
+
     // matches immediately a non escaped char with lookahead
     if (valid_symbols[ONE_CHAR] && lexer->lookahead != '\n' &&
         lexer->lookahead != '\r' && lexer->lookahead != '\\' &&
@@ -38,18 +53,6 @@ bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
           // check if it is exactly one character
           if (lexer->lookahead == '"') {
             lexer->result_symbol = ONE_CHAR;
-            return true;
-        }
-    }
-
-    // match newline with lookahead newline
-    if (valid_symbols[NEW_LINE_EXTRA] && lexer->lookahead == '\n') {
-        lexer->advance(lexer, false);
-        lexer->mark_end(lexer);
-        // new line into new line
-        if (lexer->lookahead == '\n' || lexer->lookahead == '\t' ||
-            lexer->lookahead == ' ') {
-            lexer->result_symbol = NEW_LINE_EXTRA;
             return true;
         }
     }
