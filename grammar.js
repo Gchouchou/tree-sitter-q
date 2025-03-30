@@ -22,7 +22,8 @@ module.exports = grammar({
   inline: $ => [
     $._literal_definition,
     $._seperator,
-    $._column_list_definition
+    $._column_list_definition,
+    $._subexpression
   ],
 
   conflicts: $ => [
@@ -177,7 +178,7 @@ module.exports = grammar({
             field("parameters",$.parameter_pass)),
         // implicit currying or unary application
         seq(field("function", $._nonterminal_exp),
-          field("parameter1", $._subexpression)),
+          field("parameter1", $._nonterminal_exp)),
         // implicit binary application with infix
         seq(field("parameter1",$._nonterminal_exp),
           field("function", $._infix_func),

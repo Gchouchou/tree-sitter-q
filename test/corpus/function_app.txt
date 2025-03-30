@@ -113,7 +113,8 @@ infix cannot be used as unary, minus
 ---
 
 (program
-  (ERROR)
+  (ERROR
+    (builtin_infix_func))
   (progn
     (number)))
 
@@ -124,7 +125,8 @@ infix cannot be used as unary, plus
 ---
 
 (program
-  (ERROR)
+  (ERROR
+    (builtin_infix_func))
   (progn
     (number)))
 
@@ -135,8 +137,9 @@ setenv 1
 ---
 
 (program
-  (ERROR)
   (progn
+    (builtin_infix_func))
+  (ERROR
     (number)))
 
 ===
@@ -170,3 +173,20 @@ composition
         (semicolon)
         (variable
           (identifier))))))
+
+===
+Function app 2
+===
+f f[2]
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (func_app
+        (variable
+          (identifier))
+        (parameter_pass
+          (number))))))

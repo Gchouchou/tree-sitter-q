@@ -769,7 +769,7 @@
                 "name": "parameter1",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_subexpression"
+                  "name": "_nonterminal_exp"
                 }
               }
             ]
@@ -3002,7 +3002,8 @@
   "inline": [
     "_literal_definition",
     "_seperator",
-    "_column_list_definition"
+    "_column_list_definition",
+    "_subexpression"
   ],
   "supertypes": []
 }

@@ -281,3 +281,38 @@ Two Minus sign between number lists
         (number_list
           (number)
           (number))))))
+
+===
+Minus sign and infix
+===
+-4_-4_a
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (func_app
+        (number)
+        (builtin_infix_func)
+        (variable
+          (identifier))))))
+
+===
+Minus sign and infix 2
+===
+"D"$-8_a
+---
+
+(program
+  (progn
+    (func_app
+      (char
+        (regular_char))
+      (builtin_infix_func)
+      (func_app
+        (number)
+        (builtin_infix_func)
+        (variable
+          (identifier))))))
