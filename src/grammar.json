@@ -798,7 +798,7 @@
                 "name": "parameter2",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_subexpression"
+                  "name": "_nonterminal_exp"
                 }
               }
             ]
@@ -825,6 +825,40 @@
                   },
                   "named": true,
                   "value": "builtin_infix_func"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "parameter2",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_nonterminal_exp"
+                }
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "parameter1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_nonterminal_exp"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "function",
+                "content": {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "STRING",
+                    "value": ":"
+                  },
+                  "named": true,
+                  "value": "assignment_func"
                 }
               },
               {

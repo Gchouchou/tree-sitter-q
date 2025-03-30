@@ -113,11 +113,11 @@ module.exports = grammar({
 
     _terminal_exp: $ => prec.right(
       choice(
-      $.infix_mod_func,
-      $.infix_projection,
-      $.builtin_infix_func,
-      $.assignment_func
-    )),
+        $.infix_mod_func,
+        $.infix_projection,
+        $.builtin_infix_func,
+        $.assignment_func
+      )),
 
     // literal definitions
     _literal_definition: $ => choice(
@@ -182,10 +182,14 @@ module.exports = grammar({
         // implicit binary application with infix
         seq(field("parameter1",$._nonterminal_exp),
           field("function", $._infix_func),
-          field("parameter2", $._subexpression)),
+          field("parameter2", $._nonterminal_exp)),
         // edge case with minus sign using external scanner
         seq(field("parameter1",$._nonterminal_exp),
           field("function", alias($.immediate_minus, $.builtin_infix_func)),
+          field("parameter2", $._nonterminal_exp)),
+        // we can assign any expression
+        seq(field("parameter1",$._nonterminal_exp),
+          field("function", alias(':', $.assignment_func)),
           field("parameter2", $._subexpression))
       )),
 

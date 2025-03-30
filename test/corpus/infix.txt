@@ -190,3 +190,18 @@ setenv
 (program
   (progn
     (builtin_infix_func)))
+
+===
+Assignment an operator
+===
+a:+
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (assignment_func)
+      (builtin_infix_func))))
+
