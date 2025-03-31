@@ -41,17 +41,17 @@ module.exports = grammar({
     program: $ => choice(
       $.shebang,
       prec(2,seq(
-      optional(choice(
-        seq($.shebang, token.immediate('\n')),
-        alias($.comment_block_BOF, $.comment_block
-        ))),
-      optional(token(prec(2, /[ \t]+/))),
-      repeat($._line),
-      optional(choice(
-        $.progn,
-        $.system_command,
-        alias($.comment_terminal,$.comment))) // due to EOF
-    ))),
+        optional(choice(
+          seq($.shebang, token.immediate('\n')),
+          alias($.comment_block_BOF, $.comment_block
+          ))),
+        optional(token(prec(2, /[ \t]+/))),
+        repeat($._line),
+        optional(choice(
+          $.progn,
+          $.system_command,
+          alias($.comment_terminal,$.comment))) // due to EOF
+      ))),
 
     _line: $ => choice(
       seq($.system_command, '\n'),
@@ -60,9 +60,9 @@ module.exports = grammar({
 
     // a line in q is an implicit progn, returning the last expression
     progn: $ => prec.right(seq(
-        repeat(seq(optional($._expression),$._seperator)),
-        choice(field("output", $._expression), seq(optional($._expression),$._seperator))
-      )),
+      repeat(seq(optional($._expression),$._seperator)),
+      choice(field("output", $._expression), seq(optional($._expression),$._seperator))
+    )),
 
     // semicolon catches whitespaces
     _seperator: $ => prec.right(seq(
@@ -99,9 +99,9 @@ module.exports = grammar({
 
     _subexpression: $ => prec.right(
       choice(
-      $._nonterminal_exp,
-      $._terminal_exp
-    )),
+        $._nonterminal_exp,
+        $._terminal_exp
+      )),
 
     _nonterminal_exp: $ => choice(
       $._literal_definition, // the nice ones
@@ -175,7 +175,7 @@ module.exports = grammar({
       choice(
         // expressions and builtins can use parameter pass
         seq(field("function", choice($._subexpression, $.builtin_infix_func, $.assignment_func)),
-            field("parameters",$.parameter_pass)),
+          field("parameters",$.parameter_pass)),
         // implicit currying or unary application
         seq(field("function", $._nonterminal_exp),
           field("parameter1", $._nonterminal_exp)),
@@ -262,7 +262,7 @@ module.exports = grammar({
     assignment_func: $ => prec.right(choice(
       ':', // care for this symbol
       token(choice(
-      '::',
+        '::',
         // regular assignment
         '+:', '-:', '*:', '%:', // math
         '>:', '<:', '~:', '=:', // comparison
@@ -350,7 +350,7 @@ module.exports = grammar({
     identifier: $ => token.immediate(/[a-zA-Z0-9_]+/),
 
     _variable_repeat: $ => prec.right(1,
-        repeat1(seq($.identifier, $._variable_period)),
+      repeat1(seq($.identifier, $._variable_period)),
     ),
 
     _variable_period: $ => token.immediate(prec(1,'.')),
@@ -385,7 +385,7 @@ module.exports = grammar({
         /-?\d+\.?\d*(e-?\d+)?e/,
         /0[NW]e/
       )), $.real),
-      )),
+    )),
 
     number_list: $ => prec(10,seq(
       $.number,
@@ -453,7 +453,7 @@ module.exports = grammar({
     )),
 
     _dtlist_sub: $ => prec.right(
-        repeat1(prec(19,$.temporal))
+      repeat1(prec(19,$.temporal))
     ),
 
     // char has exactly one character
@@ -514,36 +514,36 @@ module.exports = grammar({
     // multiline coments have to start with / then end with \
     // comment blocks have the flush with left side
     comment_block: $ => seq(
-        token(prec(2,/\n[ \t]*\/[ \t]*\n/)),
-        repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
-          /[^\n\\][^\n]*\n/, // not \ immediately
-          '\n' // straight up newline
-        )))),
-        token.immediate(choice(
-          prec(1,/\\[ \t]*/), // ending comment block
-           // EOF
-          /[^\n\\][^\n]*/ // not / immediately
-          ))),
+      token(prec(2,/\n[ \t]*\/[ \t]*\n/)),
+      repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
+        /[^\n\\][^\n]*\n/, // not \ immediately
+        '\n' // straight up newline
+      )))),
+      token.immediate(choice(
+        prec(1,/\\[ \t]*/), // ending comment block
+        // EOF
+        /[^\n\\][^\n]*/ // not / immediately
+      ))),
 
     // comment block that starts at BOF
     comment_block_BOF: $ => seq(
       token(prec(3, /\/[ \t]*\n/)),
-        repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
-          /[^\n\\][^\n]*\n/, // not \ immediately
-          '\n' // straight up newline
-        )))),
-        token.immediate(choice(
-          prec(1,/\\[ \t]*/), // ending comment block
-           // EOF
-          /[^\n\\][^\n]*/ // not \ immediately
-        ))),
+      repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
+        /[^\n\\][^\n]*\n/, // not \ immediately
+        '\n' // straight up newline
+      )))),
+      token.immediate(choice(
+        prec(1,/\\[ \t]*/), // ending comment block
+        // EOF
+        /[^\n\\][^\n]*/ // not \ immediately
+      ))),
 
     // comment block that end on EOF
     comment_terminal: $ => seq(
-        token.immediate(/\\[ \t]*\n/), // this one is unescapable
-        repeat(token.immediate(/[^\n]*\n/)), // tree-sitter a little weird with newlines
-        token.immediate(/[^\n]*/) // the last line doesn't have a new line
-      ),
+      token.immediate(/\\[ \t]*\n/), // this one is unescapable
+      repeat(token.immediate(/[^\n]*\n/)), // tree-sitter a little weird with newlines
+      token.immediate(/[^\n]*/) // the last line doesn't have a new line
+    ),
 
     system_command: $ => choice(
       seq(
