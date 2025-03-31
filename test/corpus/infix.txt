@@ -205,3 +205,51 @@ a:+
       (assignment_func)
       (builtin_infix_func))))
 
+===
+Implicit composition 1
+===
+0|+
+---
+
+(program
+  (progn
+    (implicit_composition
+      (number)
+      (builtin_infix_func)
+      (builtin_infix_func))))
+
+===
+Implicit composition 2
+===
+g f+
+---
+
+(program
+  (progn
+    (implicit_composition
+      (variable
+        (identifier))
+      (infix_projection
+        (variable
+          (identifier))
+        (builtin_infix_func)))))
+
+===
+Implicit composition 3
+===
+f (+) g + :
+---
+
+(program
+  (progn
+    (implicit_composition
+      (variable
+        (identifier))
+      (implicit_composition
+        (parenthesis_exp
+          (builtin_infix_func))
+        (implicit_composition
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (assignment_func))))))

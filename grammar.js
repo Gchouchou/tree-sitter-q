@@ -116,6 +116,7 @@ module.exports = grammar({
         $.infix_mod_func,
         $.infix_projection,
         $.builtin_infix_func,
+        $.implicit_composition,
         $.assignment_func
       )),
 
@@ -204,8 +205,23 @@ module.exports = grammar({
     ),
 
     infix_projection: $ => prec.right(
-      seq(field("parameter", $._nonterminal_exp),
+      seq(field("parameter1", $._nonterminal_exp),
         field("function", choice($._infix_func, alias($.immediate_minus, $.builtin_infix_func)))),
+    ),
+
+    implicit_composition: $ => prec.right(
+      seq(
+        choice(
+          field("function1", $._subexpression),
+          // infix projection does not work because it also matches with func app node
+          // This is a workaround but the syntax tree will be slightly different
+          prec.right(
+            seq(field("parameter1", $._nonterminal_exp),
+              field("function1", choice($._infix_func, alias($.immediate_minus, $.builtin_infix_func)))),
+          )
+        ),
+        field("function2", $._terminal_exp)
+      )
     ),
 
     _infix_func: $ => prec(1,choice(

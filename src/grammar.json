@@ -434,6 +434,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "implicit_composition"
+          },
+          {
+            "type": "SYMBOL",
             "name": "assignment_func"
           }
         ]
@@ -931,7 +935,7 @@
         "members": [
           {
             "type": "FIELD",
-            "name": "parameter",
+            "name": "parameter1",
             "content": {
               "type": "SYMBOL",
               "name": "_nonterminal_exp"
@@ -957,6 +961,75 @@
                   "value": "builtin_infix_func"
                 }
               ]
+            }
+          }
+        ]
+      }
+    },
+    "implicit_composition": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "function1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_subexpression"
+                }
+              },
+              {
+                "type": "PREC_RIGHT",
+                "value": 0,
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "parameter1",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_nonterminal_exp"
+                      }
+                    },
+                    {
+                      "type": "FIELD",
+                      "name": "function1",
+                      "content": {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "_infix_func"
+                          },
+                          {
+                            "type": "ALIAS",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "immediate_minus"
+                            },
+                            "named": true,
+                            "value": "builtin_infix_func"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "FIELD",
+            "name": "function2",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_terminal_exp"
             }
           }
         ]
