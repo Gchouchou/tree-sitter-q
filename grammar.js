@@ -206,9 +206,7 @@ module.exports = grammar({
     infix_projection: $ => prec.right(
       choice(
         seq(field("parameter", $._nonterminal_exp),
-          field("function", $._infix_func)),
-        seq(field("parameter", $._nonterminal_exp),
-          field("function", alias($.immediate_minus, $.builtin_infix_func))) // external scanner for minus
+          field("function", choice($._infix_func, alias($.immediate_minus, $.builtin_infix_func)))),
       )),
 
     _infix_func: $ => prec(1,choice(
