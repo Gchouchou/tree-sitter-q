@@ -927,42 +927,37 @@
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
-        "type": "CHOICE",
+        "type": "SEQ",
         "members": [
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "parameter",
-                "content": {
+            "type": "FIELD",
+            "name": "parameter",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_nonterminal_exp"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "function",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
                   "type": "SYMBOL",
-                  "name": "_nonterminal_exp"
+                  "name": "_infix_func"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "immediate_minus"
+                  },
+                  "named": true,
+                  "value": "builtin_infix_func"
                 }
-              },
-              {
-                "type": "FIELD",
-                "name": "function",
-                "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "_infix_func"
-                    },
-                    {
-                      "type": "ALIAS",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "immediate_minus"
-                      },
-                      "named": true,
-                      "value": "builtin_infix_func"
-                    }
-                  ]
-                }
-              }
-            ]
+              ]
+            }
           }
         ]
       }
