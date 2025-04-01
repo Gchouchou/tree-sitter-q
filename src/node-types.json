@@ -67,23 +67,11 @@
             "named": true
           },
           {
-            "type": "func_app",
-            "named": true
-          },
-          {
             "type": "func_definition",
             "named": true
           },
           {
-            "type": "implicit_composition",
-            "named": true
-          },
-          {
             "type": "infix_mod_func",
-            "named": true
-          },
-          {
-            "type": "infix_projection",
             "named": true
           },
           {
@@ -112,10 +100,6 @@
           },
           {
             "type": "signal",
-            "named": true
-          },
-          {
-            "type": "sql_expression",
             "named": true
           },
           {
@@ -609,23 +593,11 @@
             "named": true
           },
           {
-            "type": "func_app",
-            "named": true
-          },
-          {
             "type": "func_definition",
             "named": true
           },
           {
-            "type": "implicit_composition",
-            "named": true
-          },
-          {
             "type": "infix_mod_func",
-            "named": true
-          },
-          {
-            "type": "infix_projection",
             "named": true
           },
           {
@@ -646,10 +618,6 @@
           },
           {
             "type": "parenthesis_exp",
-            "named": true
-          },
-          {
-            "type": "sql_expression",
             "named": true
           },
           {
@@ -721,10 +689,6 @@
             "named": true
           },
           {
-            "type": "func_app",
-            "named": true
-          },
-          {
             "type": "func_definition",
             "named": true
           },
@@ -746,10 +710,6 @@
           },
           {
             "type": "parenthesis_exp",
-            "named": true
-          },
-          {
-            "type": "sql_expression",
             "named": true
           },
           {
@@ -809,23 +769,11 @@
             "named": true
           },
           {
-            "type": "func_app",
-            "named": true
-          },
-          {
             "type": "func_definition",
             "named": true
           },
           {
-            "type": "implicit_composition",
-            "named": true
-          },
-          {
             "type": "infix_mod_func",
-            "named": true
-          },
-          {
-            "type": "infix_projection",
             "named": true
           },
           {
@@ -846,10 +794,6 @@
           },
           {
             "type": "parenthesis_exp",
-            "named": true
-          },
-          {
-            "type": "sql_expression",
             "named": true
           },
           {
@@ -929,10 +873,6 @@
             "named": true
           },
           {
-            "type": "func_app",
-            "named": true
-          },
-          {
             "type": "func_definition",
             "named": true
           },
@@ -954,10 +894,6 @@
           },
           {
             "type": "parenthesis_exp",
-            "named": true
-          },
-          {
-            "type": "sql_expression",
             "named": true
           },
           {

@@ -48,12 +48,14 @@ bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
     if (valid_symbols[ONE_CHAR] && lexer->lookahead != '\n' &&
         lexer->lookahead != '\r' && lexer->lookahead != '\\' &&
         lexer->lookahead != '"') {
-          lexer->advance(lexer, false);
-          lexer->mark_end(lexer);
-          // check if it is exactly one character
-          if (lexer->lookahead == '"') {
+        lexer->advance(lexer, false);
+        lexer->mark_end(lexer);
+        // check if it is exactly one character
+        if (lexer->lookahead == '"') {
             lexer->result_symbol = ONE_CHAR;
             return true;
+        } else {
+            return false;
         }
     }
     return false;

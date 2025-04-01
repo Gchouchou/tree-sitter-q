@@ -113,10 +113,10 @@ infix cannot be used as unary, minus
 ---
 
 (program
-  (progn
+  (ERROR
     (builtin_infix_func))
-    (ERROR
-      (number)))
+  (progn
+    (number)))
 
 ===
 infix cannot be used as unary, plus
@@ -125,10 +125,10 @@ infix cannot be used as unary, plus
 ---
 
 (program
-  (progn
+  (ERROR
     (builtin_infix_func))
-    (ERROR
-      (number)))
+  (progn
+    (number)))
 
 ===
 infix cannot be used as unary, setenv

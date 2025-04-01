@@ -253,3 +253,84 @@ f (+) g + :
             (identifier))
           (builtin_infix_func)
           (assignment_func))))))
+
+===
+infix mod squared
+===
+f''
+---
+
+(program
+  (progn
+    (infix_mod_func
+      (infix_mod_func
+        (variable
+          (identifier))
+        (infix_func_modifier))
+      (infix_func_modifier))))
+
+===
+infix mod with projection
+===
+a +://
+---
+
+(program
+  (progn
+    (infix_projection
+      (variable
+        (identifier))
+      (infix_mod_func
+        (infix_mod_func
+          (assignment_func)
+          (infix_func_modifier))
+        (infix_func_modifier)))))
+
+===
+Complicated infix mod
+===
+a b'/'' b
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (infix_mod_func
+        (infix_mod_func
+          (infix_mod_func
+            (infix_mod_func
+              (variable
+                (identifier))
+              (infix_func_modifier))
+            (infix_func_modifier))
+          (infix_func_modifier))
+        (infix_func_modifier))
+      (variable
+        (identifier)))))
+
+===
+dot infix
+===
+l . i, .[l;i]
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (builtin_infix_func)
+      (func_app
+        (variable
+          (identifier))
+        (builtin_infix_func)
+        (func_app
+          (builtin_infix_func)
+          (parameter_pass
+            (variable
+              (identifier))
+            (semicolon)
+            (variable
+              (identifier))))))))

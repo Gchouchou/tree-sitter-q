@@ -23,6 +23,7 @@ module.exports = grammar({
     $._literal_definition,
     $._seperator,
     $._column_list_definition,
+    $._atomic_exp,
     $._subexpression
   ],
 
@@ -103,11 +104,16 @@ module.exports = grammar({
         $._terminal_exp
       )),
 
-    _nonterminal_exp: $ => choice(
-      $._literal_definition, // the nice ones
-      prec(1,$.variable),
-      prec(1,$.sql_expression),
-      $.func_app,
+    _nonterminal_exp: $ => prec.right(
+      choice(
+      $._atomic_exp,
+      $.sql_expression,
+      $.func_app
+    )),
+
+    _atomic_exp: $ => choice(
+      $._literal_definition,
+      $.variable,
       $.parenthesis_exp
     ),
 
@@ -175,21 +181,21 @@ module.exports = grammar({
     func_app: $ => prec.right(
       choice(
         // expressions and builtins can use parameter pass
-        seq(field("function", choice($._subexpression, $.builtin_infix_func, $.assignment_func)),
+        seq(field("function", choice($._atomic_exp, $.builtin_infix_func, $.assignment_func, $.infix_mod_func)),
           field("parameters",$.parameter_pass)),
         // implicit currying or unary application
-        seq(field("function", $._nonterminal_exp),
+        seq(field("function", $._atomic_exp),
           field("parameter1", $._nonterminal_exp)),
         // implicit binary application with infix
-        seq(field("parameter1",$._nonterminal_exp),
+        seq(field("parameter1",$._atomic_exp),
           field("function", $._infix_func),
           field("parameter2", $._nonterminal_exp)),
         // edge case with minus sign using external scanner
-        seq(field("parameter1",$._nonterminal_exp),
+        seq(field("parameter1",$._atomic_exp),
           field("function", alias($.immediate_minus, $.builtin_infix_func)),
           field("parameter2", $._nonterminal_exp)),
         // we can assign any expression
-        seq(field("parameter1",$._nonterminal_exp),
+        seq(field("parameter1",$._atomic_exp),
           field("function", alias(':', $.assignment_func)),
           field("parameter2", $._subexpression))
       )),
@@ -205,18 +211,18 @@ module.exports = grammar({
     ),
 
     infix_projection: $ => prec.right(
-      seq(field("parameter1", $._nonterminal_exp),
+      seq(field("parameter1", $._atomic_exp),
         field("function", choice($._infix_func, alias($.immediate_minus, $.builtin_infix_func)))),
     ),
 
     implicit_composition: $ => prec.right(
       seq(
         choice(
-          field("function1", $._subexpression),
+          field("function1", $._atomic_exp),
           // infix projection does not work because it also matches with func app node
           // This is a workaround but the syntax tree will be slightly different
           prec.right(
-            seq(field("parameter1", $._nonterminal_exp),
+            seq(field("parameter1", $._atomic_exp),
               field("function1", choice($._infix_func, alias($.immediate_minus, $.builtin_infix_func)))),
           )
         ),
@@ -227,11 +233,11 @@ module.exports = grammar({
     _infix_func: $ => prec(1,choice(
       $.builtin_infix_func,
       $.infix_mod_func,
-      $.assignment_func,
+      $.assignment_func
     )),
 
     infix_mod_func: $ => seq(
-      field("function", choice($._subexpression,$.builtin_infix_func)),
+      field("function", choice($._atomic_exp, $._infix_func)),
       field("modifier", alias(choice(
         token.immediate(prec(1,'\/')),
         token(choice(
@@ -239,7 +245,7 @@ module.exports = grammar({
           '\'', // each or case
           '\\:', // each left
           '\/:', // each right
-          '\':', // each paralel or each prior
+          '\':' // each paralel or each prior
         ))
       ), $.infix_func_modifier))),
 

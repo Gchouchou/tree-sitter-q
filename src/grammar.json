@@ -382,6 +382,27 @@
       }
     },
     "_nonterminal_exp": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_atomic_exp"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "sql_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "func_app"
+          }
+        ]
+      }
+    },
+    "_atomic_exp": {
       "type": "CHOICE",
       "members": [
         {
@@ -389,24 +410,8 @@
           "name": "_literal_definition"
         },
         {
-          "type": "PREC",
-          "value": 1,
-          "content": {
-            "type": "SYMBOL",
-            "name": "variable"
-          }
-        },
-        {
-          "type": "PREC",
-          "value": 1,
-          "content": {
-            "type": "SYMBOL",
-            "name": "sql_expression"
-          }
-        },
-        {
           "type": "SYMBOL",
-          "name": "func_app"
+          "name": "variable"
         },
         {
           "type": "SYMBOL",
@@ -734,7 +739,7 @@
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "_subexpression"
+                      "name": "_atomic_exp"
                     },
                     {
                       "type": "SYMBOL",
@@ -743,6 +748,10 @@
                     {
                       "type": "SYMBOL",
                       "name": "assignment_func"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "infix_mod_func"
                     }
                   ]
                 }
@@ -765,7 +774,7 @@
                 "name": "function",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_nonterminal_exp"
+                  "name": "_atomic_exp"
                 }
               },
               {
@@ -786,7 +795,7 @@
                 "name": "parameter1",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_nonterminal_exp"
+                  "name": "_atomic_exp"
                 }
               },
               {
@@ -815,7 +824,7 @@
                 "name": "parameter1",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_nonterminal_exp"
+                  "name": "_atomic_exp"
                 }
               },
               {
@@ -849,7 +858,7 @@
                 "name": "parameter1",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_nonterminal_exp"
+                  "name": "_atomic_exp"
                 }
               },
               {
@@ -938,7 +947,7 @@
             "name": "parameter1",
             "content": {
               "type": "SYMBOL",
-              "name": "_nonterminal_exp"
+              "name": "_atomic_exp"
             }
           },
           {
@@ -980,7 +989,7 @@
                 "name": "function1",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_subexpression"
+                  "name": "_atomic_exp"
                 }
               },
               {
@@ -994,7 +1003,7 @@
                       "name": "parameter1",
                       "content": {
                         "type": "SYMBOL",
-                        "name": "_nonterminal_exp"
+                        "name": "_atomic_exp"
                       }
                     },
                     {
@@ -1067,11 +1076,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "_subexpression"
+                "name": "_atomic_exp"
               },
               {
                 "type": "SYMBOL",
-                "name": "builtin_infix_func"
+                "name": "_infix_func"
               }
             ]
           }
@@ -3093,6 +3102,7 @@
     "_literal_definition",
     "_seperator",
     "_column_list_definition",
+    "_atomic_exp",
     "_subexpression"
   ],
   "supertypes": []

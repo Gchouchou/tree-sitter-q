@@ -316,3 +316,28 @@ Minus sign and infix 2
         (builtin_infix_func)
         (variable
           (identifier))))))
+
+===
+Minus sign and infix 3
+===
+a: "D"$-8#-4_a
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (assignment_func)
+      (func_app
+        (char
+          (regular_char))
+        (builtin_infix_func)
+        (func_app
+          (number)
+          (builtin_infix_func)
+          (func_app
+            (number)
+            (builtin_infix_func)
+            (variable
+              (identifier))))))))
