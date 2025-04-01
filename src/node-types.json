@@ -1726,6 +1726,10 @@
           "named": true
         },
         {
+          "type": "dsl",
+          "named": true
+        },
+        {
           "type": "progn",
           "named": true
         },
@@ -2630,6 +2634,10 @@
   {
     "type": "distinct",
     "named": false
+  },
+  {
+    "type": "dsl",
+    "named": true
   },
   {
     "type": "escape_sequence",

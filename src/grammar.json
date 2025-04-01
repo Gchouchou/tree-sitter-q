@@ -97,6 +97,18 @@
                       {
                         "type": "ALIAS",
                         "content": {
+                          "type": "TOKEN",
+                          "content": {
+                            "type": "PATTERN",
+                            "value": "[kp]\\)[^\\n]*"
+                          }
+                        },
+                        "named": true,
+                        "value": "dsl"
+                      },
+                      {
+                        "type": "ALIAS",
+                        "content": {
                           "type": "SYMBOL",
                           "name": "comment_terminal"
                         },
@@ -135,22 +147,42 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "progn"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "progn"
             },
             {
               "type": "STRING",
               "value": "\n"
             }
           ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "TOKEN",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[kp]\\)[^\\n]*"
+                }
+              },
+              "named": true,
+              "value": "dsl"
+            },
+            {
+              "type": "IMMEDIATE_TOKEN",
+              "content": {
+                "type": "STRING",
+                "value": "\n"
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
         }
       ]
     },

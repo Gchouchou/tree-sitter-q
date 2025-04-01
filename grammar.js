@@ -51,12 +51,15 @@ module.exports = grammar({
         optional(choice(
           $.progn,
           $.system_command,
+          alias(token(/[kp]\)[^\n]*/), $.dsl),
           alias($.comment_terminal,$.comment))) // due to EOF
       ))),
 
     _line: $ => choice(
       seq($.system_command, '\n'),
-      seq(optional($.progn), '\n'),
+      seq($.progn, '\n'),
+      seq(alias(token(/[kp]\)[^\n]*/), $.dsl), token.immediate('\n')),
+      '\n'
     ),
 
     // a line in q is an implicit progn, returning the last expression
