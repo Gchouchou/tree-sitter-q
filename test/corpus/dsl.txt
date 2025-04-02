@@ -1,0 +1,34 @@
+===
+k snippet
+===
+k)something idk what this does
+---
+
+(program
+  (dsl))
+
+===
+k snippet with a comment
+===
+/ this is something else
+k)do something
+/ this is a comment
+---
+
+(program
+  (comment)
+  (dsl)
+  (comment))
+
+===
+python snippet
+===
+/ I can embed python with embedpy
+p)print("Hello World")
+/ I will not parse this for obvious reasons
+---
+
+(program
+  (comment)
+  (dsl)
+  (comment))
