@@ -46,7 +46,6 @@ module.exports = grammar({
           seq($.shebang, token.immediate('\n')),
           alias($.comment_block_BOF, $.comment_block
           ))),
-        optional(token(prec(2, /[ \t]+/))),
         repeat($._line),
         optional(choice(
           $.progn,
@@ -539,7 +538,7 @@ module.exports = grammar({
     // multiline coments have to start with / then end with \
     // comment blocks have the flush with left side
     comment_block: $ => seq(
-      token(prec(2,/\n[ \t]*\/[ \t]*\n/)),
+      token(prec(2,/\n\/[ \t]*\n/)),
       repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
         /[^\n\\][^\n]*\n/, // not \ immediately
         '\n' // straight up newline
@@ -552,7 +551,7 @@ module.exports = grammar({
 
     // comment block that starts at BOF
     comment_block_BOF: $ => seq(
-      token(prec(3, /\/[ \t]*\n/)),
+      token.immediate(prec(3, /\/[ \t]*\n/)),
       repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
         /[^\n\\][^\n]*\n/, // not \ immediately
         '\n' // straight up newline
@@ -565,7 +564,7 @@ module.exports = grammar({
 
     // comment block that end on EOF
     comment_terminal: $ => seq(
-      token.immediate(/\\[ \t]*\n/), // this one is unescapable
+      token.immediate(/\\[ \t]*\n/),
       repeat(token.immediate(/[^\n]*\n/)), // tree-sitter a little weird with newlines
       token.immediate(/[^\n]*/) // the last line doesn't have a new line
     ),
@@ -578,7 +577,7 @@ module.exports = grammar({
     ),
 
     shell_command: $ => seq(
-      token.immediate(prec(-1, /\\[^ \t\n]*/)),
+      token.immediate(prec(-1, /\\[^ \t\n]+/)),
       optional(token.immediate(/[^\n]+/)),
       repeat(token.immediate(/\n[ \t][^\n]*/))
     ),

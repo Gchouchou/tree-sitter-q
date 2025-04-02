@@ -211,7 +211,7 @@ c
   (comment_block))
 
 ===
-BOF with spaces
+Almost multiline comment
 ===
     /
     a
@@ -219,4 +219,10 @@ BOF with spaces
 ---
 
 (program
-  (comment_block))
+  (comment)
+  (newline_extra)
+  (progn
+    (variable
+      (identifier)))
+  (system_command
+    (command)))

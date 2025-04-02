@@ -55,25 +55,6 @@
                 ]
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "TOKEN",
-                    "content": {
-                      "type": "PREC",
-                      "value": 2,
-                      "content": {
-                        "type": "PATTERN",
-                        "value": "[ \\t]+"
-                      }
-                    }
-                  },
-                  {
-                    "type": "BLANK"
-                  }
-                ]
-              },
-              {
                 "type": "REPEAT",
                 "content": {
                   "type": "SYMBOL",
@@ -2823,7 +2804,7 @@
             "value": 2,
             "content": {
               "type": "PATTERN",
-              "value": "\\n[ \\t]*\\/[ \\t]*\\n"
+              "value": "\\n\\/[ \\t]*\\n"
             }
           }
         },
@@ -2876,7 +2857,7 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "TOKEN",
+          "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "PREC",
             "value": 3,
@@ -3012,7 +2993,7 @@
             "value": -1,
             "content": {
               "type": "PATTERN",
-              "value": "\\\\[^ \\t\\n]*"
+              "value": "\\\\[^ \\t\\n]+"
             }
           }
         },
