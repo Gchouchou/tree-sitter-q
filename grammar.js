@@ -590,12 +590,12 @@ module.exports = grammar({
       // optional any string
       seq(
         alias(token.immediate(prec(-1, /\\(cd|_)/)),$.command),
-        optional(token(/[^ \t\n]+/))
+        optional(token(prec(1, /[^ \t\n]+/)))
       ),
       // mandatory any string
       seq(
         alias(token.immediate(prec(-1, /\\[pl12]/)),$.command),
-        token(/[^ \t\n]+/)
+        token(prec(1, /[^ \t\n]+/))
       ),
       // optional integers
       seq(
@@ -605,8 +605,8 @@ module.exports = grammar({
       // 2 mandatory filepath for rename
       seq(
         alias(token.immediate(prec(-1, '\\r')),$.command),
-        token(/[^ \t\n]+/),
-        token(/[^ \t\n]+/)
+        token(prec(1, /[^ \t\n]+/)),
+        token(prec(1, /[^ \t\n]+/))
       ),
       // timer
       seq(
@@ -628,7 +628,7 @@ module.exports = grammar({
       // ignore everything after command
       seq(
         alias(token.immediate(prec(-1, /\\\\?/)),$.command),
-        optional(token.immediate(/[^\n]+/))
+        optional(token.immediate(prec(1, /[^\n]+/)))
       ),
 
       $.shell_command

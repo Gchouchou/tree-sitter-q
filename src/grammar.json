@@ -3068,8 +3068,12 @@
                 {
                   "type": "TOKEN",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "[^ \\t\\n]+"
+                    "type": "PREC",
+                    "value": 1,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "[^ \\t\\n]+"
+                    }
                   }
                 },
                 {
@@ -3101,8 +3105,12 @@
             {
               "type": "TOKEN",
               "content": {
-                "type": "PATTERN",
-                "value": "[^ \\t\\n]+"
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[^ \\t\\n]+"
+                }
               }
             }
           ]
@@ -3165,15 +3173,23 @@
             {
               "type": "TOKEN",
               "content": {
-                "type": "PATTERN",
-                "value": "[^ \\t\\n]+"
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[^ \\t\\n]+"
+                }
               }
             },
             {
               "type": "TOKEN",
               "content": {
-                "type": "PATTERN",
-                "value": "[^ \\t\\n]+"
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[^ \\t\\n]+"
+                }
               }
             }
           ]
@@ -3318,8 +3334,12 @@
                 {
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "[^\\n]+"
+                    "type": "PREC",
+                    "value": 1,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "[^\\n]+"
+                    }
                   }
                 },
                 {

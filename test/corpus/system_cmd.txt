@@ -110,3 +110,24 @@ shebang with some code
       (number)
       (builtin_infix_func)
       (number))))
+
+===
+loading path is not a comment
+===
+\l /home/USER/test.q
+---
+
+(program
+  (system_command
+    (command)))
+
+===
+loading path is not a comment but second one is
+===
+\l /home/USER/test.q / comment
+---
+
+(program
+  (system_command
+    (command))
+  (comment))
