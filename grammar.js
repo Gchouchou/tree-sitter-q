@@ -579,7 +579,7 @@ module.exports = grammar({
       ),
       // mandatory subexpression
       seq(
-        alias(token.immediate(prec(-1, /\\x/)),$.command),
+        alias(token.immediate(prec(-1, '\\x')),$.command),
         $._subexpression
       ),
       // optional number list

@@ -77,19 +77,19 @@ enum ts_symbol_identifiers {
   aux_sym_comment_terminal_token3 = 51,
   aux_sym_system_command_token1 = 52,
   aux_sym_system_command_token2 = 53,
-  aux_sym_system_command_token3 = 54,
-  aux_sym_system_command_token4 = 55,
-  aux_sym_system_command_token5 = 56,
-  aux_sym_system_command_token6 = 57,
-  aux_sym_system_command_token7 = 58,
-  aux_sym_system_command_token8 = 59,
-  aux_sym_system_command_token9 = 60,
+  anon_sym_BSLASHx = 54,
+  aux_sym_system_command_token3 = 55,
+  aux_sym_system_command_token4 = 56,
+  aux_sym_system_command_token5 = 57,
+  aux_sym_system_command_token6 = 58,
+  aux_sym_system_command_token7 = 59,
+  aux_sym_system_command_token8 = 60,
   anon_sym_BSLASHr = 61,
   anon_sym_BSLASHt = 62,
-  aux_sym_system_command_token10 = 63,
+  aux_sym_system_command_token9 = 63,
   anon_sym_BSLASHts = 64,
-  aux_sym_system_command_token11 = 65,
-  aux_sym_system_command_token12 = 66,
+  aux_sym_system_command_token10 = 65,
+  aux_sym_system_command_token11 = 66,
   aux_sym_shell_command_token1 = 67,
   aux_sym_shell_command_token2 = 68,
   anon_sym_POUND_BANG = 69,
@@ -216,19 +216,19 @@ static const char * const ts_symbol_names[] = {
   [aux_sym_comment_terminal_token3] = "comment_terminal_token3",
   [aux_sym_system_command_token1] = "command",
   [aux_sym_system_command_token2] = "command",
+  [anon_sym_BSLASHx] = "command",
   [aux_sym_system_command_token3] = "command",
   [aux_sym_system_command_token4] = "command",
-  [aux_sym_system_command_token5] = "command",
-  [aux_sym_system_command_token6] = "system_command_token6",
+  [aux_sym_system_command_token5] = "system_command_token5",
+  [aux_sym_system_command_token6] = "command",
   [aux_sym_system_command_token7] = "command",
-  [aux_sym_system_command_token8] = "command",
-  [aux_sym_system_command_token9] = "system_command_token9",
+  [aux_sym_system_command_token8] = "system_command_token8",
   [anon_sym_BSLASHr] = "command",
   [anon_sym_BSLASHt] = "command",
-  [aux_sym_system_command_token10] = "system_command_token10",
+  [aux_sym_system_command_token9] = "system_command_token9",
   [anon_sym_BSLASHts] = "command",
-  [aux_sym_system_command_token11] = "command",
-  [aux_sym_system_command_token12] = "system_command_token12",
+  [aux_sym_system_command_token10] = "command",
+  [aux_sym_system_command_token11] = "system_command_token11",
   [aux_sym_shell_command_token1] = "shell_command_token1",
   [aux_sym_shell_command_token2] = "shell_command_token2",
   [anon_sym_POUND_BANG] = "bang",
@@ -355,19 +355,19 @@ static const TSSymbol ts_symbol_map[] = {
   [aux_sym_comment_terminal_token3] = aux_sym_comment_terminal_token3,
   [aux_sym_system_command_token1] = aux_sym_system_command_token1,
   [aux_sym_system_command_token2] = aux_sym_system_command_token1,
+  [anon_sym_BSLASHx] = aux_sym_system_command_token1,
   [aux_sym_system_command_token3] = aux_sym_system_command_token1,
   [aux_sym_system_command_token4] = aux_sym_system_command_token1,
-  [aux_sym_system_command_token5] = aux_sym_system_command_token1,
-  [aux_sym_system_command_token6] = aux_sym_system_command_token6,
+  [aux_sym_system_command_token5] = aux_sym_system_command_token5,
+  [aux_sym_system_command_token6] = aux_sym_system_command_token1,
   [aux_sym_system_command_token7] = aux_sym_system_command_token1,
-  [aux_sym_system_command_token8] = aux_sym_system_command_token1,
-  [aux_sym_system_command_token9] = aux_sym_system_command_token9,
+  [aux_sym_system_command_token8] = aux_sym_system_command_token8,
   [anon_sym_BSLASHr] = aux_sym_system_command_token1,
   [anon_sym_BSLASHt] = aux_sym_system_command_token1,
-  [aux_sym_system_command_token10] = aux_sym_system_command_token10,
+  [aux_sym_system_command_token9] = aux_sym_system_command_token9,
   [anon_sym_BSLASHts] = aux_sym_system_command_token1,
-  [aux_sym_system_command_token11] = aux_sym_system_command_token1,
-  [aux_sym_system_command_token12] = aux_sym_system_command_token12,
+  [aux_sym_system_command_token10] = aux_sym_system_command_token1,
+  [aux_sym_system_command_token11] = aux_sym_system_command_token11,
   [aux_sym_shell_command_token1] = aux_sym_shell_command_token1,
   [aux_sym_shell_command_token2] = aux_sym_shell_command_token2,
   [anon_sym_POUND_BANG] = anon_sym_POUND_BANG,
@@ -656,6 +656,10 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
+  [anon_sym_BSLASHx] = {
+    .visible = true,
+    .named = true,
+  },
   [aux_sym_system_command_token3] = {
     .visible = true,
     .named = true,
@@ -665,22 +669,18 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .named = true,
   },
   [aux_sym_system_command_token5] = {
-    .visible = true,
-    .named = true,
-  },
-  [aux_sym_system_command_token6] = {
     .visible = false,
     .named = false,
+  },
+  [aux_sym_system_command_token6] = {
+    .visible = true,
+    .named = true,
   },
   [aux_sym_system_command_token7] = {
     .visible = true,
     .named = true,
   },
   [aux_sym_system_command_token8] = {
-    .visible = true,
-    .named = true,
-  },
-  [aux_sym_system_command_token9] = {
     .visible = false,
     .named = false,
   },
@@ -692,7 +692,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [aux_sym_system_command_token10] = {
+  [aux_sym_system_command_token9] = {
     .visible = false,
     .named = false,
   },
@@ -700,11 +700,11 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [aux_sym_system_command_token11] = {
+  [aux_sym_system_command_token10] = {
     .visible = true,
     .named = true,
   },
-  [aux_sym_system_command_token12] = {
+  [aux_sym_system_command_token11] = {
     .visible = false,
     .named = false,
   },
@@ -7321,14 +7321,14 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 386:
-      ACCEPT_TOKEN(aux_sym_system_command_token3);
+      ACCEPT_TOKEN(anon_sym_BSLASHx);
       if (lookahead != 0 &&
           lookahead != '\t' &&
           lookahead != '\n' &&
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 387:
-      ACCEPT_TOKEN(aux_sym_system_command_token4);
+      ACCEPT_TOKEN(aux_sym_system_command_token3);
       if (lookahead == 'd') ADVANCE(389);
       if (lookahead != 0 &&
           lookahead != '\t' &&
@@ -7336,45 +7336,45 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 388:
-      ACCEPT_TOKEN(aux_sym_system_command_token4);
+      ACCEPT_TOKEN(aux_sym_system_command_token3);
       if (lookahead != 0 &&
           lookahead != '\t' &&
           lookahead != '\n' &&
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 389:
-      ACCEPT_TOKEN(aux_sym_system_command_token5);
+      ACCEPT_TOKEN(aux_sym_system_command_token4);
       if (lookahead != 0 &&
           lookahead != '\t' &&
           lookahead != '\n' &&
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 390:
-      ACCEPT_TOKEN(aux_sym_system_command_token6);
+      ACCEPT_TOKEN(aux_sym_system_command_token5);
       if (lookahead != 0 &&
           lookahead != '\t' &&
           lookahead != '\n' &&
           lookahead != ' ') ADVANCE(390);
       END_STATE();
     case 391:
-      ACCEPT_TOKEN(aux_sym_system_command_token7);
+      ACCEPT_TOKEN(aux_sym_system_command_token6);
       if (lookahead != 0 &&
           lookahead != '\t' &&
           lookahead != '\n' &&
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 392:
-      ACCEPT_TOKEN(aux_sym_system_command_token8);
+      ACCEPT_TOKEN(aux_sym_system_command_token7);
       if (lookahead != 0 &&
           lookahead != '\t' &&
           lookahead != '\n' &&
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 393:
-      ACCEPT_TOKEN(aux_sym_system_command_token9);
+      ACCEPT_TOKEN(aux_sym_system_command_token8);
       END_STATE();
     case 394:
-      ACCEPT_TOKEN(aux_sym_system_command_token9);
+      ACCEPT_TOKEN(aux_sym_system_command_token8);
       if (lookahead == 'i') ADVANCE(393);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(394);
       END_STATE();
@@ -7394,10 +7394,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 397:
-      ACCEPT_TOKEN(aux_sym_system_command_token10);
+      ACCEPT_TOKEN(aux_sym_system_command_token9);
       END_STATE();
     case 398:
-      ACCEPT_TOKEN(aux_sym_system_command_token10);
+      ACCEPT_TOKEN(aux_sym_system_command_token9);
       if (lookahead == 'i') ADVANCE(397);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(398);
       END_STATE();
@@ -7409,7 +7409,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 400:
-      ACCEPT_TOKEN(aux_sym_system_command_token11);
+      ACCEPT_TOKEN(aux_sym_system_command_token10);
       ADVANCE_MAP(
         '\n', 379,
         'C', 388,
@@ -7447,14 +7447,14 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead != 0) ADVANCE(404);
       END_STATE();
     case 401:
-      ACCEPT_TOKEN(aux_sym_system_command_token11);
+      ACCEPT_TOKEN(aux_sym_system_command_token10);
       if (lookahead != 0 &&
           lookahead != '\t' &&
           lookahead != '\n' &&
           lookahead != ' ') ADVANCE(404);
       END_STATE();
     case 402:
-      ACCEPT_TOKEN(aux_sym_system_command_token12);
+      ACCEPT_TOKEN(aux_sym_system_command_token11);
       if (lookahead == '\n') ADVANCE(48);
       if (lookahead == '/') ADVANCE(403);
       if (lookahead == '\t' ||
@@ -7462,7 +7462,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead != 0) ADVANCE(403);
       END_STATE();
     case 403:
-      ACCEPT_TOKEN(aux_sym_system_command_token12);
+      ACCEPT_TOKEN(aux_sym_system_command_token11);
       if (lookahead != 0 &&
           lookahead != '\n') ADVANCE(403);
       END_STATE();
@@ -9373,17 +9373,17 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_comment_terminal_token1] = ACTIONS(1),
     [aux_sym_system_command_token1] = ACTIONS(1),
     [aux_sym_system_command_token2] = ACTIONS(1),
+    [anon_sym_BSLASHx] = ACTIONS(1),
     [aux_sym_system_command_token3] = ACTIONS(1),
     [aux_sym_system_command_token4] = ACTIONS(1),
-    [aux_sym_system_command_token5] = ACTIONS(1),
+    [aux_sym_system_command_token6] = ACTIONS(1),
     [aux_sym_system_command_token7] = ACTIONS(1),
     [aux_sym_system_command_token8] = ACTIONS(1),
-    [aux_sym_system_command_token9] = ACTIONS(1),
     [anon_sym_BSLASHr] = ACTIONS(1),
     [anon_sym_BSLASHt] = ACTIONS(1),
-    [aux_sym_system_command_token10] = ACTIONS(1),
+    [aux_sym_system_command_token9] = ACTIONS(1),
     [anon_sym_BSLASHts] = ACTIONS(1),
-    [aux_sym_system_command_token11] = ACTIONS(1),
+    [aux_sym_system_command_token10] = ACTIONS(1),
     [aux_sym_shell_command_token1] = ACTIONS(1),
     [aux_sym_shell_command_token2] = ACTIONS(1),
     [anon_sym_POUND_BANG] = ACTIONS(1),
@@ -9457,15 +9457,15 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_comment_terminal_token1] = ACTIONS(57),
     [aux_sym_system_command_token1] = ACTIONS(59),
     [aux_sym_system_command_token2] = ACTIONS(61),
-    [aux_sym_system_command_token3] = ACTIONS(63),
-    [aux_sym_system_command_token4] = ACTIONS(65),
-    [aux_sym_system_command_token5] = ACTIONS(67),
-    [aux_sym_system_command_token7] = ACTIONS(69),
-    [aux_sym_system_command_token8] = ACTIONS(71),
+    [anon_sym_BSLASHx] = ACTIONS(63),
+    [aux_sym_system_command_token3] = ACTIONS(65),
+    [aux_sym_system_command_token4] = ACTIONS(67),
+    [aux_sym_system_command_token6] = ACTIONS(69),
+    [aux_sym_system_command_token7] = ACTIONS(71),
     [anon_sym_BSLASHr] = ACTIONS(73),
     [anon_sym_BSLASHt] = ACTIONS(75),
     [anon_sym_BSLASHts] = ACTIONS(77),
-    [aux_sym_system_command_token11] = ACTIONS(79),
+    [aux_sym_system_command_token10] = ACTIONS(79),
     [aux_sym_shell_command_token1] = ACTIONS(81),
     [anon_sym_POUND_BANG] = ACTIONS(83),
     [sym_newline_extra] = ACTIONS(7),
@@ -9532,15 +9532,15 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_comment_terminal_token1] = ACTIONS(57),
     [aux_sym_system_command_token1] = ACTIONS(59),
     [aux_sym_system_command_token2] = ACTIONS(61),
-    [aux_sym_system_command_token3] = ACTIONS(63),
-    [aux_sym_system_command_token4] = ACTIONS(65),
-    [aux_sym_system_command_token5] = ACTIONS(67),
-    [aux_sym_system_command_token7] = ACTIONS(69),
-    [aux_sym_system_command_token8] = ACTIONS(71),
+    [anon_sym_BSLASHx] = ACTIONS(63),
+    [aux_sym_system_command_token3] = ACTIONS(65),
+    [aux_sym_system_command_token4] = ACTIONS(67),
+    [aux_sym_system_command_token6] = ACTIONS(69),
+    [aux_sym_system_command_token7] = ACTIONS(71),
     [anon_sym_BSLASHr] = ACTIONS(73),
     [anon_sym_BSLASHt] = ACTIONS(75),
     [anon_sym_BSLASHts] = ACTIONS(77),
-    [aux_sym_system_command_token11] = ACTIONS(79),
+    [aux_sym_system_command_token10] = ACTIONS(79),
     [aux_sym_shell_command_token1] = ACTIONS(81),
     [sym_newline_extra] = ACTIONS(7),
   },
@@ -9606,15 +9606,15 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_comment_terminal_token1] = ACTIONS(57),
     [aux_sym_system_command_token1] = ACTIONS(59),
     [aux_sym_system_command_token2] = ACTIONS(61),
-    [aux_sym_system_command_token3] = ACTIONS(63),
-    [aux_sym_system_command_token4] = ACTIONS(65),
-    [aux_sym_system_command_token5] = ACTIONS(67),
-    [aux_sym_system_command_token7] = ACTIONS(69),
-    [aux_sym_system_command_token8] = ACTIONS(71),
+    [anon_sym_BSLASHx] = ACTIONS(63),
+    [aux_sym_system_command_token3] = ACTIONS(65),
+    [aux_sym_system_command_token4] = ACTIONS(67),
+    [aux_sym_system_command_token6] = ACTIONS(69),
+    [aux_sym_system_command_token7] = ACTIONS(71),
     [anon_sym_BSLASHr] = ACTIONS(73),
     [anon_sym_BSLASHt] = ACTIONS(75),
     [anon_sym_BSLASHts] = ACTIONS(77),
-    [aux_sym_system_command_token11] = ACTIONS(79),
+    [aux_sym_system_command_token10] = ACTIONS(79),
     [aux_sym_shell_command_token1] = ACTIONS(81),
     [sym_newline_extra] = ACTIONS(7),
   },
@@ -9680,15 +9680,15 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_comment_terminal_token1] = ACTIONS(57),
     [aux_sym_system_command_token1] = ACTIONS(59),
     [aux_sym_system_command_token2] = ACTIONS(61),
-    [aux_sym_system_command_token3] = ACTIONS(63),
-    [aux_sym_system_command_token4] = ACTIONS(65),
-    [aux_sym_system_command_token5] = ACTIONS(67),
-    [aux_sym_system_command_token7] = ACTIONS(69),
-    [aux_sym_system_command_token8] = ACTIONS(71),
+    [anon_sym_BSLASHx] = ACTIONS(63),
+    [aux_sym_system_command_token3] = ACTIONS(65),
+    [aux_sym_system_command_token4] = ACTIONS(67),
+    [aux_sym_system_command_token6] = ACTIONS(69),
+    [aux_sym_system_command_token7] = ACTIONS(71),
     [anon_sym_BSLASHr] = ACTIONS(73),
     [anon_sym_BSLASHt] = ACTIONS(75),
     [anon_sym_BSLASHts] = ACTIONS(77),
-    [aux_sym_system_command_token11] = ACTIONS(79),
+    [aux_sym_system_command_token10] = ACTIONS(79),
     [aux_sym_shell_command_token1] = ACTIONS(81),
     [sym_newline_extra] = ACTIONS(7),
   },
@@ -9754,15 +9754,15 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_comment_terminal_token1] = ACTIONS(57),
     [aux_sym_system_command_token1] = ACTIONS(59),
     [aux_sym_system_command_token2] = ACTIONS(61),
-    [aux_sym_system_command_token3] = ACTIONS(63),
-    [aux_sym_system_command_token4] = ACTIONS(65),
-    [aux_sym_system_command_token5] = ACTIONS(67),
-    [aux_sym_system_command_token7] = ACTIONS(69),
-    [aux_sym_system_command_token8] = ACTIONS(71),
+    [anon_sym_BSLASHx] = ACTIONS(63),
+    [aux_sym_system_command_token3] = ACTIONS(65),
+    [aux_sym_system_command_token4] = ACTIONS(67),
+    [aux_sym_system_command_token6] = ACTIONS(69),
+    [aux_sym_system_command_token7] = ACTIONS(71),
     [anon_sym_BSLASHr] = ACTIONS(73),
     [anon_sym_BSLASHt] = ACTIONS(75),
     [anon_sym_BSLASHts] = ACTIONS(77),
-    [aux_sym_system_command_token11] = ACTIONS(79),
+    [aux_sym_system_command_token10] = ACTIONS(79),
     [aux_sym_shell_command_token1] = ACTIONS(81),
     [sym_newline_extra] = ACTIONS(7),
   },
@@ -9828,15 +9828,15 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_comment_terminal_token1] = ACTIONS(57),
     [aux_sym_system_command_token1] = ACTIONS(59),
     [aux_sym_system_command_token2] = ACTIONS(61),
-    [aux_sym_system_command_token3] = ACTIONS(63),
-    [aux_sym_system_command_token4] = ACTIONS(65),
-    [aux_sym_system_command_token5] = ACTIONS(67),
-    [aux_sym_system_command_token7] = ACTIONS(69),
-    [aux_sym_system_command_token8] = ACTIONS(71),
+    [anon_sym_BSLASHx] = ACTIONS(63),
+    [aux_sym_system_command_token3] = ACTIONS(65),
+    [aux_sym_system_command_token4] = ACTIONS(67),
+    [aux_sym_system_command_token6] = ACTIONS(69),
+    [aux_sym_system_command_token7] = ACTIONS(71),
     [anon_sym_BSLASHr] = ACTIONS(73),
     [anon_sym_BSLASHt] = ACTIONS(75),
     [anon_sym_BSLASHts] = ACTIONS(77),
-    [aux_sym_system_command_token11] = ACTIONS(79),
+    [aux_sym_system_command_token10] = ACTIONS(79),
     [aux_sym_shell_command_token1] = ACTIONS(81),
     [sym_newline_extra] = ACTIONS(7),
   },
@@ -9901,15 +9901,15 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [aux_sym_comment_terminal_token1] = ACTIONS(97),
     [aux_sym_system_command_token1] = ACTIONS(165),
     [aux_sym_system_command_token2] = ACTIONS(168),
-    [aux_sym_system_command_token3] = ACTIONS(171),
-    [aux_sym_system_command_token4] = ACTIONS(174),
-    [aux_sym_system_command_token5] = ACTIONS(177),
-    [aux_sym_system_command_token7] = ACTIONS(180),
-    [aux_sym_system_command_token8] = ACTIONS(183),
+    [anon_sym_BSLASHx] = ACTIONS(171),
+    [aux_sym_system_command_token3] = ACTIONS(174),
+    [aux_sym_system_command_token4] = ACTIONS(177),
+    [aux_sym_system_command_token6] = ACTIONS(180),
+    [aux_sym_system_command_token7] = ACTIONS(183),
     [anon_sym_BSLASHr] = ACTIONS(186),
     [anon_sym_BSLASHt] = ACTIONS(189),
     [anon_sym_BSLASHts] = ACTIONS(192),
-    [aux_sym_system_command_token11] = ACTIONS(195),
+    [aux_sym_system_command_token10] = ACTIONS(195),
     [aux_sym_shell_command_token1] = ACTIONS(198),
     [sym_newline_extra] = ACTIONS(7),
   },
@@ -31141,9 +31141,9 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1123), 1,
       anon_sym_LF2,
     ACTIONS(1125), 1,
-      aux_sym_system_command_token9,
+      aux_sym_system_command_token8,
     ACTIONS(1127), 1,
-      aux_sym_system_command_token10,
+      aux_sym_system_command_token9,
     STATE(33), 1,
       sym_symbol,
     STATE(252), 1,
@@ -40570,9 +40570,9 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1123), 1,
       anon_sym_LF2,
     ACTIONS(1243), 1,
-      aux_sym_system_command_token9,
+      aux_sym_system_command_token8,
     ACTIONS(1245), 1,
-      aux_sym_system_command_token10,
+      aux_sym_system_command_token9,
     STATE(44), 1,
       sym_symbol,
     STATE(368), 1,
@@ -59632,7 +59632,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(815), 1,
       anon_sym_COLON,
     ACTIONS(1245), 1,
-      aux_sym_system_command_token10,
+      aux_sym_system_command_token9,
     STATE(44), 1,
       sym_symbol,
     STATE(607), 1,
@@ -65099,7 +65099,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(217), 1,
       anon_sym_COLON,
     ACTIONS(1127), 1,
-      aux_sym_system_command_token10,
+      aux_sym_system_command_token9,
     STATE(33), 1,
       sym_symbol,
     STATE(678), 1,
@@ -73153,15 +73153,15 @@ static const uint16_t ts_small_parse_table[] = {
       sym_invalid_atom,
       aux_sym_system_command_token1,
       aux_sym_system_command_token2,
+      anon_sym_BSLASHx,
       aux_sym_system_command_token3,
       aux_sym_system_command_token4,
-      aux_sym_system_command_token5,
+      aux_sym_system_command_token6,
       aux_sym_system_command_token7,
-      aux_sym_system_command_token8,
       anon_sym_BSLASHr,
       anon_sym_BSLASHt,
       anon_sym_BSLASHts,
-      aux_sym_system_command_token11,
+      aux_sym_system_command_token10,
       aux_sym_shell_command_token1,
   [87737] = 9,
     ACTIONS(3), 1,
@@ -73254,15 +73254,15 @@ static const uint16_t ts_small_parse_table[] = {
       sym_invalid_atom,
       aux_sym_system_command_token1,
       aux_sym_system_command_token2,
+      anon_sym_BSLASHx,
       aux_sym_system_command_token3,
       aux_sym_system_command_token4,
-      aux_sym_system_command_token5,
+      aux_sym_system_command_token6,
       aux_sym_system_command_token7,
-      aux_sym_system_command_token8,
       anon_sym_BSLASHr,
       anon_sym_BSLASHt,
       anon_sym_BSLASHts,
-      aux_sym_system_command_token11,
+      aux_sym_system_command_token10,
       aux_sym_shell_command_token1,
   [87853] = 8,
     ACTIONS(3), 1,
@@ -73354,15 +73354,15 @@ static const uint16_t ts_small_parse_table[] = {
       sym_invalid_atom,
       aux_sym_system_command_token1,
       aux_sym_system_command_token2,
+      anon_sym_BSLASHx,
       aux_sym_system_command_token3,
       aux_sym_system_command_token4,
-      aux_sym_system_command_token5,
+      aux_sym_system_command_token6,
       aux_sym_system_command_token7,
-      aux_sym_system_command_token8,
       anon_sym_BSLASHr,
       anon_sym_BSLASHt,
       anon_sym_BSLASHts,
-      aux_sym_system_command_token11,
+      aux_sym_system_command_token10,
       aux_sym_shell_command_token1,
   [87967] = 6,
     ACTIONS(3), 1,
@@ -73403,15 +73403,15 @@ static const uint16_t ts_small_parse_table[] = {
       sym_invalid_atom,
       aux_sym_system_command_token1,
       aux_sym_system_command_token2,
+      anon_sym_BSLASHx,
       aux_sym_system_command_token3,
       aux_sym_system_command_token4,
-      aux_sym_system_command_token5,
+      aux_sym_system_command_token6,
       aux_sym_system_command_token7,
-      aux_sym_system_command_token8,
       anon_sym_BSLASHr,
       anon_sym_BSLASHt,
       anon_sym_BSLASHts,
-      aux_sym_system_command_token11,
+      aux_sym_system_command_token10,
       aux_sym_shell_command_token1,
   [88022] = 6,
     ACTIONS(3), 1,
@@ -73452,15 +73452,15 @@ static const uint16_t ts_small_parse_table[] = {
       sym_invalid_atom,
       aux_sym_system_command_token1,
       aux_sym_system_command_token2,
+      anon_sym_BSLASHx,
       aux_sym_system_command_token3,
       aux_sym_system_command_token4,
-      aux_sym_system_command_token5,
+      aux_sym_system_command_token6,
       aux_sym_system_command_token7,
-      aux_sym_system_command_token8,
       anon_sym_BSLASHr,
       anon_sym_BSLASHt,
       anon_sym_BSLASHts,
-      aux_sym_system_command_token11,
+      aux_sym_system_command_token10,
       aux_sym_shell_command_token1,
   [88077] = 6,
     ACTIONS(3), 1,
@@ -86860,7 +86860,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1994), 1,
       aux_sym_comment_block_token1,
     ACTIONS(1996), 1,
-      aux_sym_system_command_token12,
+      aux_sym_system_command_token11,
     ACTIONS(1998), 1,
       aux_sym_shell_command_token2,
     STATE(1158), 1,
@@ -87803,7 +87803,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1994), 1,
       aux_sym_comment_block_token1,
     ACTIONS(2135), 1,
-      aux_sym_system_command_token12,
+      aux_sym_system_command_token11,
     ACTIONS(2137), 1,
       aux_sym_shell_command_token2,
     STATE(1215), 1,
@@ -89308,7 +89308,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1123), 1,
       anon_sym_LF2,
     ACTIONS(2297), 1,
-      aux_sym_system_command_token9,
+      aux_sym_system_command_token8,
     STATE(1313), 1,
       sym_comment_block,
   [107450] = 7,
@@ -89760,7 +89760,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1123), 1,
       anon_sym_LF2,
     ACTIONS(1125), 1,
-      aux_sym_system_command_token6,
+      aux_sym_system_command_token5,
     STATE(1344), 1,
       sym_comment_block,
   [108106] = 7,
@@ -89833,7 +89833,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1123), 1,
       anon_sym_LF2,
     ACTIONS(1125), 1,
-      aux_sym_system_command_token12,
+      aux_sym_system_command_token11,
     ACTIONS(1994), 1,
       aux_sym_comment_block_token1,
     STATE(1349), 1,
@@ -91001,7 +91001,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1123), 1,
       anon_sym_LF2,
     ACTIONS(1243), 1,
-      aux_sym_system_command_token6,
+      aux_sym_system_command_token5,
     STATE(1429), 1,
       sym_comment_block,
   [109916] = 6,
@@ -91014,7 +91014,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1123), 1,
       anon_sym_LF2,
     ACTIONS(2479), 1,
-      aux_sym_system_command_token9,
+      aux_sym_system_command_token8,
     STATE(1430), 1,
       sym_comment_block,
   [109935] = 6,
@@ -91038,7 +91038,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(1123), 1,
       anon_sym_LF2,
     ACTIONS(1243), 1,
-      aux_sym_system_command_token12,
+      aux_sym_system_command_token11,
     ACTIONS(1994), 1,
       aux_sym_comment_block_token1,
     STATE(1432), 1,
@@ -92189,7 +92189,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(7), 1,
       sym_newline_extra,
     ACTIONS(2704), 1,
-      aux_sym_system_command_token6,
+      aux_sym_system_command_token5,
     STATE(1522), 1,
       sym_comment_block,
   [111650] = 5,
@@ -92684,7 +92684,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(7), 1,
       sym_newline_extra,
     ACTIONS(1125), 1,
-      aux_sym_system_command_token6,
+      aux_sym_system_command_token5,
     STATE(1567), 1,
       sym_comment_block,
   [112370] = 5,
@@ -93034,7 +93034,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(7), 1,
       sym_newline_extra,
     ACTIONS(2826), 1,
-      aux_sym_system_command_token6,
+      aux_sym_system_command_token5,
     STATE(1599), 1,
       sym_comment_block,
   [112878] = 5,
@@ -93045,7 +93045,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(7), 1,
       sym_newline_extra,
     ACTIONS(1243), 1,
-      aux_sym_system_command_token6,
+      aux_sym_system_command_token5,
     STATE(1600), 1,
       sym_comment_block,
   [112894] = 5,
@@ -93243,7 +93243,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(7), 1,
       sym_newline_extra,
     ACTIONS(2854), 1,
-      aux_sym_system_command_token6,
+      aux_sym_system_command_token5,
     STATE(1618), 1,
       sym_comment_block,
   [113182] = 5,
@@ -93331,7 +93331,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(7), 1,
       sym_newline_extra,
     ACTIONS(2866), 1,
-      aux_sym_system_command_token6,
+      aux_sym_system_command_token5,
     STATE(1626), 1,
       sym_comment_block,
   [113310] = 5,

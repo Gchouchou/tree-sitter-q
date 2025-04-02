@@ -2996,8 +2996,8 @@
                   "type": "PREC",
                   "value": -1,
                   "content": {
-                    "type": "PATTERN",
-                    "value": "\\\\x"
+                    "type": "STRING",
+                    "value": "\\x"
                   }
                 }
               },
