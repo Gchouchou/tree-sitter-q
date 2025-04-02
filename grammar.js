@@ -569,9 +569,68 @@ module.exports = grammar({
     ),
 
     system_command: $ => choice(
+      // group commands by syntax group
+      // naked sys command that should not accept anything
+      alias(token.immediate(prec(-1, /\\[Eru]/)),$.command),
+      // optional subexpression
       seq(
-        alias(token.immediate(prec(-1, /\\(cd|ts|[abBcCdeEfglopPrsStTuvwWxz12_\\]|)/)),$.command),
-        optional($._expression)),
+        alias(token.immediate(prec(-1, /\\[abBdfv]/)),$.command),
+        optional($._subexpression)
+      ),
+      // mandatory subexpression
+      seq(
+        alias(token.immediate(prec(-1, /\\x/)),$.command),
+        $._subexpression
+      ),
+      // optional number list
+      seq(
+        alias(token.immediate(prec(-1, /\\[cC]/)),$.command),
+        optional($.number_list)
+      ),
+      // optional any string
+      seq(
+        alias(token.immediate(prec(-1, /\\(cd|_)/)),$.command),
+        optional(token(/[^ \t\n]+/))
+      ),
+      // mandatory any string
+      seq(
+        alias(token.immediate(prec(-1, /\\[pl12]/)),$.command),
+        token(/[^ \t\n]+/)
+      ),
+      // optional integers
+      seq(
+        alias(token.immediate(prec(-1, /\\[egoPsSTwWz]/)),$.command),
+        optional(token(/[0-9]+i?/))
+      ),
+      // 2 mandatory filepath for rename
+      seq(
+        alias(token.immediate(prec(-1, '\\r')),$.command),
+        token(/[^ \t\n]+/),
+        token(/[^ \t\n]+/)
+      ),
+      // timer
+      seq(
+        alias(token.immediate(prec(-1, '\\t')),$.command),
+        optional(
+          choice(
+            token(/[0-9]+i?/), // set timer interval
+            seq(optional(token.immediate(/:[0-9]+i?/)), $._subexpression)
+          )
+        )
+      ),
+      // time and space
+      seq(
+        alias(token.immediate(prec(-1, '\\ts')),$.command),
+        choice(
+          seq(optional(token.immediate(/:[0-9]+i?/)), $._subexpression)
+        )
+      ),
+      // ignore everything after command
+      seq(
+        alias(token.immediate(prec(-1, /\\\\?/)),$.command),
+        optional(token.immediate(/[^\n]+/))
+      ),
+
       $.shell_command
     ),
 

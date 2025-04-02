@@ -19,8 +19,7 @@ open port
 
 (program
   (system_command
-    (command)
-    (number)))
+    (command)))
 
 ===
 time and space
@@ -50,7 +49,7 @@ exit
     (command)))
 
 ===
-invalid command error
+shell command
 ===
 \tz
 ---
@@ -63,14 +62,16 @@ invalid command error
 multiline syscommands
 ===
 \c
- 23
+ 23 30
 ---
 
 (program
   (system_command
     (command)
     (newline_extra)
-    (number)))
+    (number_list
+      (number)
+      (number))))
 
 ===
 shell commands
