@@ -255,14 +255,6 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "PREC",
-                  "value": 1,
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "\\n?[ \\t]+"
-                  }
-                },
-                {
                   "type": "SYMBOL",
                   "name": "newline_extra"
                 },

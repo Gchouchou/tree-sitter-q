@@ -72,7 +72,6 @@ module.exports = grammar({
       alias(';', $.semicolon),
       repeat(
         choice(
-          prec(1, /\n?[ \t]+/),
           $.newline_extra,
           $.comment,
           $.comment_block
