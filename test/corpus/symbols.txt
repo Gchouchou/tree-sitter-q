@@ -29,7 +29,7 @@ symbol :a
 (program
   (progn
     (symbol
-      (regular_symbol))))
+      (file_symbol))))
 
 ===
 symbol a\
@@ -95,7 +95,7 @@ symbol list 1
       (symbol
         (regular_symbol))
       (symbol
-        (regular_symbol)))))
+        (file_symbol)))))
 
 ===
 symbol list 2
@@ -111,4 +111,4 @@ symbol list 2
       (symbol
         (regular_symbol))
       (symbol
-        (regular_symbol)))))
+        (file_symbol)))))

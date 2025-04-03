@@ -13,7 +13,7 @@
 (comment) @comment
 (number) @number
 (regular_symbol) @constant
-((regular_symbol) @string.special (#match? @string.special "^`:"))
+(file_symbol) @string.special
 (return) @return
 
 (namespace) @variable
