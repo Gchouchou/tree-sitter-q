@@ -32,7 +32,6 @@ module.exports = grammar({
 
   // alias immediate minus with the other operators
   externals: $ => [
-    $.immediate_minus,
     $.newline_extra,
     $.regular_char
   ],
@@ -189,11 +188,7 @@ module.exports = grammar({
           field("parameter1", $._nonterminal_exp)),
         // implicit binary application with infix
         seq(field("parameter1",$._atomic_exp),
-          field("function", $._infix_func),
-          field("parameter2", $._nonterminal_exp)),
-        // edge case with minus sign using external scanner
-        seq(field("parameter1",$._atomic_exp),
-          field("function", alias($.immediate_minus, $.builtin_infix_func)),
+          field("function", choice($._infix_func, alias($.immediate_minus, $.builtin_infix_func))),
           field("parameter2", $._nonterminal_exp)),
         // we can assign any expression
         seq(field("parameter1",$._atomic_exp),
@@ -249,6 +244,8 @@ module.exports = grammar({
           '\':' // each paralel or each prior
         ))
       ), $.infix_func_modifier))),
+
+    immediate_minus: $ => token.immediate(prec(1, '-')),
 
     //  regular infix funcs except comma
     builtin_infix_func: $ => choice(
