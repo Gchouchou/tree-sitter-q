@@ -645,7 +645,7 @@ module.exports = grammar({
         optional(token.immediate(prec(1, /[^\n]+/)))
       ),
 
-      $.shell_command
+      field("command", $.shell_command)
     ),
 
     shell_command: $ => seq(
