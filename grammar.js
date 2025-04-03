@@ -512,8 +512,8 @@ module.exports = grammar({
 
     // just some letters, numbers, underscores, colons and slashes
     symbol: $ => choice(
-      alias(token(/`[a-zA-Z0-9\._:]*/), $.regular_symbol),
-      alias(token(/`:[a-zA-Z0-9\._:\\\/]*/), $.file_symbol)
+      alias(token(/`:[a-zA-Z0-9\._:\\\/]*/), $.file_symbol),
+      alias(token(/`[a-zA-Z0-9\._:]*/), $.regular_symbol)
     ),
     // no gaps for symbol list
     symbol_list: $ => seq(
@@ -521,8 +521,8 @@ module.exports = grammar({
       repeat1(alias($._slist_stub, $.symbol))
     ),
     _slist_stub: $ => choice(
-      alias(token.immediate(prec(1,/`[a-zA-Z0-9\._:]*/)), $.regular_symbol),
-      alias(token.immediate(prec(1,/`:[a-zA-Z0-9\._:\\\/]*/)), $.file_symbol)
+      alias(token.immediate(prec(1,/`:[a-zA-Z0-9\._:\\\/]*/)), $.file_symbol),
+      alias(token.immediate(prec(1,/`[a-zA-Z0-9\._:]*/)), $.regular_symbol)
     ),
 
     // catching invalid dates and invalid floats, must start with period or decimal
