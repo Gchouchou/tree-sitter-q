@@ -807,42 +807,22 @@
                 "type": "FIELD",
                 "name": "function",
                 "content": {
-                  "type": "SYMBOL",
-                  "name": "_infix_func"
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "parameter2",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_nonterminal_exp"
-                }
-              }
-            ]
-          },
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "parameter1",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_atomic_exp"
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "function",
-                "content": {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "immediate_minus"
-                  },
-                  "named": true,
-                  "value": "builtin_infix_func"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_infix_func"
+                    },
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "immediate_minus"
+                      },
+                      "named": true,
+                      "value": "builtin_infix_func"
+                    }
+                  ]
                 }
               },
               {
@@ -1144,6 +1124,17 @@
           }
         }
       ]
+    },
+    "immediate_minus": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "STRING",
+          "value": "-"
+        }
+      }
     },
     "builtin_infix_func": {
       "type": "CHOICE",
@@ -3501,10 +3492,6 @@
   "conflicts": [],
   "precedences": [],
   "externals": [
-    {
-      "type": "SYMBOL",
-      "name": "immediate_minus"
-    },
     {
       "type": "SYMBOL",
       "name": "newline_extra"
