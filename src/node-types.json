@@ -1971,10 +1971,33 @@
   {
     "type": "system_command",
     "named": true,
-    "fields": {},
+    "fields": {
+      "command": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "\\r",
+            "named": false
+          },
+          {
+            "type": "\\t",
+            "named": false
+          },
+          {
+            "type": "\\ts",
+            "named": false
+          },
+          {
+            "type": "\\x",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "assignment_func",
@@ -1993,15 +2016,15 @@
           "named": true
         },
         {
-          "type": "command",
-          "named": true
-        },
-        {
           "type": "func_app",
           "named": true
         },
         {
           "type": "func_definition",
+          "named": true
+        },
+        {
+          "type": "glob",
           "named": true
         },
         {
@@ -2604,6 +2627,22 @@
     "named": false
   },
   {
+    "type": "\\r",
+    "named": false
+  },
+  {
+    "type": "\\t",
+    "named": false
+  },
+  {
+    "type": "\\ts",
+    "named": false
+  },
+  {
+    "type": "\\x",
+    "named": false
+  },
+  {
     "type": "]",
     "named": false
   },
@@ -2617,10 +2656,6 @@
   },
   {
     "type": "byte_list",
-    "named": true
-  },
-  {
-    "type": "command",
     "named": true
   },
   {
@@ -2654,6 +2689,10 @@
   {
     "type": "from",
     "named": false
+  },
+  {
+    "type": "glob",
+    "named": true
   },
   {
     "type": "identifier",

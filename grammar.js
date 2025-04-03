@@ -568,74 +568,91 @@ module.exports = grammar({
       token.immediate(/[^\n]*/) // the last line doesn't have a new line
     ),
 
+    // only accepts integer, used for system commands
+    _integer: $ => token(/[0-9]+i?/),
+
+    // some non white space thing, used for system commands
+    glob: $ => token(prec(1, /[^ \t\n]+/)),
+
     system_command: $ => choice(
       // group commands by syntax group
       // naked sys command that should not accept anything
-      alias(token.immediate(prec(-1, /\\[Eru]/)),$.command),
+      field("command", token.immediate(prec(-1, /\\[Eru]/))),
       // optional subexpression
       seq(
-        alias(token.immediate(prec(-1, /\\[abBdfv]/)),$.command),
+        field("command", token.immediate(prec(-1, /\\[abBdfv]/))),
         optional($._subexpression)
       ),
       // mandatory subexpression
       seq(
-        alias(token.immediate(prec(-1, '\\x')),$.command),
+        field("command", token.immediate(prec(-1, '\\x'))),
         $._subexpression
       ),
       // optional number list
       seq(
-        alias(token.immediate(prec(-1, /\\[cC]/)),$.command),
+        field("command", token.immediate(prec(-1, /\\[cC]/))),
         optional($.number_list)
       ),
-      // optional any string
+      // optional glob
       seq(
-        alias(token.immediate(prec(-1, /\\(cd|_)/)),$.command),
-        optional(token(prec(1, /[^ \t\n]+/)))
+        field("command", token.immediate(prec(-1, /\\(cd|_)/))),
+        optional($.glob)
       ),
-      // mandatory any string
+      // mandatory glob
       seq(
-        alias(token.immediate(prec(-1, /\\[pl12]/)),$.command),
-        token(prec(1, /[^ \t\n]+/))
+        field("command", token.immediate(prec(-1, /\\[pl12]/))),
+        $.glob
       ),
       // optional integers
       seq(
-        alias(token.immediate(prec(-1, /\\[egoPsSTwWz]/)),$.command),
-        optional(token(/[0-9]+i?/))
+        field("command", token.immediate(prec(-1, /\\[egoPsSTwWz]/))),
+        optional(field("command", $._integer, $.number))
       ),
       // 2 mandatory filepath for rename
       seq(
-        alias(token.immediate(prec(-1, '\\r')),$.command),
-        token(prec(1, /[^ \t\n]+/)),
-        token(prec(1, /[^ \t\n]+/))
+        field("command", token.immediate(prec(-1, '\\r'))),
+        $.glob,
+        $.glob
       ),
       // timer
       seq(
-        alias(token.immediate(prec(-1, '\\t')),$.command),
+        field("command", token.immediate(prec(-1, '\\t'))),
         optional(
           choice(
-            token(/[0-9]+i?/), // set timer interval
-            seq(optional(token.immediate(/:[0-9]+i?/)), $._subexpression)
-          )
-        )
-      ),
+            alias($._integer, $.number), // set timer interval
+            seq(
+              optional(
+                seq(token.immediate(':'),
+                  alias(token.immediate(/[0-9]+i?/), $.number)
+                )
+              ),
+              $._subexpression)))),
       // time and space
       seq(
-        alias(token.immediate(prec(-1, '\\ts')),$.command),
-        choice(
-          seq(optional(token.immediate(/:[0-9]+i?/)), $._subexpression)
+        field("command", token.immediate(prec(-1, '\\ts'))),
+        seq(
+          optional(
+            seq(token.immediate(':'),
+              alias(token.immediate(/[0-9]+i?/), $.number)
+            )
+          ),
+          $._subexpression
         )
       ),
       // ignore everything after command
       seq(
-        alias(token.immediate(prec(-1, /\\\\?/)),$.command),
+        field("command", token.immediate(prec(-1, /\\\\?/))),
         optional(token.immediate(prec(1, /[^\n]+/)))
       ),
 
-      $.shell_command
+      field("command", $.shell_command)
     ),
 
     shell_command: $ => seq(
-      token.immediate(prec(-1, /\\[^ \t\n]+/)),
+      choice(
+        token.immediate(prec(-1, /\\[a-zA-Z]+/)),
+        token.immediate(prec(-2, /\\[^ \t\n]+/)),
+      ),
       optional(token.immediate(/[^\n]+/)),
       repeat(token.immediate(/\n[ \t][^\n]*/))
     ),

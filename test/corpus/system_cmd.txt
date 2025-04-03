@@ -6,7 +6,6 @@ change console
 
 (program
   (system_command
-    (command)
     (number_list
       (number)
       (number))))
@@ -19,7 +18,7 @@ open port
 
 (program
   (system_command
-    (command)))
+    (glob)))
 
 ===
 time and space
@@ -29,7 +28,6 @@ time and space
 
 (program
   (system_command
-    (command)
     (func_app
       (variable
         (identifier))
@@ -45,8 +43,7 @@ exit
 ---
 
 (program
-  (system_command
-    (command)))
+  (system_command))
 
 ===
 shell command
@@ -67,7 +64,6 @@ multiline syscommands
 
 (program
   (system_command
-    (command)
     (newline_extra)
     (number_list
       (number)
@@ -119,7 +115,7 @@ loading path is not a comment
 
 (program
   (system_command
-    (command)))
+    (glob)))
 
 ===
 loading path is not a comment but second one is
@@ -129,5 +125,29 @@ loading path is not a comment but second one is
 
 (program
   (system_command
-    (command))
+    (glob))
   (comment))
+
+===
+time and space
+===
+\ts:23 {x*x} each til 20
+---
+
+(program
+  (system_command
+    (number)
+    (func_app
+      (func_definition
+        (func_body
+          (func_app
+            (variable
+              (identifier))
+            (builtin_infix_func)
+            (variable
+              (identifier)))))
+      (builtin_infix_func)
+      (func_app
+        (variable
+          (identifier))
+        (number)))))
