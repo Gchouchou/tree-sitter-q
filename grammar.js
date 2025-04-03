@@ -23,6 +23,7 @@ module.exports = grammar({
     $._literal_definition,
     $._seperator,
     $._column_list_definition,
+    $._infix_func,
     $._atomic_exp,
     $._subexpression
   ],
