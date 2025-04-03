@@ -2005,6 +2005,10 @@
           "named": true
         },
         {
+          "type": "glob",
+          "named": true
+        },
+        {
           "type": "implicit_composition",
           "named": true
         },
@@ -2654,6 +2658,10 @@
   {
     "type": "from",
     "named": false
+  },
+  {
+    "type": "glob",
+    "named": true
   },
   {
     "type": "identifier",

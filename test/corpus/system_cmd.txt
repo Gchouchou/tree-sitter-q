@@ -19,7 +19,8 @@ open port
 
 (program
   (system_command
-    (command)))
+    (command)
+    (glob)))
 
 ===
 time and space
@@ -119,7 +120,8 @@ loading path is not a comment
 
 (program
   (system_command
-    (command)))
+    (command)
+    (glob)))
 
 ===
 loading path is not a comment but second one is
@@ -129,5 +131,31 @@ loading path is not a comment but second one is
 
 (program
   (system_command
-    (command))
+    (command)
+    (glob))
   (comment))
+
+===
+time and space
+===
+\ts:23 {x*x} each til 20
+---
+
+(program
+  (system_command
+    (command)
+    (number)
+    (func_app
+      (func_definition
+        (func_body
+          (func_app
+            (variable
+              (identifier))
+            (builtin_infix_func)
+            (variable
+              (identifier)))))
+      (builtin_infix_func)
+      (func_app
+        (variable
+          (identifier))
+        (number)))))

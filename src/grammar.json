@@ -2933,6 +2933,24 @@
         }
       ]
     },
+    "_integer": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[0-9]+i?"
+      }
+    },
+    "glob": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[^ \\t\\n]+"
+        }
+      }
+    },
     "system_command": {
       "type": "CHOICE",
       "members": [
@@ -3066,15 +3084,8 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "TOKEN",
-                  "content": {
-                    "type": "PREC",
-                    "value": 1,
-                    "content": {
-                      "type": "PATTERN",
-                      "value": "[^ \\t\\n]+"
-                    }
-                  }
+                  "type": "SYMBOL",
+                  "name": "glob"
                 },
                 {
                   "type": "BLANK"
@@ -3103,15 +3114,8 @@
               "value": "command"
             },
             {
-              "type": "TOKEN",
-              "content": {
-                "type": "PREC",
-                "value": 1,
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[^ \\t\\n]+"
-                }
-              }
+              "type": "SYMBOL",
+              "name": "glob"
             }
           ]
         },
@@ -3138,11 +3142,13 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "TOKEN",
+                  "type": "ALIAS",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "[0-9]+i?"
-                  }
+                    "type": "SYMBOL",
+                    "name": "_integer"
+                  },
+                  "named": true,
+                  "value": "number"
                 },
                 {
                   "type": "BLANK"
@@ -3171,26 +3177,12 @@
               "value": "command"
             },
             {
-              "type": "TOKEN",
-              "content": {
-                "type": "PREC",
-                "value": 1,
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[^ \\t\\n]+"
-                }
-              }
+              "type": "SYMBOL",
+              "name": "glob"
             },
             {
-              "type": "TOKEN",
-              "content": {
-                "type": "PREC",
-                "value": 1,
-                "content": {
-                  "type": "PATTERN",
-                  "value": "[^ \\t\\n]+"
-                }
-              }
+              "type": "SYMBOL",
+              "name": "glob"
             }
           ]
         },
@@ -3220,11 +3212,13 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "TOKEN",
+                      "type": "ALIAS",
                       "content": {
-                        "type": "PATTERN",
-                        "value": "[0-9]+i?"
-                      }
+                        "type": "SYMBOL",
+                        "name": "_integer"
+                      },
+                      "named": true,
+                      "value": "number"
                     },
                     {
                       "type": "SEQ",
@@ -3233,11 +3227,28 @@
                           "type": "CHOICE",
                           "members": [
                             {
-                              "type": "IMMEDIATE_TOKEN",
-                              "content": {
-                                "type": "PATTERN",
-                                "value": ":[0-9]+i?"
-                              }
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "IMMEDIATE_TOKEN",
+                                  "content": {
+                                    "type": "STRING",
+                                    "value": ":"
+                                  }
+                                },
+                                {
+                                  "type": "ALIAS",
+                                  "content": {
+                                    "type": "IMMEDIATE_TOKEN",
+                                    "content": {
+                                      "type": "PATTERN",
+                                      "value": "[0-9]+i?"
+                                    }
+                                  },
+                                  "named": true,
+                                  "value": "number"
+                                }
+                              ]
                             },
                             {
                               "type": "BLANK"
@@ -3279,31 +3290,43 @@
               "value": "command"
             },
             {
-              "type": "CHOICE",
+              "type": "SEQ",
               "members": [
                 {
-                  "type": "SEQ",
+                  "type": "CHOICE",
                   "members": [
                     {
-                      "type": "CHOICE",
+                      "type": "SEQ",
                       "members": [
                         {
                           "type": "IMMEDIATE_TOKEN",
                           "content": {
-                            "type": "PATTERN",
-                            "value": ":[0-9]+i?"
+                            "type": "STRING",
+                            "value": ":"
                           }
                         },
                         {
-                          "type": "BLANK"
+                          "type": "ALIAS",
+                          "content": {
+                            "type": "IMMEDIATE_TOKEN",
+                            "content": {
+                              "type": "PATTERN",
+                              "value": "[0-9]+i?"
+                            }
+                          },
+                          "named": true,
+                          "value": "number"
                         }
                       ]
                     },
                     {
-                      "type": "SYMBOL",
-                      "name": "_subexpression"
+                      "type": "BLANK"
                     }
                   ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_subexpression"
                 }
               ]
             }
@@ -3359,15 +3382,31 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "PREC",
-            "value": -1,
-            "content": {
-              "type": "PATTERN",
-              "value": "\\\\[^ \\t\\n]+"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "IMMEDIATE_TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": -1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "\\\\[a-zA-Z]+"
+                }
+              }
+            },
+            {
+              "type": "IMMEDIATE_TOKEN",
+              "content": {
+                "type": "PREC",
+                "value": -2,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "\\\\[^ \\t\\n]+"
+                }
+              }
             }
-          }
+          ]
         },
         {
           "type": "CHOICE",

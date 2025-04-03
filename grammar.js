@@ -568,6 +568,12 @@ module.exports = grammar({
       token.immediate(/[^\n]*/) // the last line doesn't have a new line
     ),
 
+    // only accepts integer, used for system commands
+    _integer: $ => token(/[0-9]+i?/),
+
+    // some non white space thing, used for system commands
+    glob: $ => token(prec(1, /[^ \t\n]+/)),
+
     system_command: $ => choice(
       // group commands by syntax group
       // naked sys command that should not accept anything
@@ -587,42 +593,54 @@ module.exports = grammar({
         alias(token.immediate(prec(-1, /\\[cC]/)),$.command),
         optional($.number_list)
       ),
-      // optional any string
+      // optional glob
       seq(
         alias(token.immediate(prec(-1, /\\(cd|_)/)),$.command),
-        optional(token(prec(1, /[^ \t\n]+/)))
+        optional($.glob)
       ),
-      // mandatory any string
+      // mandatory glob
       seq(
         alias(token.immediate(prec(-1, /\\[pl12]/)),$.command),
-        token(prec(1, /[^ \t\n]+/))
+        $.glob
       ),
       // optional integers
       seq(
         alias(token.immediate(prec(-1, /\\[egoPsSTwWz]/)),$.command),
-        optional(token(/[0-9]+i?/))
+        optional(alias($._integer, $.number))
       ),
       // 2 mandatory filepath for rename
       seq(
         alias(token.immediate(prec(-1, '\\r')),$.command),
-        token(prec(1, /[^ \t\n]+/)),
-        token(prec(1, /[^ \t\n]+/))
+        $.glob,
+        $.glob
       ),
       // timer
       seq(
         alias(token.immediate(prec(-1, '\\t')),$.command),
         optional(
           choice(
-            token(/[0-9]+i?/), // set timer interval
-            seq(optional(token.immediate(/:[0-9]+i?/)), $._subexpression)
+            alias($._integer, $.number), // set timer interval
+            seq(
+              optional(
+                seq(token.immediate(':'),
+                  alias(token.immediate(/[0-9]+i?/), $.number)
+                )
+              ),
+              $._subexpression
+            )
           )
         )
       ),
       // time and space
       seq(
         alias(token.immediate(prec(-1, '\\ts')),$.command),
-        choice(
-          seq(optional(token.immediate(/:[0-9]+i?/)), $._subexpression)
+        seq(
+          optional(
+            seq(token.immediate(':'),
+              alias(token.immediate(/[0-9]+i?/), $.number)
+            )
+          ),
+          $._subexpression
         )
       ),
       // ignore everything after command
@@ -635,7 +653,10 @@ module.exports = grammar({
     ),
 
     shell_command: $ => seq(
-      token.immediate(prec(-1, /\\[^ \t\n]+/)),
+      choice(
+        token.immediate(prec(-1, /\\[a-zA-Z]+/)),
+        token.immediate(prec(-2, /\\[^ \t\n]+/)),
+      ),
       optional(token.immediate(/[^\n]+/)),
       repeat(token.immediate(/\n[ \t][^\n]*/))
     ),
