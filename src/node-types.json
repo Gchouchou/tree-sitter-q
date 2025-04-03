@@ -1974,7 +1974,7 @@
     "fields": {
       "command": {
         "multiple": true,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "\\r",
@@ -1991,6 +1991,10 @@
           {
             "type": "\\x",
             "named": false
+          },
+          {
+            "type": "shell_command",
+            "named": true
           }
         ]
       }
@@ -2057,10 +2061,6 @@
         },
         {
           "type": "parenthesis_exp",
-          "named": true
-        },
-        {
-          "type": "shell_command",
           "named": true
         },
         {

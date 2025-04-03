@@ -3361,8 +3361,12 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "shell_command"
+          "type": "FIELD",
+          "name": "command",
+          "content": {
+            "type": "SYMBOL",
+            "name": "shell_command"
+          }
         }
       ]
     },
