@@ -2955,7 +2955,8 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "ALIAS",
+          "type": "FIELD",
+          "name": "command",
           "content": {
             "type": "IMMEDIATE_TOKEN",
             "content": {
@@ -2966,15 +2967,14 @@
                 "value": "\\\\[Eru]"
               }
             }
-          },
-          "named": true,
-          "value": "command"
+          }
         },
         {
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -2985,9 +2985,7 @@
                     "value": "\\\\[abBdfv]"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "CHOICE",
@@ -3007,7 +3005,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3018,9 +3017,7 @@
                     "value": "\\x"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "SYMBOL",
@@ -3032,7 +3029,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3043,9 +3041,7 @@
                     "value": "\\\\[cC]"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "CHOICE",
@@ -3065,7 +3061,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3076,9 +3073,7 @@
                     "value": "\\\\(cd|_)"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "CHOICE",
@@ -3098,7 +3093,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3109,9 +3105,7 @@
                     "value": "\\\\[pl12]"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "SYMBOL",
@@ -3123,7 +3117,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3134,21 +3129,18 @@
                     "value": "\\\\[egoPsSTwWz]"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "ALIAS",
+                  "type": "FIELD",
+                  "name": "command",
                   "content": {
                     "type": "SYMBOL",
                     "name": "_integer"
-                  },
-                  "named": true,
-                  "value": "number"
+                  }
                 },
                 {
                   "type": "BLANK"
@@ -3161,7 +3153,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3172,9 +3165,7 @@
                     "value": "\\r"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "SYMBOL",
@@ -3190,7 +3181,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3201,9 +3193,7 @@
                     "value": "\\t"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "CHOICE",
@@ -3274,7 +3264,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3285,9 +3276,7 @@
                     "value": "\\ts"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "SEQ",
@@ -3336,7 +3325,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "command",
               "content": {
                 "type": "IMMEDIATE_TOKEN",
                 "content": {
@@ -3347,9 +3337,7 @@
                     "value": "\\\\\\\\?"
                   }
                 }
-              },
-              "named": true,
-              "value": "command"
+              }
             },
             {
               "type": "CHOICE",

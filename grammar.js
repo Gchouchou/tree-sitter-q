@@ -577,46 +577,46 @@ module.exports = grammar({
     system_command: $ => choice(
       // group commands by syntax group
       // naked sys command that should not accept anything
-      alias(token.immediate(prec(-1, /\\[Eru]/)),$.command),
+      field("command", token.immediate(prec(-1, /\\[Eru]/))),
       // optional subexpression
       seq(
-        alias(token.immediate(prec(-1, /\\[abBdfv]/)),$.command),
+        field("command", token.immediate(prec(-1, /\\[abBdfv]/))),
         optional($._subexpression)
       ),
       // mandatory subexpression
       seq(
-        alias(token.immediate(prec(-1, '\\x')),$.command),
+        field("command", token.immediate(prec(-1, '\\x'))),
         $._subexpression
       ),
       // optional number list
       seq(
-        alias(token.immediate(prec(-1, /\\[cC]/)),$.command),
+        field("command", token.immediate(prec(-1, /\\[cC]/))),
         optional($.number_list)
       ),
       // optional glob
       seq(
-        alias(token.immediate(prec(-1, /\\(cd|_)/)),$.command),
+        field("command", token.immediate(prec(-1, /\\(cd|_)/))),
         optional($.glob)
       ),
       // mandatory glob
       seq(
-        alias(token.immediate(prec(-1, /\\[pl12]/)),$.command),
+        field("command", token.immediate(prec(-1, /\\[pl12]/))),
         $.glob
       ),
       // optional integers
       seq(
-        alias(token.immediate(prec(-1, /\\[egoPsSTwWz]/)),$.command),
-        optional(alias($._integer, $.number))
+        field("command", token.immediate(prec(-1, /\\[egoPsSTwWz]/))),
+        optional(field("command", $._integer, $.number))
       ),
       // 2 mandatory filepath for rename
       seq(
-        alias(token.immediate(prec(-1, '\\r')),$.command),
+        field("command", token.immediate(prec(-1, '\\r'))),
         $.glob,
         $.glob
       ),
       // timer
       seq(
-        alias(token.immediate(prec(-1, '\\t')),$.command),
+        field("command", token.immediate(prec(-1, '\\t'))),
         optional(
           choice(
             alias($._integer, $.number), // set timer interval
@@ -626,14 +626,10 @@ module.exports = grammar({
                   alias(token.immediate(/[0-9]+i?/), $.number)
                 )
               ),
-              $._subexpression
-            )
-          )
-        )
-      ),
+              $._subexpression)))),
       // time and space
       seq(
-        alias(token.immediate(prec(-1, '\\ts')),$.command),
+        field("command", token.immediate(prec(-1, '\\ts'))),
         seq(
           optional(
             seq(token.immediate(':'),
@@ -645,7 +641,7 @@ module.exports = grammar({
       ),
       // ignore everything after command
       seq(
-        alias(token.immediate(prec(-1, /\\\\?/)),$.command),
+        field("command", token.immediate(prec(-1, /\\\\?/))),
         optional(token.immediate(prec(1, /[^\n]+/)))
       ),
 
