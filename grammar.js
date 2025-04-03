@@ -642,7 +642,7 @@ module.exports = grammar({
       // ignore everything after command
       seq(
         field("command", token.immediate(prec(-1, /\\\\?/))),
-        repeat(token.immediate(prec(1, /[^\n]+/)))
+        optional(token.immediate(prec(1, /[^\n]+/)))
       ),
 
       field("command", $.shell_command)
