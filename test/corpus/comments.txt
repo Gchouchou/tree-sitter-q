@@ -224,4 +224,5 @@ Almost multiline comment
   (progn
     (variable
       (identifier)))
-  (system_command))
+  (system_command
+    (command)))

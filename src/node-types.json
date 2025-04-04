@@ -1977,20 +1977,8 @@
         "required": true,
         "types": [
           {
-            "type": "\\r",
-            "named": false
-          },
-          {
-            "type": "\\t",
-            "named": false
-          },
-          {
-            "type": "\\ts",
-            "named": false
-          },
-          {
-            "type": "\\x",
-            "named": false
+            "type": "command",
+            "named": true
           },
           {
             "type": "shell_command",
@@ -2627,22 +2615,6 @@
     "named": false
   },
   {
-    "type": "\\r",
-    "named": false
-  },
-  {
-    "type": "\\t",
-    "named": false
-  },
-  {
-    "type": "\\ts",
-    "named": false
-  },
-  {
-    "type": "\\x",
-    "named": false
-  },
-  {
     "type": "]",
     "named": false
   },
@@ -2656,6 +2628,10 @@
   },
   {
     "type": "byte_list",
+    "named": true
+  },
+  {
+    "type": "command",
     "named": true
   },
   {

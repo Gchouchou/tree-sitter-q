@@ -2949,15 +2949,20 @@
           "type": "FIELD",
           "name": "command",
           "content": {
-            "type": "IMMEDIATE_TOKEN",
+            "type": "ALIAS",
             "content": {
-              "type": "PREC",
-              "value": -1,
+              "type": "IMMEDIATE_TOKEN",
               "content": {
-                "type": "PATTERN",
-                "value": "\\\\[Eru]"
+                "type": "PREC",
+                "value": -1,
+                "content": {
+                  "type": "PATTERN",
+                  "value": "\\\\[Eru]"
+                }
               }
-            }
+            },
+            "named": true,
+            "value": "command"
           }
         },
         {
@@ -2967,15 +2972,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "\\\\[abBdfv]"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "\\\\[abBdfv]"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -2999,15 +3009,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "STRING",
-                    "value": "\\x"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "STRING",
+                      "value": "\\x"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -3023,15 +3038,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "\\\\[cC]"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "\\\\[cC]"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -3055,15 +3075,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "\\\\(cd|_)"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "\\\\(cd|_)"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -3087,15 +3112,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "\\\\[pl12]"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "\\\\[pl12]"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -3111,15 +3141,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "\\\\[egoPsSTwWz]"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "\\\\[egoPsSTwWz]"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -3147,15 +3182,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "STRING",
-                    "value": "\\r"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "STRING",
+                      "value": "\\r"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -3175,15 +3215,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "STRING",
-                    "value": "\\t"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "STRING",
+                      "value": "\\t"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -3258,15 +3303,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "STRING",
-                    "value": "\\ts"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "STRING",
+                      "value": "\\ts"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
@@ -3319,15 +3369,20 @@
               "type": "FIELD",
               "name": "command",
               "content": {
-                "type": "IMMEDIATE_TOKEN",
+                "type": "ALIAS",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "IMMEDIATE_TOKEN",
                   "content": {
-                    "type": "PATTERN",
-                    "value": "\\\\\\\\?"
+                    "type": "PREC",
+                    "value": -1,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "\\\\\\\\?"
+                    }
                   }
-                }
+                },
+                "named": true,
+                "value": "command"
               }
             },
             {
