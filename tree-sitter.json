@@ -6,7 +6,9 @@
       "scope": "source.q",
       "path": ".",
       "file-types": ["q"],
-      "injection-regex": "^q$"
+      "injection-regex": "^q$",
+      "highlights": "queries/highlights.scm",
+      "locals": "queries/locals.scm"
     }
   ],
   "metadata": {

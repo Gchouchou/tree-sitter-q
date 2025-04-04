@@ -7,9 +7,11 @@
  "from"
  "select"
  "update"
+ "where"
 ] @keyword
 
 (string) @string
+(escape_sequence) @string.special
 (comment) @comment
 (number) @number
 (regular_symbol) @constant
@@ -66,3 +68,8 @@
 
 
 (builtin_infix_func) @operator
+
+(system_command
+ command: (_) @function)
+
+(glob) @string
