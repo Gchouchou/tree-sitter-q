@@ -2692,7 +2692,8 @@
   },
   {
     "type": "newline_extra",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "number",

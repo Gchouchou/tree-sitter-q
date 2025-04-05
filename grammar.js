@@ -37,6 +37,10 @@ module.exports = grammar({
     $.regular_char
   ],
 
+  precendence: $ => [
+
+  ],
+
   rules: {
 
     program: $ => choice(
