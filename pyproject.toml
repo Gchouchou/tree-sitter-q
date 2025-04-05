@@ -20,7 +20,7 @@ license.text = "MIT"
 readme = "README.md"
 
 [project.urls]
-Homepage = "https://gitlab.com/gchouchou/tree-sitter-q.git"
+Homepage = "https://github.com/gchouchou/tree-sitter-q.git"
 
 [project.optional-dependencies]
 core = ["tree-sitter~=0.22"]
