@@ -31,7 +31,6 @@
 (func_definition) @punctuation.bracket
 (table_columns) @punctuation.delimter
 (parameter_pass) @punctuation.bracket
-(parameter_pass) @punctuation.bracket
 
 (func_definition
  parameters: (parameter_pass
