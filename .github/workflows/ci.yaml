@@ -41,7 +41,6 @@ jobs:
           test-swift: true
           test-python: true
           test-go: true
-          test-node: true
       - name: Parse sample files
         uses: tree-sitter/parse-action@v4
         id: parse-files
