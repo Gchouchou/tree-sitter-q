@@ -32,8 +32,8 @@
                           {
                             "type": "IMMEDIATE_TOKEN",
                             "content": {
-                              "type": "STRING",
-                              "value": "\n"
+                              "type": "PATTERN",
+                              "value": "\\r?\\n"
                             }
                           }
                         ]
@@ -119,8 +119,8 @@
               "name": "system_command"
             },
             {
-              "type": "STRING",
-              "value": "\n"
+              "type": "PATTERN",
+              "value": "\\r?\\n"
             }
           ]
         },
@@ -132,8 +132,8 @@
               "name": "progn"
             },
             {
-              "type": "STRING",
-              "value": "\n"
+              "type": "PATTERN",
+              "value": "\\r?\\n"
             }
           ]
         },
@@ -155,8 +155,8 @@
             {
               "type": "IMMEDIATE_TOKEN",
               "content": {
-                "type": "STRING",
-                "value": "\n"
+                "type": "PATTERN",
+                "value": "\\r?\\n"
               }
             }
           ]
@@ -2775,7 +2775,7 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": "\\n?\\/[^\\n]*"
+      "value": "(\\r?\\n)?\\/[^\\n]*"
     },
     "comment_block": {
       "type": "SEQ",
@@ -2787,7 +2787,7 @@
             "value": 2,
             "content": {
               "type": "PATTERN",
-              "value": "\\n\\/[ \\t]*\\n"
+              "value": "\\n\\/[ \\t]*\\r?\\n"
             }
           }
         },
@@ -2803,7 +2803,7 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "[^\\n\\\\][^\\n]*\\n"
+                    "value": "[^\\n\\\\][^\\n]*\\r?\\n"
                   },
                   {
                     "type": "STRING",
@@ -2846,7 +2846,7 @@
             "value": 3,
             "content": {
               "type": "PATTERN",
-              "value": "\\/[ \\t]*\\n"
+              "value": "\\/[ \\t]*\\r?\\n"
             }
           }
         },
@@ -2862,7 +2862,7 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "[^\\n\\\\][^\\n]*\\n"
+                    "value": "[^\\n\\\\][^\\n]*\\r?\\n"
                   },
                   {
                     "type": "STRING",
@@ -2902,7 +2902,7 @@
           "type": "IMMEDIATE_TOKEN",
           "content": {
             "type": "PATTERN",
-            "value": "\\\\[ \\t]*\\n"
+            "value": "\\\\[ \\t]*\\r?\\n"
           }
         },
         {
@@ -2911,7 +2911,7 @@
             "type": "IMMEDIATE_TOKEN",
             "content": {
               "type": "PATTERN",
-              "value": "[^\\n]*\\n"
+              "value": "[^\\n]*\\r?\\n"
             }
           }
         },

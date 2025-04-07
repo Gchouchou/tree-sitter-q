@@ -47,7 +47,7 @@ module.exports = grammar({
       $.shebang,
       prec(2,seq(
         optional(choice(
-          seq($.shebang, token.immediate('\n')),
+          seq($.shebang, token.immediate(/\r?\n/)),
           alias($.comment_block_BOF, $.comment_block
           ))),
         repeat($._line),
@@ -59,9 +59,9 @@ module.exports = grammar({
       ))),
 
     _line: $ => choice(
-      seq($.system_command, '\n'),
-      seq($.progn, '\n'),
-      seq(alias(token(/[kp]\)[^\n]*/), $.dsl), token.immediate('\n')),
+      seq($.system_command, /\r?\n/),
+      seq($.progn, /\r?\n/),
+      seq(alias(token(/[kp]\)[^\n]*/), $.dsl), token.immediate(/\r?\n/)),
       '\n'
     ),
 
@@ -534,14 +534,14 @@ module.exports = grammar({
       /\d[0-9D\:\.]*/ // strange temporal formats
     )),
 
-    comment: $ => /\n?\/[^\n]*/,
+    comment: $ => /(\r?\n)?\/[^\n]*/,
 
     // multiline coments have to start with / then end with \
     // comment blocks have the flush with left side
     comment_block: $ => seq(
-      token(prec(2,/\n\/[ \t]*\n/)),
+      token(prec(2,/\n\/[ \t]*\r?\n/)),
       repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
-        /[^\n\\][^\n]*\n/, // not \ immediately
+        /[^\n\\][^\n]*\r?\n/, // not \ immediately
         '\n' // straight up newline
       )))),
       token.immediate(choice(
@@ -552,9 +552,9 @@ module.exports = grammar({
 
     // comment block that starts at BOF
     comment_block_BOF: $ => seq(
-      token.immediate(prec(3, /\/[ \t]*\n/)),
+      token.immediate(prec(3, /\/[ \t]*\r?\n/)),
       repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
-        /[^\n\\][^\n]*\n/, // not \ immediately
+        /[^\n\\][^\n]*\r?\n/, // not \ immediately
         '\n' // straight up newline
       )))),
       token.immediate(choice(
@@ -565,8 +565,8 @@ module.exports = grammar({
 
     // comment block that end on EOF
     comment_terminal: $ => seq(
-      token.immediate(/\\[ \t]*\n/),
-      repeat(token.immediate(/[^\n]*\n/)), // tree-sitter a little weird with newlines
+      token.immediate(/\\[ \t]*\r?\n/),
+      repeat(token.immediate(/[^\n]*\r?\n/)), // tree-sitter a little weird with newlines
       token.immediate(/[^\n]*/) // the last line doesn't have a new line
     ),
 
