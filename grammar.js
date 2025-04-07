@@ -25,6 +25,7 @@ module.exports = grammar({
     $._column_list_definition,
     $._infix_func,
     $._atomic_exp,
+    $._comment_block_body,
     $._subexpression
   ],
 
@@ -54,14 +55,14 @@ module.exports = grammar({
         optional(choice(
           $.progn,
           $.system_command,
-          alias(token(/[kp]\)[^\n]*/), $.dsl),
+          alias(token(/[kp]\)[^\r\n]*/), $.dsl),
           alias($.comment_terminal,$.comment))) // due to EOF
       ))),
 
     _line: $ => choice(
       seq($.system_command, /\r?\n/),
       seq($.progn, /\r?\n/),
-      seq(alias(token(/[kp]\)[^\n]*/), $.dsl), token.immediate(/\r?\n/)),
+      seq(alias(token(/[kp]\)[^\r\n]*/), $.dsl), token.immediate(/\r?\n/)),
       /\r?\n/
     ),
 
@@ -540,19 +541,16 @@ module.exports = grammar({
     // comment blocks have the flush with left side
     comment_block: $ => seq(
       token(prec(2,/\r?\n\/[ \t]*\r?\n/)),
-      repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
-        /[^\n\\][^\n]*\r?\n/, // not \ immediately
-        /\r?\n/ // straight up newline
-      )))),
-      token.immediate(choice(
-        prec(1,/\\[ \t]*/), // ending comment block
-        // EOF
-        /[^\n\\][^\n]*/ // not / immediately
-      ))),
+      $._comment_block_body
+    ),
 
     // comment block that starts at BOF
     comment_block_BOF: $ => seq(
       token.immediate(prec(3, /\/[ \t]*\r?\n/)),
+      $._comment_block_body
+    ),
+
+    _comment_block_body: $ => seq(
       repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
         /[^\n\\][^\n]*\r?\n/, // not \ immediately
         /\r?\n/ // straight up newline
@@ -561,7 +559,8 @@ module.exports = grammar({
         prec(1,/\\[ \t]*/), // ending comment block
         // EOF
         /[^\n\\][^\n]*/ // not \ immediately
-      ))),
+      ))
+    ),
 
     // comment block that end on EOF
     comment_terminal: $ => seq(
@@ -655,8 +654,8 @@ module.exports = grammar({
         token.immediate(prec(-1, /\\[a-zA-Z]+/)),
         token.immediate(prec(-2, /\\[^ \t\n]+/)),
       ),
-      optional(token.immediate(/[^\n]+/)),
-      repeat(token.immediate(/\n[ \t][^\n]*/))
+      optional(token.immediate(/[^\r\n]+/)),
+      repeat(token.immediate(/\r?\n[ \t][^\r\n]*/))
     ),
 
     shebang: $ => seq(
