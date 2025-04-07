@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-q"
 description = "A treesitter parser for q"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Justin Yu <jusytinyu@gmail.com>"]
 license = "MIT"
 readme = "README.md"
