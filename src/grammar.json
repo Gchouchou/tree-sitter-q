@@ -162,8 +162,8 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "\n"
+          "type": "PATTERN",
+          "value": "\\r?\\n"
         }
       ]
     },
@@ -2787,7 +2787,7 @@
             "value": 2,
             "content": {
               "type": "PATTERN",
-              "value": "\\n\\/[ \\t]*\\r?\\n"
+              "value": "\\r?\\n\\/[ \\t]*\\r?\\n"
             }
           }
         },
@@ -2806,8 +2806,8 @@
                     "value": "[^\\n\\\\][^\\n]*\\r?\\n"
                   },
                   {
-                    "type": "STRING",
-                    "value": "\n"
+                    "type": "PATTERN",
+                    "value": "\\r?\\n"
                   }
                 ]
               }
@@ -2865,8 +2865,8 @@
                     "value": "[^\\n\\\\][^\\n]*\\r?\\n"
                   },
                   {
-                    "type": "STRING",
-                    "value": "\n"
+                    "type": "PATTERN",
+                    "value": "\\r?\\n"
                   }
                 ]
               }

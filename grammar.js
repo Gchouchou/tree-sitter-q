@@ -62,7 +62,7 @@ module.exports = grammar({
       seq($.system_command, /\r?\n/),
       seq($.progn, /\r?\n/),
       seq(alias(token(/[kp]\)[^\n]*/), $.dsl), token.immediate(/\r?\n/)),
-      '\n'
+      /\r?\n/
     ),
 
     // a line in q is an implicit progn, returning the last expression
@@ -539,10 +539,10 @@ module.exports = grammar({
     // multiline coments have to start with / then end with \
     // comment blocks have the flush with left side
     comment_block: $ => seq(
-      token(prec(2,/\n\/[ \t]*\r?\n/)),
+      token(prec(2,/\r?\n\/[ \t]*\r?\n/)),
       repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
         /[^\n\\][^\n]*\r?\n/, // not \ immediately
-        '\n' // straight up newline
+        /\r?\n/ // straight up newline
       )))),
       token.immediate(choice(
         prec(1,/\\[ \t]*/), // ending comment block
@@ -555,7 +555,7 @@ module.exports = grammar({
       token.immediate(prec(3, /\/[ \t]*\r?\n/)),
       repeat(token.immediate(prec(2,choice( // always choose repeat over ending loop
         /[^\n\\][^\n]*\r?\n/, // not \ immediately
-        '\n' // straight up newline
+        /\r?\n/ // straight up newline
       )))),
       token.immediate(choice(
         prec(1,/\\[ \t]*/), // ending comment block
