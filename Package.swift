@@ -27,7 +27,7 @@ let package = Package(
         .testTarget(
             name: "TreeSitterQTests",
             dependencies: [
-                "SwiftTreeSitter",
+                .product(name: "SwiftTreeSitter", package: "swift-tree-sitter"),
                 "TreeSitterQ",
             ],
             path: "bindings/swift/TreeSitterQTests"
