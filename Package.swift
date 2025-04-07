@@ -12,7 +12,9 @@ let package = Package(
     targets: [
         .target(
             name: "TreeSitterQ",
-            dependencies: [],
+            dependencies: [
+                .product(name: "SwiftTreeSitter", package: "swift-tree-sitter")
+            ],
             path: ".",
             sources: [
                 "src/parser.c",
