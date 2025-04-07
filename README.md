@@ -1,5 +1,7 @@
 # tree-sitter-q
 
+[![CI][ci]](https://github.com/gchouchou/tree-sitter-q/actions/workflows/ci.yml)
+
 kdb q grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
 ## Sources:
