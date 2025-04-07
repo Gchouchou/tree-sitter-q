@@ -3477,16 +3477,11 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
+          "type": "IMMEDIATE_TOKEN",
           "content": {
-            "type": "IMMEDIATE_TOKEN",
-            "content": {
-              "type": "STRING",
-              "value": "#!"
-            }
-          },
-          "named": true,
-          "value": "bang"
+            "type": "STRING",
+            "value": "#!"
+          }
         },
         {
           "type": "CHOICE",
@@ -3504,20 +3499,16 @@
           ]
         },
         {
-          "type": "FIELD",
-          "name": "command",
+          "type": "ALIAS",
           "content": {
-            "type": "ALIAS",
+            "type": "IMMEDIATE_TOKEN",
             "content": {
-              "type": "IMMEDIATE_TOKEN",
-              "content": {
-                "type": "PATTERN",
-                "value": ".*"
-              }
-            },
-            "named": true,
-            "value": "interpreter"
-          }
+              "type": "PATTERN",
+              "value": ".*"
+            }
+          },
+          "named": true,
+          "value": "program"
         }
       ]
     }

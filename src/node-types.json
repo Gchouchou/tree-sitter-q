@@ -1747,24 +1747,13 @@
   {
     "type": "shebang",
     "named": true,
-    "fields": {
-      "command": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "interpreter",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "bang",
+          "type": "program",
           "named": true
         }
       ]
@@ -2587,6 +2576,10 @@
     "named": false
   },
   {
+    "type": "#!",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -2617,10 +2610,6 @@
   {
     "type": "]",
     "named": false
-  },
-  {
-    "type": "bang",
-    "named": true
   },
   {
     "type": "by",
@@ -2676,10 +2665,6 @@
   },
   {
     "type": "infix_func_modifier",
-    "named": true
-  },
-  {
-    "type": "interpreter",
     "named": true
   },
   {

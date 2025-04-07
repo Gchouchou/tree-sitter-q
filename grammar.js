@@ -660,9 +660,9 @@ module.exports = grammar({
     ),
 
     shebang: $ => seq(
-      alias(token.immediate('#!'), $.bang),
+      token.immediate('#!'),
       optional(token.immediate(/[ \t]+/)),
-      field("command", alias(token.immediate(/.*/), $.interpreter)),
+      alias(token.immediate(/.*/), $.program),
     )
   }
 });
