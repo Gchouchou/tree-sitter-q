@@ -92,8 +92,7 @@ shebang
 
 (program
   (shebang
-    (bang)
-    (interpreter)))
+    (program)))
 
 ===
 shebang with some code
@@ -104,8 +103,7 @@ shebang with some code
 
 (program
   (shebang
-    (bang)
-    (interpreter))
+    (program))
   (progn
     (func_app
       (number)

@@ -35,6 +35,20 @@ bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
             return false;
         }
     }
+    if (valid_symbols[NEW_LINE_EXTRA] && lexer->lookahead == '\r') {
+        lexer->advance(lexer, false);
+        if (lexer->lookahead == '\n') {
+            lexer->advance(lexer, false);
+            lexer->mark_end(lexer);
+            // new line into new line
+            if (lexer->lookahead == '\n' || lexer->lookahead == '\t' ||
+                lexer->lookahead == ' ' || lexer->lookahead == '\r') {
+                lexer->result_symbol = NEW_LINE_EXTRA;
+                return true;
+            }
+        }
+        return false;
+    }
 
     // matches immediately a non escaped char with lookahead
     if (valid_symbols[ONE_CHAR] && lexer->lookahead != '\n' &&
