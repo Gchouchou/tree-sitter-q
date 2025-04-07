@@ -38,6 +38,7 @@ bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
     if (valid_symbols[NEW_LINE_EXTRA] && lexer->lookahead == '\r') {
         lexer->advance(lexer, false);
         if (lexer->lookahead == '\n') {
+            lexer->advance(lexer, false);
             lexer->mark_end(lexer);
             // new line into new line
             if (lexer->lookahead == '\n' || lexer->lookahead == '\t' ||
