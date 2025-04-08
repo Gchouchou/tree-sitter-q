@@ -22,32 +22,23 @@ void tree_sitter_q_external_scanner_deserialize(void *payload, char *buffer,
 bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
                                          const bool *valid_symbols) {
     // match newline with lookahead
-    if (valid_symbols[NEW_LINE_EXTRA] && lexer->lookahead == '\n') {
+    if (valid_symbols[NEW_LINE_EXTRA] &&
+        (lexer->lookahead == '\r' || lexer->lookahead == '\n')) {
+      if (lexer->lookahead == '\r') {
+        lexer->advance(lexer, false);
+      }
+      if (lexer->lookahead == '\n') {
         lexer->advance(lexer, false);
         lexer->mark_end(lexer);
         // new line into new line
         if (lexer->lookahead == '\n' || lexer->lookahead == '\t' ||
-            lexer->lookahead == ' ') {
-            lexer->result_symbol = NEW_LINE_EXTRA;
-            return true;
-        } else {
-            // it is a regular new line and we should not match anything
-            return false;
+            lexer->lookahead == ' ' || lexer->lookahead == '\r') {
+          lexer->result_symbol = NEW_LINE_EXTRA;
+          return true;
         }
-    }
-    if (valid_symbols[NEW_LINE_EXTRA] && lexer->lookahead == '\r') {
-        lexer->advance(lexer, false);
-        if (lexer->lookahead == '\n') {
-            lexer->advance(lexer, false);
-            lexer->mark_end(lexer);
-            // new line into new line
-            if (lexer->lookahead == '\n' || lexer->lookahead == '\t' ||
-                lexer->lookahead == ' ' || lexer->lookahead == '\r') {
-                lexer->result_symbol = NEW_LINE_EXTRA;
-                return true;
-            }
-        }
-        return false;
+      }
+      // it is a regular new line and we should not match anything
+      return false;
     }
 
     // matches immediately a non escaped char with lookahead
