@@ -67,6 +67,10 @@
             "named": true
           },
           {
+            "type": "func_app",
+            "named": true
+          },
+          {
             "type": "func_definition",
             "named": true
           },
@@ -593,6 +597,10 @@
             "named": true
           },
           {
+            "type": "func_app",
+            "named": true
+          },
+          {
             "type": "func_definition",
             "named": true
           },
@@ -689,6 +697,10 @@
             "named": true
           },
           {
+            "type": "func_app",
+            "named": true
+          },
+          {
             "type": "func_definition",
             "named": true
           },
@@ -766,6 +778,10 @@
           },
           {
             "type": "char",
+            "named": true
+          },
+          {
+            "type": "func_app",
             "named": true
           },
           {
@@ -870,6 +886,10 @@
           },
           {
             "type": "char",
+            "named": true
+          },
+          {
+            "type": "func_app",
             "named": true
           },
           {
