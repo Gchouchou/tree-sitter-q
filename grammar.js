@@ -118,6 +118,7 @@ module.exports = grammar({
     )),
 
     _atomic_exp: $ => choice(
+      alias($.func_app_with_param, $.func_app),
       $._literal_definition,
       $.variable,
       $.parenthesis_exp
@@ -184,11 +185,14 @@ module.exports = grammar({
       ')'
     ),
 
+    func_app_with_param: $ => prec.right(
+      // expressions and builtins can use parameter pass
+      seq(field("function", choice($._atomic_exp, $.builtin_infix_func, $.assignment_func, $.infix_mod_func)),
+        field("parameters",$.parameter_pass)),
+    ),
+
     func_app: $ => prec.right(
       choice(
-        // expressions and builtins can use parameter pass
-        seq(field("function", choice($._atomic_exp, $.builtin_infix_func, $.assignment_func, $.infix_mod_func)),
-          field("parameters",$.parameter_pass)),
         // implicit currying or unary application
         seq(field("function", $._atomic_exp),
           field("parameter1", $._nonterminal_exp)),

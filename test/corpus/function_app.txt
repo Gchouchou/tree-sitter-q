@@ -190,3 +190,24 @@ f f[2]
           (identifier))
         (parameter_pass
           (number))))))
+
+===
+Function with parameter pass and infix
+===
+f[2] + f[3]
+---
+
+(program
+  (progn
+    (func_app
+      (func_app
+        (variable
+          (identifier))
+        (parameter_pass
+          (number)))
+      (builtin_infix_func)
+      (func_app
+        (variable
+          (identifier))
+        (parameter_pass
+          (number))))))

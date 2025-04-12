@@ -411,6 +411,15 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "func_app_with_param"
+          },
+          "named": true,
+          "value": "func_app"
+        },
+        {
           "type": "SYMBOL",
           "name": "_literal_definition"
         },
@@ -727,50 +736,54 @@
         }
       ]
     },
+    "func_app_with_param": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "function",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_atomic_exp"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "builtin_infix_func"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "assignment_func"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "infix_mod_func"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "parameters",
+            "content": {
+              "type": "SYMBOL",
+              "name": "parameter_pass"
+            }
+          }
+        ]
+      }
+    },
     "func_app": {
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
         "type": "CHOICE",
         "members": [
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "function",
-                "content": {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "_atomic_exp"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "builtin_infix_func"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "assignment_func"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "infix_mod_func"
-                    }
-                  ]
-                }
-              },
-              {
-                "type": "FIELD",
-                "name": "parameters",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "parameter_pass"
-                }
-              }
-            ]
-          },
           {
             "type": "SEQ",
             "members": [
