@@ -289,6 +289,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "bracket_progn"
+          },
+          {
+            "type": "SYMBOL",
             "name": "_subexpression"
           }
         ]
@@ -362,6 +366,192 @@
                 "content": {
                   "type": "SYMBOL",
                   "name": "parameter_pass"
+                }
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_func_app_prefix"
+          }
+        ]
+      }
+    },
+    "bracket_progn": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "["
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_expression"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_seperator"
+                }
+              ]
+            }
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "output",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                }
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_expression"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_seperator"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "]"
+          }
+        ]
+      }
+    },
+    "_func_app_prefix": {
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "function",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "bracket_progn"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "parameter1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_nonterminal_exp"
+                }
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "parameter1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "bracket_progn"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "function",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_infix_func"
+                    },
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "immediate_minus"
+                      },
+                      "named": true,
+                      "value": "builtin_infix_func"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "parameter2",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_nonterminal_exp"
+                }
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "parameter1",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "bracket_progn"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "function",
+                "content": {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "STRING",
+                    "value": ":"
+                  },
+                  "named": true,
+                  "value": "assignment_func"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "parameter2",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_subexpression"
                 }
               }
             ]
@@ -3518,7 +3708,12 @@
       "name": "comment_block"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "bracket_progn",
+      "parameter_pass"
+    ]
+  ],
   "precedences": [],
   "externals": [
     {
