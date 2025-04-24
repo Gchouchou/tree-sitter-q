@@ -215,3 +215,25 @@ $[x<1;[x:3;x];
         (semicolon)
         (newline_extra)
         (number)))))
+
+===
+Possible fake progn issue
+===
+{[ab;34;aaa] +1}
+---
+
+(program
+      (progn
+        (func_definition
+          (parameter_pass
+            (variable
+              (identifier))
+            (semicolon)
+            (number)
+            (semicolon)
+            (variable
+              (identifier)))
+          (func_body
+            (builtin_infix_func))
+          (ERROR
+            (number)))))
