@@ -150,3 +150,90 @@ a
       (comment)
       (newline_extra)
       (number))))
+
+===
+fake progn
+===
+[a:23;b:34;b]
+---
+
+(program
+  (progn
+    (bracket_progn
+      (func_app
+        (variable
+          (identifier))
+        (assignment_func)
+        (number))
+      (semicolon)
+      (func_app
+        (variable
+          (identifier))
+        (assignment_func)
+        (number))
+      (semicolon)
+      (variable
+        (identifier)))))
+
+===
+fake progn with cond
+===
+$[x<1;[x:3;x];
+ x>1;34;
+ 65]
+---
+
+(program
+  (progn
+    (func_app
+      (builtin_infix_func)
+      (parameter_pass
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number))
+        (semicolon)
+        (bracket_progn
+          (func_app
+            (variable
+              (identifier))
+            (assignment_func)
+            (number))
+          (semicolon)
+          (variable
+            (identifier)))
+        (semicolon)
+        (newline_extra)
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number))
+        (semicolon)
+        (number)
+        (semicolon)
+        (newline_extra)
+        (number)))))
+
+===
+Possible fake progn issue
+===
+{[ab;34;aaa] +1}
+---
+
+(program
+      (progn
+        (func_definition
+          (parameter_pass
+            (variable
+              (identifier))
+            (semicolon)
+            (number)
+            (semicolon)
+            (variable
+              (identifier)))
+          (func_body
+            (builtin_infix_func))
+          (ERROR
+            (number)))))

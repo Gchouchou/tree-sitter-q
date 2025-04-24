@@ -30,6 +30,7 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
+    [$.bracket_progn, $.parameter_pass]
   ],
 
   // alias immediate minus with the other operators
@@ -88,6 +89,7 @@ module.exports = grammar({
       -1,
       choice(
         alias($._prefix_expression, $.func_app),
+        $.bracket_progn,
         // regular
         $._subexpression
       ),
@@ -101,7 +103,29 @@ module.exports = grammar({
       seq(
         field("function", alias('\'', $.composition)),
         field("parameters",$.parameter_pass)
-      )
+      ),
+      $._func_app_prefix
+    )),
+
+    bracket_progn: $ => prec(-1, seq(
+      '[',
+      repeat(seq(optional($._expression),$._seperator)),
+      choice(field("output", $._expression), seq(optional($._expression),$._seperator)),
+      ']'
+    )),
+
+    _func_app_prefix: $ => prec(-1, choice(
+      // implicit currying or unary application
+      seq(field("function", $.bracket_progn),
+        field("parameter1", $._nonterminal_exp)),
+      // implicit binary application with infix
+      seq(field("parameter1",$.bracket_progn),
+        field("function", choice($._infix_func, alias($.immediate_minus, $.builtin_infix_func))),
+        field("parameter2", $._nonterminal_exp)),
+      // we can assign any expression
+      seq(field("parameter1",$.bracket_progn),
+        field("function", alias(':', $.assignment_func)),
+        field("parameter2", $._subexpression))
     )),
 
     _subexpression: $ => prec.right(
