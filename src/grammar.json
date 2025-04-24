@@ -2826,8 +2826,12 @@
                     "content": {
                       "type": "IMMEDIATE_TOKEN",
                       "content": {
-                        "type": "PATTERN",
-                        "value": "[^\\\\\"\\r\\n]+"
+                        "type": "PREC",
+                        "value": 1,
+                        "content": {
+                          "type": "PATTERN",
+                          "value": "[^\\\\\"\\r\\n]+"
+                        }
                       }
                     },
                     "named": true,
