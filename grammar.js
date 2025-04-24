@@ -110,7 +110,7 @@ module.exports = grammar({
     bracket_progn: $ => prec(-1, seq(
       '[',
       repeat(seq(optional($._expression),$._seperator)),
-      choice(field("output", $._expression), seq(optional($._expression),$._seperator)),
+      optional(field("output", $._expression)),
       ']'
     )),
 
