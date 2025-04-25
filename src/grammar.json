@@ -2284,8 +2284,12 @@
     "identifier": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
-        "type": "PATTERN",
-        "value": "[a-zA-Z0-9_]+"
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[a-zA-Z0-9_]+"
+        }
       }
     },
     "_variable_repeat": {
@@ -2901,7 +2905,7 @@
             "type": "ALIAS",
             "content": {
               "type": "SYMBOL",
-              "name": "_slist_stub"
+              "name": "_slist_sub"
             },
             "named": true,
             "value": "symbol"
@@ -2909,7 +2913,7 @@
         }
       ]
     },
-    "_slist_stub": {
+    "_slist_sub": {
       "type": "CHOICE",
       "members": [
         {
@@ -3718,7 +3722,9 @@
     "_infix_func",
     "_atomic_exp",
     "_comment_block_body",
-    "_subexpression"
+    "_subexpression",
+    "_variable_repeat",
+    "_nlist_sub"
   ],
   "supertypes": [],
   "reserved": {}

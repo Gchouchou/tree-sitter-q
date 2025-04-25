@@ -76,3 +76,19 @@ starting with space
   (progn
     (variable
       (namespace))))
+
+===
+invalid atom vs identifier
+===
+.adv.sr.223.asdf.feadg.edd
+---
+
+(program
+  (progn
+    (variable
+      (namespace)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier))))

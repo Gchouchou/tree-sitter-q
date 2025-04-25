@@ -26,7 +26,9 @@ module.exports = grammar({
     $._infix_func,
     $._atomic_exp,
     $._comment_block_body,
-    $._subexpression
+    $._subexpression,
+    $._variable_repeat,
+    $._nlist_sub
   ],
 
   conflicts: $ => [
@@ -401,7 +403,7 @@ module.exports = grammar({
     _init_identifier: $ => token(/[a-zA-Z][a-zA-Z0-9_]*/),
     namespace: $ => token(/\.[a-zA-Z][a-zA-Z0-9_]*/),
 
-    identifier: $ => token.immediate(/[a-zA-Z0-9_]+/),
+    identifier: $ => token.immediate(prec(1, /[a-zA-Z0-9_]+/)),
 
     _variable_repeat: $ => prec.right(1,
       repeat1(seq($.identifier, $._variable_period)),
@@ -549,9 +551,10 @@ module.exports = grammar({
     // no gaps for symbol list
     symbol_list: $ => seq(
       $.symbol,
-      repeat1(alias($._slist_stub, $.symbol))
+      repeat1(alias($._slist_sub, $.symbol))
     ),
-    _slist_stub: $ => choice(
+
+    _slist_sub: $ => choice(
       alias(token.immediate(prec(1,/`:[a-zA-Z0-9\._:\\\/]*/)), $.file_symbol),
       alias(token.immediate(prec(1,/`[a-zA-Z0-9\._:]*/)), $.regular_symbol)
     ),
