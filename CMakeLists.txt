@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-q
-        VERSION "0.2.1"
+        VERSION "0.2.6"
         DESCRIPTION "A treesitter parser for q"
         HOMEPAGE_URL "https://github.com/gchouchou/tree-sitter-q.git"
         LANGUAGES C)
