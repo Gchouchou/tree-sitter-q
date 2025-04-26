@@ -238,38 +238,13 @@
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "ALIAS",
-            "content": {
-              "type": "STRING",
-              "value": ";"
-            },
-            "named": true,
-            "value": "semicolon"
-          },
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "newline_extra"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "comment"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "comment_block"
-                }
-              ]
-            }
-          }
-        ]
+        "type": "ALIAS",
+        "content": {
+          "type": "STRING",
+          "value": ";"
+        },
+        "named": true,
+        "value": "semicolon"
       }
     },
     "_expression": {
