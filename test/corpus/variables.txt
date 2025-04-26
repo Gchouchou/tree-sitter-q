@@ -78,6 +78,23 @@ starting with space
       (namespace))))
 
 ===
+deeply nested variable
+===
+a.b.c.e.d.f.g
+---
+
+(program
+  (progn
+    (variable
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier))))
+
+===
 invalid atom vs identifier
 ===
 .adv.sr.223.asdf.feadg.edd
@@ -92,3 +109,51 @@ invalid atom vs identifier
       (identifier)
       (identifier)
       (identifier))))
+
+===
+where as a variable
+===
+x where x > 1
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (func_app
+        (variable
+          (identifier))
+        (func_app
+          (variable
+            (identifier))
+          (builtin_infix_func)
+          (number))))))
+
+===
+from as a variable
+===
+12 * from
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (variable
+        (identifier)))))
+
+===
+by as a variable
+===
+1 + by
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (variable
+        (identifier)))))
