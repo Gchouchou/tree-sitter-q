@@ -100,3 +100,24 @@ multline var
       (newline_extra)
       (variable
         (namespace)))))
+
+===
+trailing white spaces
+===
+x:{
+  
+  x}
+---
+
+(program
+  (progn
+    (func_app
+      (variable
+        (identifier))
+      (assignment_func)
+      (func_definition
+        (newline_extra)
+        (newline_extra)
+        (func_body
+          (variable
+            (identifier)))))))
