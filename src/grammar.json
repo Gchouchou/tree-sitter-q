@@ -1988,8 +1988,15 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "STRING",
-                    "value": "where"
+                    "type": "TOKEN",
+                    "content": {
+                      "type": "PREC",
+                      "value": 1,
+                      "content": {
+                        "type": "STRING",
+                        "value": "where"
+                      }
+                    }
                   },
                   {
                     "type": "FIELD",
@@ -2294,7 +2301,7 @@
     },
     "_variable_repeat": {
       "type": "PREC_RIGHT",
-      "value": 1,
+      "value": 0,
       "content": {
         "type": "REPEAT1",
         "content": {

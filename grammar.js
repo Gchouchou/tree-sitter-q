@@ -357,7 +357,7 @@ module.exports = grammar({
       field("table", $._expression),
       optional(
         seq(
-          'where',
+          token(prec(1, 'where')),
           field("conditions",alias($.table_columns, $.table_conditions))
         )))),
 
@@ -405,7 +405,7 @@ module.exports = grammar({
 
     identifier: $ => token.immediate(prec(1, /[a-zA-Z0-9_]+/)),
 
-    _variable_repeat: $ => prec.right(1,
+    _variable_repeat: $ => prec.right(
       repeat1(seq($.identifier, $._variable_period)),
     ),
 
