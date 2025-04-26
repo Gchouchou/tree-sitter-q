@@ -132,14 +132,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "comment_block",
-          "named": true
-        },
-        {
           "type": "func_app",
           "named": true
         },
@@ -165,10 +157,6 @@
         },
         {
           "type": "list_definition",
-          "named": true
-        },
-        {
-          "type": "newline_extra",
           "named": true
         },
         {
@@ -690,14 +678,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "comment_block",
-          "named": true
-        },
-        {
           "type": "func_app",
           "named": true
         },
@@ -723,10 +703,6 @@
         },
         {
           "type": "list_definition",
-          "named": true
-        },
-        {
-          "type": "newline_extra",
           "named": true
         },
         {
@@ -1286,18 +1262,6 @@
       "required": false,
       "types": [
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "comment_block",
-          "named": true
-        },
-        {
-          "type": "newline_extra",
-          "named": true
-        },
-        {
           "type": "order_expression",
           "named": true
         },
@@ -1337,14 +1301,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "comment_block",
-          "named": true
-        },
-        {
           "type": "func_app",
           "named": true
         },
@@ -1370,10 +1326,6 @@
         },
         {
           "type": "list_definition",
-          "named": true
-        },
-        {
-          "type": "newline_extra",
           "named": true
         },
         {
@@ -1571,14 +1523,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "comment_block",
-          "named": true
-        },
-        {
           "type": "func_app",
           "named": true
         },
@@ -1604,10 +1548,6 @@
         },
         {
           "type": "list_definition",
-          "named": true
-        },
-        {
-          "type": "newline_extra",
           "named": true
         },
         {
@@ -1892,14 +1832,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "comment_block",
-          "named": true
-        },
-        {
           "type": "func_app",
           "named": true
         },
@@ -1925,10 +1857,6 @@
         },
         {
           "type": "list_definition",
-          "named": true
-        },
-        {
-          "type": "newline_extra",
           "named": true
         },
         {
@@ -2591,14 +2519,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "comment_block",
-          "named": true
-        },
-        {
           "type": "func_app",
           "named": true
         },
@@ -2624,10 +2544,6 @@
         },
         {
           "type": "list_definition",
-          "named": true
-        },
-        {
-          "type": "newline_extra",
           "named": true
         },
         {
@@ -2710,14 +2626,6 @@
           "named": true
         },
         {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "comment_block",
-          "named": true
-        },
-        {
           "type": "func_app",
           "named": true
         },
@@ -2743,10 +2651,6 @@
         },
         {
           "type": "list_definition",
-          "named": true
-        },
-        {
-          "type": "newline_extra",
           "named": true
         },
         {

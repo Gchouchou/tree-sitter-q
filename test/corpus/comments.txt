@@ -19,8 +19,8 @@ some expression with trailing comment
       (number)
       (builtin_infix_func)
       (number))
-    (semicolon)
-    (comment)))
+    (semicolon))
+  (comment))
 
 ===
 multiple trailing comments
@@ -37,8 +37,8 @@ g:2 / this is g
         (identifier))
       (assignment_func)
       (number))
-    (semicolon)
-    (comment))
+    (semicolon))
+  (comment)
   (progn
     (func_app
       (variable
@@ -237,3 +237,18 @@ String fragment with comment
   (progn
     (string
       (string_fragment))))
+
+===
+comment block after semicolon
+===
+abc;
+/
+asdf
+---
+
+(program
+  (progn
+    (variable
+      (identifier))
+    (semicolon))
+  (comment_block))

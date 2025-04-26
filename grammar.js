@@ -76,16 +76,7 @@ module.exports = grammar({
     )),
 
     // semicolon catches whitespaces
-    _seperator: $ => prec.right(seq(
-      alias(';', $.semicolon),
-      repeat(
-        choice(
-          $.newline_extra,
-          $.comment,
-          $.comment_block
-        )
-      )
-    )),
+    _seperator: $ => prec.right(alias(';', $.semicolon)),
 
     _expression: $ => prec(
       -1,
