@@ -12,7 +12,7 @@
     }
   ],
   "metadata": {
-    "version": "0.2.6",
+    "version": "0.2.7",
     "license": "MIT",
     "description": "A treesitter parser for q",
     "authors": [
