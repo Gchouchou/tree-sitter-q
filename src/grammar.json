@@ -2323,7 +2323,7 @@
                   },
                   {
                     "type": "PATTERN",
-                    "value": "0[NW]j?"
+                    "value": "0[NWnw]j?"
                   }
                 ]
               }
@@ -2360,8 +2360,8 @@
             "content": {
               "type": "TOKEN",
               "content": {
-                "type": "STRING",
-                "value": "0Ng"
+                "type": "PATTERN",
+                "value": "0[Nn]g"
               }
             },
             "named": true,
@@ -2380,7 +2380,7 @@
                   },
                   {
                     "type": "PATTERN",
-                    "value": "0[NW]h"
+                    "value": "0[NWnw]h"
                   }
                 ]
               }
@@ -2401,7 +2401,7 @@
                   },
                   {
                     "type": "PATTERN",
-                    "value": "0[NW]i"
+                    "value": "0[NWnw]i"
                   }
                 ]
               }
@@ -2422,11 +2422,15 @@
                   },
                   {
                     "type": "PATTERN",
-                    "value": "0[nw]"
+                    "value": "-?\\.\\d+(e-?\\d+)?f?"
                   },
                   {
-                    "type": "STRING",
-                    "value": "0Nf"
+                    "type": "PATTERN",
+                    "value": "0[nw]f?"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "0[Nn]f"
                   }
                 ]
               }
@@ -2447,7 +2451,11 @@
                   },
                   {
                     "type": "PATTERN",
-                    "value": "0[NW]e"
+                    "value": "-?\\.\\d+(e-?\\d+)?e"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "0[NWnw]e"
                   }
                 ]
               }
