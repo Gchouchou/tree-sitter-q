@@ -406,7 +406,7 @@ module.exports = grammar({
     number: $ => token(choice(
       // all digits without point are long
       alias(token(choice(
-        /-?\d+j?/, /0[NW]j?/
+        /-?\d+j?/, /0[NWnw]j?/
       )), $.long),
       alias(token(
         /[01]b/
@@ -415,22 +415,24 @@ module.exports = grammar({
         /0x[0-9a-fA-F]/
       ), $.byte),
       alias(token(
-        '0Ng'
+        /0[Nn]g/
       ), $.guid),
       alias(token(choice(
-        /-?\d+h/, /0[NW]h/
+        /-?\d+h/, /0[NWnw]h/
       )), $.short),
       alias(token(choice(
-        /-?\d+i/, /0[NW]i/
+        /-?\d+i/, /0[NWnw]i/
       )), $.int),
       alias(token(choice(
         /-?\d+\.?\d*(e-?\d+)?f?/,
-        /0[nw]/,
-        '0Nf'
+        /-?\.\d+(e-?\d+)?f?/,
+        /0[nw]f?/,
+        /0[Nn]f/
       )), $.float),
       alias(token(choice(
         /-?\d+\.?\d*(e-?\d+)?e/,
-        /0[NW]e/
+        /-?\.\d+(e-?\d+)?e/,
+        /0[NWnw]e/
       )), $.real),
     )),
 

@@ -157,3 +157,23 @@ combining exponent and real type
 (program
   (progn
     (number)))
+
+===
+decimal
+===
+.1
+---
+
+(program
+  (progn
+    (number)))
+
+===
+inf but lower case
+===
+0nf
+---
+
+(program
+  (progn
+    (number)))
