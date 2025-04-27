@@ -334,3 +334,37 @@ l . i, .[l;i]
             (semicolon)
             (variable
               (identifier))))))))
+
+===
+comment and scan
+===
+1 f/ b
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (infix_mod_func
+        (variable
+          (identifier))
+        (infix_func_modifier))
+      (variable
+        (identifier)))))
+
+===
+comment and each right
+===
+1 f/: b
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (infix_mod_func
+        (variable
+          (identifier))
+        (infix_func_modifier))
+      (variable
+        (identifier)))))
