@@ -262,12 +262,15 @@ module.exports = grammar({
     infix_mod_func: $ => seq(
       field("function", choice($._atomic_exp, $._infix_func)),
       field("modifier", alias(choice(
-        token.immediate(prec(1,'\/')),
+        token.immediate(
+          prec(1, choice(
+            '\/', // Over
+            '\/:' // each right
+          ))),
         token(choice(
           '\\', // Scan
           '\'', // each or case
           '\\:', // each left
-          '\/:', // each right
           '\':' // each paralel or each prior
         ))
       ), $.infix_func_modifier))),
