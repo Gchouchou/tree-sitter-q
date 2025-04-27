@@ -3600,28 +3600,10 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "IMMEDIATE_TOKEN",
-              "content": {
-                "type": "PATTERN",
-                "value": "[^\\r\\n]+"
-              }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
           "type": "REPEAT",
           "content": {
-            "type": "IMMEDIATE_TOKEN",
-            "content": {
-              "type": "PATTERN",
-              "value": "\\r?\\n[ \\t][^\\r\\n]*"
-            }
+            "type": "PATTERN",
+            "value": "[^\\r\\n]*"
           }
         }
       ]

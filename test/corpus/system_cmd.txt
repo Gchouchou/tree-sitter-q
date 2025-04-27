@@ -157,3 +157,21 @@ time and space
         (variable
           (identifier))
         (number)))))
+
+===
+multiline shell command
+===
+\echo "a"
+  echo "b"
+1+1
+---
+
+(program
+  (system_command
+    (shell_command
+      (newline_extra)))
+  (progn
+    (func_app
+      (number)
+      (builtin_infix_func)
+      (number))))

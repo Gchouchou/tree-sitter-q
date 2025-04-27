@@ -678,8 +678,7 @@ module.exports = grammar({
         token.immediate(prec(-1, /\\[a-zA-Z]+/)),
         token.immediate(prec(-2, /\\[^ \t\n]+/)),
       ),
-      optional(token.immediate(/[^\r\n]+/)),
-      repeat(token.immediate(/\r?\n[ \t][^\r\n]*/))
+      repeat(/[^\r\n]*/)
     ),
 
     shebang: $ => seq(
