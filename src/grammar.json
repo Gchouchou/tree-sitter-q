@@ -2386,6 +2386,10 @@
                   {
                     "type": "PATTERN",
                     "value": "0[NWnw]h"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "-0[Ww]h"
                   }
                 ]
               }
@@ -2407,6 +2411,10 @@
                   {
                     "type": "PATTERN",
                     "value": "0[NWnw]i"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "-0[Ww]i"
                   }
                 ]
               }
@@ -2435,7 +2443,11 @@
                   },
                   {
                     "type": "PATTERN",
-                    "value": "0[Nn]f"
+                    "value": "0[NW]f"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "-0[Ww]f?"
                   }
                 ]
               }
@@ -2461,6 +2473,10 @@
                   {
                     "type": "PATTERN",
                     "value": "0[NWnw]e"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "-0[Ww]e"
                   }
                 ]
               }

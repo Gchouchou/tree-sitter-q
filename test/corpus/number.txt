@@ -177,3 +177,13 @@ inf but lower case
 (program
   (progn
     (number)))
+
+===
+negative infinity
+===
+-0w
+---
+
+(program
+  (progn
+    (number)))
