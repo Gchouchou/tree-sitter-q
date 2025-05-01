@@ -22,10 +22,9 @@ void tree_sitter_q_external_scanner_deserialize(void *payload, char *buffer,
 bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
                                          const bool *valid_symbols) {
     // match newline with lookahead
-    if (valid_symbols[NEW_LINE_EXTRA] &&
-        (lexer->lookahead == '\t' || lexer->lookahead == ' ' ||
-         lexer->lookahead == '\r' || lexer->lookahead == '\n'))
-    {
+    if (valid_symbols[NEW_LINE_EXTRA] && (lexer->lookahead == '\t' ||
+        lexer->lookahead == ' ' || lexer->lookahead == '\r' || lexer->lookahead
+        == '\n')) {
 
       // skip whitespace
       while (lexer->lookahead == '\t' || lexer->lookahead == ' ') lexer->advance(lexer, true);
