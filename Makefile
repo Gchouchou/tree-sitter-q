@@ -4,7 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-q
 HOMEPAGE_URL := https://gitlab.com/gchouchou/tree-sitter-q.git
-VERSION := 0.2.8
+VERSION := 0.2.9
 
 # repository
 SRC_DIR := src
