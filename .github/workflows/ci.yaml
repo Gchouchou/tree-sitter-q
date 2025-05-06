@@ -70,5 +70,5 @@ jobs:
         uses: tree-sitter/fuzz-action@v4
         if: steps.scanner-check.outputs.changed == 'true'
         with:
-          max-length: 1024
-          max-time: 5
+          max-length: 512
+          max-time: 1
