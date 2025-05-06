@@ -441,10 +441,12 @@ module.exports = grammar({
       )), $.real),
     )),
 
-    number_list: $ => prec(10,seq(
+    number_list: $ => choice(
+      token(/[01]+b/),
+      prec(10,seq(
       $.number,
       $._nlist_sub
-    )),
+    ))),
 
     byte_list: $ => token(prec(1,/0x[0-9a-fA-F][0-9a-fA-F]+/)),
 
