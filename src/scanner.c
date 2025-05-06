@@ -49,7 +49,7 @@ bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
     // matches immediately a non escaped char with lookahead
     if (valid_symbols[ONE_CHAR] && lexer->lookahead != '\n' &&
         lexer->lookahead != '\r' && lexer->lookahead != '\\' &&
-        lexer->lookahead != '"') {
+        lexer->lookahead != '"' && !lexer->eof(lexer)) {
         lexer->advance(lexer, false);
         lexer->mark_end(lexer);
         // check if it is exactly one character
