@@ -71,3 +71,4 @@ jobs:
         if: steps.scanner-check.outputs.changed == 'true'
         with:
           max-length: 1024
+          max-time: 20
