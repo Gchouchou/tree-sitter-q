@@ -69,3 +69,5 @@ jobs:
       - name: Run the fuzzer
         uses: tree-sitter/fuzz-action@v4
         if: steps.scanner-check.outputs.changed == 'true'
+        with:
+          max-length: 2048
