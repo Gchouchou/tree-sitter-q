@@ -97,7 +97,8 @@ module.exports = grammar({
         field("function", alias('\'', $.composition)),
         field("parameters",$.parameter_pass)
       ),
-      $._func_app_prefix
+      $._func_app_prefix,
+      $.infix_func_modifier
     )),
 
     bracket_progn: $ => prec(-1, seq(
@@ -261,19 +262,22 @@ module.exports = grammar({
 
     infix_mod_func: $ => seq(
       field("function", choice($._atomic_exp, $._infix_func)),
-      field("modifier", alias(choice(
-        token.immediate(
-          prec(1, choice(
-            '\/', // Over
-            '\/:' // each right
-          ))),
-        token(choice(
-          '\\', // Scan
-          '\'', // each or case
-          '\\:', // each left
-          '\':' // each paralel or each prior
-        ))
-      ), $.infix_func_modifier))),
+      field("modifier", $.infix_func_modifier)
+    ),
+
+    infix_func_modifier: $ => choice(
+      token.immediate(
+        prec(1, choice(
+          '\/', // Over
+          '\/:' // each right
+        ))),
+      '\'', // each or case
+      token(choice(
+        '\\', // Scan
+        '\\:', // each left
+        '\':' // each paralel or each prior
+      ))
+    ),
 
     immediate_minus: $ => token.immediate(prec(1, '-')),
 
@@ -609,46 +613,46 @@ module.exports = grammar({
     system_command: $ => choice(
       // group commands by syntax group
       // naked sys command that should not accept anything
-      field("command", alias(token.immediate(prec(-1, /\\[Eru]/)), $.command)),
+      field("command", alias(token.immediate(prec(0, /\\[Eru]/)), $.command)),
       // optional subexpression
       seq(
-        field("command", alias(token.immediate(prec(-1, /\\[abBdfv]/)), $.command)),
+        field("command", alias(token.immediate(prec(0, /\\[abBdfv]/)), $.command)),
         optional($._subexpression)
       ),
       // mandatory subexpression
       seq(
-        field("command", alias(token.immediate(prec(-1, '\\x')), $.command)),
+        field("command", alias(token.immediate(prec(0, '\\x')), $.command)),
         $._subexpression
       ),
       // optional number list
       seq(
-        field("command", alias(token.immediate(prec(-1, /\\[cC]/)), $.command)),
+        field("command", alias(token.immediate(prec(0, /\\[cC]/)), $.command)),
         optional($.number_list)
       ),
       // optional glob
       seq(
-        field("command", alias(token.immediate(prec(-1, /\\(cd|_)/)), $.command)),
+        field("command", alias(token.immediate(prec(0, /\\(cd|_)/)), $.command)),
         optional($.glob)
       ),
       // mandatory glob
       seq(
-        field("command", alias(token.immediate(prec(-1, /\\[pl12]/)), $.command)),
+        field("command", alias(token.immediate(prec(0, /\\[pl12]/)), $.command)),
         $.glob
       ),
       // optional integers
       seq(
-        field("command", alias(token.immediate(prec(-1, /\\[egoPsSTwWz]/)), $.command)),
+        field("command", alias(token.immediate(prec(0, /\\[egoPsSTwWz]/)), $.command)),
         optional(field("command", $._integer, $.number))
       ),
       // 2 mandatory filepath for rename
       seq(
-        field("command", alias(token.immediate(prec(-1, '\\r')), $.command)),
+        field("command", alias(token.immediate(prec(0, '\\r')), $.command)),
         $.glob,
         $.glob
       ),
       // timer
       seq(
-        field("command", alias(token.immediate(prec(-1, '\\t')), $.command)),
+        field("command", alias(token.immediate(prec(0, '\\t')), $.command)),
         optional(
           choice(
             alias($._integer, $.number), // set timer interval
@@ -661,7 +665,7 @@ module.exports = grammar({
               $._subexpression)))),
       // time and space
       seq(
-        field("command", alias(token.immediate(prec(-1, '\\ts')), $.command)),
+        field("command", alias(token.immediate(prec(0, '\\ts')), $.command)),
         seq(
           optional(
             seq(token.immediate(':'),
@@ -673,7 +677,7 @@ module.exports = grammar({
       ),
       // ignore everything after command
       seq(
-        field("command", alias(token.immediate(prec(-1, /\\\\?/)), $.command)),
+        field("command", alias(token.immediate(prec(0, /\\\\?/)), $.command)),
         optional(token.immediate(prec(1, /[^\n]+/)))
       ),
 
@@ -682,8 +686,8 @@ module.exports = grammar({
 
     shell_command: $ => seq(
       choice(
-        token.immediate(prec(-1, /\\[a-zA-Z]+/)),
-        token.immediate(prec(-2, /\\[^ \t\n]+/)),
+        token.immediate(prec(0, /\\[a-zA-Z]+/)),
+        token.immediate(prec(-1, /\\[^ \t\n]+/)),
       ),
       repeat(/[^\r\n]*/)
     ),

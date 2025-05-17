@@ -368,3 +368,33 @@ comment and each right
         (infix_func_modifier))
       (variable
         (identifier)))))
+
+===
+infix as an element of a list
+===
+(';f)
+---
+
+(program
+  (progn
+    (list_definition
+      (func_app
+        (infix_func_modifier))
+      (semicolon)
+      (variable
+        (identifier)))))
+
+===
+this is not a comment
+===
+(/;f)
+---
+
+(program
+  (progn
+    (list_definition
+      (func_app
+        (infix_func_modifier))
+      (semicolon)
+      (variable
+        (identifier)))))

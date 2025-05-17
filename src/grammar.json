@@ -348,6 +348,10 @@
           {
             "type": "SYMBOL",
             "name": "_func_app_prefix"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "infix_func_modifier"
           }
         ]
       }
@@ -1234,58 +1238,57 @@
           "type": "FIELD",
           "name": "modifier",
           "content": {
-            "type": "ALIAS",
+            "type": "SYMBOL",
+            "name": "infix_func_modifier"
+          }
+        }
+      ]
+    },
+    "infix_func_modifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
             "content": {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "IMMEDIATE_TOKEN",
-                  "content": {
-                    "type": "PREC",
-                    "value": 1,
-                    "content": {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "STRING",
-                          "value": "/"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "/:"
-                        }
-                      ]
-                    }
-                  }
+                  "type": "STRING",
+                  "value": "/"
                 },
                 {
-                  "type": "TOKEN",
-                  "content": {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": "\\"
-                      },
-                      {
-                        "type": "STRING",
-                        "value": "'"
-                      },
-                      {
-                        "type": "STRING",
-                        "value": "\\:"
-                      },
-                      {
-                        "type": "STRING",
-                        "value": "':"
-                      }
-                    ]
-                  }
+                  "type": "STRING",
+                  "value": "/:"
                 }
               ]
-            },
-            "named": true,
-            "value": "infix_func_modifier"
+            }
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "\\"
+              },
+              {
+                "type": "STRING",
+                "value": "\\:"
+              },
+              {
+                "type": "STRING",
+                "value": "':"
+              }
+            ]
           }
         }
       ]
@@ -3140,7 +3143,7 @@
               "type": "IMMEDIATE_TOKEN",
               "content": {
                 "type": "PREC",
-                "value": -1,
+                "value": 0,
                 "content": {
                   "type": "PATTERN",
                   "value": "\\\\[Eru]"
@@ -3163,7 +3166,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "PATTERN",
                       "value": "\\\\[abBdfv]"
@@ -3200,7 +3203,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "STRING",
                       "value": "\\x"
@@ -3229,7 +3232,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "PATTERN",
                       "value": "\\\\[cC]"
@@ -3266,7 +3269,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "PATTERN",
                       "value": "\\\\(cd|_)"
@@ -3303,7 +3306,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "PATTERN",
                       "value": "\\\\[pl12]"
@@ -3332,7 +3335,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "PATTERN",
                       "value": "\\\\[egoPsSTwWz]"
@@ -3373,7 +3376,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "STRING",
                       "value": "\\r"
@@ -3406,7 +3409,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "STRING",
                       "value": "\\t"
@@ -3494,7 +3497,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "STRING",
                       "value": "\\ts"
@@ -3560,7 +3563,7 @@
                   "type": "IMMEDIATE_TOKEN",
                   "content": {
                     "type": "PREC",
-                    "value": -1,
+                    "value": 0,
                     "content": {
                       "type": "PATTERN",
                       "value": "\\\\\\\\?"
@@ -3612,7 +3615,7 @@
               "type": "IMMEDIATE_TOKEN",
               "content": {
                 "type": "PREC",
-                "value": -1,
+                "value": 0,
                 "content": {
                   "type": "PATTERN",
                   "value": "\\\\[a-zA-Z]+"
@@ -3623,7 +3626,7 @@
               "type": "IMMEDIATE_TOKEN",
               "content": {
                 "type": "PREC",
-                "value": -2,
+                "value": -1,
                 "content": {
                   "type": "PATTERN",
                   "value": "\\\\[^ \\t\\n]+"
