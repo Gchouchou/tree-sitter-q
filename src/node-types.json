@@ -250,7 +250,7 @@
     "fields": {
       "function": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "assignment_func",
@@ -548,6 +548,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "infix_func_modifier",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -965,6 +975,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "infix_func_modifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "infix_mod_func",
@@ -2766,6 +2781,10 @@
     "named": false
   },
   {
+    "type": "'",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -2847,10 +2866,6 @@
   },
   {
     "type": "identifier",
-    "named": true
-  },
-  {
-    "type": "infix_func_modifier",
     "named": true
   },
   {
