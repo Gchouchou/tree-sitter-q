@@ -28,6 +28,13 @@
                           {
                             "type": "SYMBOL",
                             "name": "shebang"
+                          },
+                          {
+                            "type": "IMMEDIATE_TOKEN",
+                            "content": {
+                              "type": "PATTERN",
+                              "value": "\\r?\\n"
+                            }
                           }
                         ]
                       },
