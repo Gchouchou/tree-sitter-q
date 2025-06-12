@@ -3679,7 +3679,7 @@
             }
           },
           "named": true,
-          "value": "program"
+          "value": "executable"
         }
       ]
     }

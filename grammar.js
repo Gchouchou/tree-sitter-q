@@ -695,7 +695,7 @@ module.exports = grammar({
     shebang: $ => seq(
       token.immediate('#!'),
       optional(token.immediate(/[ \t]+/)),
-      alias(token.immediate(/.*/), $.program),
+      alias(token.immediate(/.*/), $.executable),
     )
   }
 });

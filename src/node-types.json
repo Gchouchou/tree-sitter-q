@@ -1970,7 +1970,7 @@
       "required": true,
       "types": [
         {
-          "type": "program",
+          "type": "executable",
           "named": true
         }
       ]
@@ -2851,6 +2851,10 @@
   {
     "type": "exec",
     "named": false
+  },
+  {
+    "type": "executable",
+    "named": true
   },
   {
     "type": "file_symbol",
