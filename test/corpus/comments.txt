@@ -252,3 +252,34 @@ asdf
       (identifier))
     (semicolon))
   (comment_block))
+
+===
+comment on first line
+===
+/asdf
+a
+---
+
+(program
+  (comment)
+  (progn
+    (variable
+      (identifier))))
+
+===
+comment bof and shebang
+===
+#!/something/q
+/
+asdf
+\
+sweet
+---
+
+(program
+  (shebang
+    (executable))
+  (comment_block)
+  (progn
+    (variable
+      (identifier))))

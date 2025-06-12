@@ -52,8 +52,8 @@ module.exports = grammar({
       prec(2,seq(
         optional(choice(
           seq($.shebang, token.immediate(/\r?\n/)),
-          alias($.comment_block_BOF, $.comment_block
-          ))),
+          alias($.comment_block_BOF, $.comment_block)
+        )),
         repeat($._line),
         optional(choice(
           $.progn,
@@ -66,6 +66,7 @@ module.exports = grammar({
       seq($.system_command, /\r?\n/),
       seq($.progn, /\r?\n/),
       seq(alias(token(/[kp]\)[^\r\n]*/), $.dsl), token.immediate(/\r?\n/)),
+      alias(token(prec(100, /\/[^\r\n]*[^ \t\r\n][^\r\n]*\r?\n/)), $.comment),
       /\r?\n/
     ),
 
