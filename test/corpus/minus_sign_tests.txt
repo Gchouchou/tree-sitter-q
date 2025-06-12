@@ -341,3 +341,27 @@ a: "D"$-8#-4_a
             (builtin_infix_func)
             (variable
               (identifier))))))))
+
+===
+Immediate Minus Sign infix
+===
+1-/: til 4
+---
+
+(program
+  (progn
+    (func_app
+      (number)
+      (infix_mod_func
+        (builtin_infix_func)
+        (infix_func_modifier))
+      (func_app
+        (variable
+          (identifier))
+        (number)))))
+
+===
+minus sign func app immediate
+===
+f-[a;c]
+---
