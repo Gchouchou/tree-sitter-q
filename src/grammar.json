@@ -1309,17 +1309,6 @@
         }
       ]
     },
-    "immediate_minus": {
-      "type": "IMMEDIATE_TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": 1,
-        "content": {
-          "type": "STRING",
-          "value": "-"
-        }
-      }
-    },
     "builtin_infix_func": {
       "type": "CHOICE",
       "members": [
@@ -3737,6 +3726,10 @@
     {
       "type": "SYMBOL",
       "name": "regular_char"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "immediate_minus"
     }
   ],
   "inline": [

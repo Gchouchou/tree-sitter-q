@@ -38,7 +38,8 @@ module.exports = grammar({
   // alias immediate minus with the other operators
   externals: $ => [
     $.newline_extra,
-    $.regular_char
+    $.regular_char,
+    $.immediate_minus
   ],
 
   precendence: $ => [
@@ -279,8 +280,6 @@ module.exports = grammar({
         '\':' // each paralel or each prior
       ))
     ),
-
-    immediate_minus: $ => token.immediate(prec(1, '-')),
 
     //  regular infix funcs except comma
     builtin_infix_func: $ => choice(
