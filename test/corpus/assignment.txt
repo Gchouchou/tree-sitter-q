@@ -114,3 +114,22 @@ a+:1
         (identifier))
       (assignment_func)
       (number))))
+
+===
+@ assign
+===
+select x@:y from t
+---
+
+(program
+  (progn
+    (sql_expression
+      (table_columns
+        (func_app
+          (variable
+            (identifier))
+          (assignment_func)
+          (variable
+            (identifier))))
+      (variable
+        (identifier)))))

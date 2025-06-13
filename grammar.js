@@ -324,7 +324,9 @@ module.exports = grammar({
         '|:', "$:", // logic
         '?:', // search?
         '^:', // fill assign?
-        ',:')))),
+        ',:',
+        '@:'
+      )))),
 
     sql_expression: $ => prec.right(seq(
       choice(
