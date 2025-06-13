@@ -97,3 +97,13 @@ time in days with miliseconds
 (program
   (progn
     (temporal)))
+
+===
+3 digit hour format
+===
+325:
+---
+
+(program
+  (progn
+    (temporal)))
