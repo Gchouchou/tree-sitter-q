@@ -481,18 +481,18 @@ module.exports = grammar({
       )), $.timestamp),
       alias(token(choice(
         //hours: minute type
-        /-?\d{2}:/,
+        /-?\d{2}\d*:/,
         //hours:minutes:
-        /-?\d{2}:[0-5]\d:?/,
+        /-?\d{2}\d*:[0-5]\d:?/,
         /0[NW]u/
       )), $.minute),
       //hours:minutes:seconds second type
       alias(token(choice(
-        /-?\d{2}:[0-5]\d:[0-5]\d\.?/, /0[NW]v/
+        /-?\d{2}\d*:[0-5]\d:[0-5]\d\.?/, /0[NW]v/
       )), $.second),
       //hours:minutes:seconds.miliseconds time type
       alias(token(choice(
-        /-?\d{2}:[0-5]\d:[0-5]\d\.\d+/,
+        /-?\d{2}\d*:[0-5]\d:[0-5]\d\.\d+/,
         /0[NW]t/
       )), $.time),
       alias(token(choice(

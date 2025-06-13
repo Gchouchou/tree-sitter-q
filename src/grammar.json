@@ -2643,11 +2643,11 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "-?\\d{2}:"
+                    "value": "-?\\d{2}\\d*:"
                   },
                   {
                     "type": "PATTERN",
-                    "value": "-?\\d{2}:[0-5]\\d:?"
+                    "value": "-?\\d{2}\\d*:[0-5]\\d:?"
                   },
                   {
                     "type": "PATTERN",
@@ -2668,7 +2668,7 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "-?\\d{2}:[0-5]\\d:[0-5]\\d\\.?"
+                    "value": "-?\\d{2}\\d*:[0-5]\\d:[0-5]\\d\\.?"
                   },
                   {
                     "type": "PATTERN",
@@ -2689,7 +2689,7 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "-?\\d{2}:[0-5]\\d:[0-5]\\d\\.\\d+"
+                    "value": "-?\\d{2}\\d*:[0-5]\\d:[0-5]\\d\\.\\d+"
                   },
                   {
                     "type": "PATTERN",
