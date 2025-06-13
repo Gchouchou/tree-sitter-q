@@ -4,7 +4,7 @@
 
 // We only have a single element right now, but keep in mind that the order
 // must match the `externals` array in `grammar.js`.
-typedef enum { NEW_LINE_EXTRA, ONE_CHAR } TokenType;
+typedef enum { NEW_LINE_EXTRA, ONE_CHAR, IMMEDIATE_MINUS } TokenType;
 
 // If we need to allocate/deallocate state, we do it in these functions.
 void * tree_sitter_q_external_scanner_create() {return NULL;}
@@ -21,6 +21,23 @@ void tree_sitter_q_external_scanner_deserialize(void *payload, char *buffer,
 
 bool tree_sitter_q_external_scanner_scan(void *payload, TSLexer *lexer,
                                          const bool *valid_symbols) {
+    // match minus sign immediately and make sure it is not a number
+    if (valid_symbols[IMMEDIATE_MINUS] && lexer->lookahead == '-')
+    {
+      lexer->advance(lexer, false);
+      if ((lexer->lookahead >= '0' && lexer->lookahead <= '9') ||
+          lexer->lookahead == '.')
+      {
+        lexer->mark_end(lexer);
+        lexer->result_symbol = IMMEDIATE_MINUS;
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
     // match newline with lookahead
     if (valid_symbols[NEW_LINE_EXTRA] &&
         (lexer->lookahead == '\t' || lexer->lookahead == ' ' ||
