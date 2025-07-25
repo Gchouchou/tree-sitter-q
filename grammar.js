@@ -321,7 +321,7 @@ module.exports = grammar({
         '+:', '-:', '*:', '%:', // math
         '>:', '<:', '~:', '=:', // comparison
         '_:', '#:', '$:', '!:', // list manip
-        '|:', "$:", // logic
+        '|:', "$:", "&:", // logic
         '?:', // search?
         '^:', // fill assign?
         ',:',
