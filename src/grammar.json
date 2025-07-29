@@ -1981,33 +1981,12 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "TOKEN",
-                    "content": {
-                      "type": "PREC",
-                      "value": 1,
-                      "content": {
-                        "type": "STRING",
-                        "value": "where"
-                      }
-                    }
-                  },
-                  {
-                    "type": "FIELD",
-                    "name": "conditions",
-                    "content": {
-                      "type": "ALIAS",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "table_columns"
-                      },
-                      "named": true,
-                      "value": "table_conditions"
-                    }
-                  }
-                ]
+                "type": "FIELD",
+                "name": "conditions",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "table_conditions"
+                }
               },
               {
                 "type": "BLANK"
@@ -2111,6 +2090,26 @@
             "type": "SYMBOL",
             "name": "_subexpression"
           }
+        }
+      ]
+    },
+    "table_conditions": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "STRING",
+              "value": "where"
+            }
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "table_columns"
         }
       ]
     },

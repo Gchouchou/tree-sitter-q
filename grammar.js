@@ -356,10 +356,8 @@ module.exports = grammar({
       'from',
       field("table", $._expression),
       optional(
-        seq(
-          token(prec(1, 'where')),
-          field("conditions",alias($.table_columns, $.table_conditions))
-        )))),
+        field("conditions",$.table_conditions)
+      ))),
 
     limit_expression: $ => seq(
       '[',
@@ -375,6 +373,11 @@ module.exports = grammar({
     order_expression: $ => seq(
       field("order", token(prec(10, choice('>', '<')))),
       field("column", $._subexpression)
+    ),
+
+    table_conditions: $ => seq(
+      token(prec(1, 'where')),
+      $.table_columns
     ),
 
     table_columns: $ => prec.right(seq($._subexpression, repeat(prec(7,$._table_expression_wrapper)))),

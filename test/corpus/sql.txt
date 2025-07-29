@@ -85,12 +85,13 @@ update from t where a,b,c;
       (variable
         (identifier))
       (table_conditions
-        (variable
-          (identifier))
-        (variable
-          (identifier))
-        (variable
-          (identifier))))
+        (table_columns
+          (variable
+            (identifier))
+          (variable
+            (identifier))
+          (variable
+            (identifier)))))
     (semicolon)))
 
 ===
@@ -152,16 +153,17 @@ select from t where x>1,b<=2;
       (variable
         (identifier))
       (table_conditions
-        (func_app
-          (variable
-            (identifier))
-          (builtin_infix_func)
-          (number))
-        (func_app
-          (variable
-            (identifier))
-          (builtin_infix_func)
-          (number))))
+        (table_columns
+          (func_app
+            (variable
+              (identifier))
+            (builtin_infix_func)
+            (number))
+          (func_app
+            (variable
+              (identifier))
+            (builtin_infix_func)
+            (number)))))
     (semicolon)))
 
 ===

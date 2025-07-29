@@ -2400,95 +2400,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "types": [
         {
-          "type": "assignment_func",
-          "named": true
-        },
-        {
-          "type": "builtin_infix_func",
-          "named": true
-        },
-        {
-          "type": "byte_list",
-          "named": true
-        },
-        {
-          "type": "char",
-          "named": true
-        },
-        {
-          "type": "func_app",
-          "named": true
-        },
-        {
-          "type": "func_definition",
-          "named": true
-        },
-        {
-          "type": "implicit_composition",
-          "named": true
-        },
-        {
-          "type": "infix_mod_func",
-          "named": true
-        },
-        {
-          "type": "infix_projection",
-          "named": true
-        },
-        {
-          "type": "invalid_atom",
-          "named": true
-        },
-        {
-          "type": "list_definition",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "number_list",
-          "named": true
-        },
-        {
-          "type": "parenthesis_exp",
-          "named": true
-        },
-        {
-          "type": "sql_expression",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "symbol",
-          "named": true
-        },
-        {
-          "type": "symbol_list",
-          "named": true
-        },
-        {
-          "type": "table_definition",
-          "named": true
-        },
-        {
-          "type": "temporal",
-          "named": true
-        },
-        {
-          "type": "temporal_list",
-          "named": true
-        },
-        {
-          "type": "variable",
+          "type": "table_columns",
           "named": true
         }
       ]
