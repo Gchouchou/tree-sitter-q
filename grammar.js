@@ -464,11 +464,11 @@ module.exports = grammar({
     temporal: $ => token(choice(
       // year.monthm, month type
       alias(token(
-        choice(/\d{4}\.(0\d|1[012])m/, '0Nm')
+        choice(/\d{4}\.(0\d|1[012])m/, /0[Nn]m/)
       ), $.month),
       // year.month.date, date type
       alias(token(
-        choice(/\d{4}\.(0\d|1[012])\.([0-2]\d|3[01])/, /0[NW]d/)
+        choice(/\d{4}\.(0\d|1[012])\.([0-2]\d|3[01])/, /-?0[nNwW]d/)
       ), $.date),
       alias(token(choice(
         // year.month.dateD, timestamp type
@@ -480,23 +480,23 @@ module.exports = grammar({
         // year.month.dateDhour:minute:second.miliseconds,
         /[12]\d{3}\.(0\d|1[012])\.([0-2]\d|3[01])D([01]\d|2[0124]):[0-5]\d:[0-5]\d(\.\d*)?/,
         // special
-        /0[NW]p/,
+        /-?0[NnWw]p/,
       )), $.timestamp),
       alias(token(choice(
         //hours: minute type
         /-?\d{2}\d*:/,
         //hours:minutes:
         /-?\d{2}\d*:[0-5]\d:?/,
-        /0[NW]u/
+        /0[nNwW]u/
       )), $.minute),
       //hours:minutes:seconds second type
       alias(token(choice(
-        /-?\d{2}\d*:[0-5]\d:[0-5]\d\.?/, /0[NW]v/
+        /-?\d{2}\d*:[0-5]\d:[0-5]\d\.?/, /0[NnWw]v/
       )), $.second),
       //hours:minutes:seconds.miliseconds time type
       alias(token(choice(
         /-?\d{2}\d*:[0-5]\d:[0-5]\d\.\d+/,
-        /0[NW]t/
+        /0[NnWw]t/
       )), $.time),
       alias(token(choice(
         // daysD
@@ -507,9 +507,9 @@ module.exports = grammar({
         /-?\d+D\d{2}:[0-5]\d:?/,
         // daysDhours:minutes:seconds.miliseconds
         /-?\d+D\d{2}:[0-5]\d:[0-5]\d(\.\d*)?/,
-        /0[NW]n/
+        /0[NnWw]n/
       )), $.timespan),
-      alias(token(choice('0Nz', '0wz')), $.datetime)
+      alias(token(choice(/0[Nn]z/, /-?0[wW]z/)), $.datetime)
     )),
 
     temporal_list: $ => prec(10,seq(
