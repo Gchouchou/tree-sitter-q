@@ -309,7 +309,8 @@ module.exports = grammar({
         'xbar','xexp', 'xlog', // math functions
         '0:', '1:', '2:', // file streaming
         ',',
-        'dsave'))
+        'dsave',
+        'fby'))
     ),
 
     // :: is also the empty expression, be careful of that
