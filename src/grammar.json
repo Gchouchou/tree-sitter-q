@@ -2450,11 +2450,11 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "-?\\d+\\.?\\d*(e-?\\d+)?f?"
+                    "value": "-?\\d+\\.?\\d*(e[-+]?\\d+)?f?"
                   },
                   {
                     "type": "PATTERN",
-                    "value": "-?\\.\\d+(e-?\\d+)?f?"
+                    "value": "-?\\.\\d+(e[-+]?\\d+)?f?"
                   },
                   {
                     "type": "PATTERN",
