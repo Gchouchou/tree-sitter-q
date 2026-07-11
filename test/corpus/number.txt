@@ -59,6 +59,16 @@ scientific notation with negative power
     (number)))
 
 ===
+scientific notation with positive power with +
+===
+-1.323e+16
+---
+
+(program
+  (progn
+    (number)))
+
+===
 hexadecimal
 ===
 0x12af3

@@ -437,8 +437,8 @@ module.exports = grammar({
         /-?\d+i/, /0[NWnw]i/, /-0[Ww]i/
       )), $.int),
       alias(token(choice(
-        /-?\d+\.?\d*(e-?\d+)?f?/,
-        /-?\.\d+(e-?\d+)?f?/,
+        /-?\d+\.?\d*(e[-+]?\d+)?f?/,
+        /-?\.\d+(e[-+]?\d+)?f?/,
         /0[nw]f?/,
         /0[NW]f/,
         /-0[Ww]f?/
