@@ -293,7 +293,7 @@ module.exports = grammar({
         '?', 'bin', 'binr', 'in', 'within', // search
         'or','and','|', '&', // logic operators
         'each', 'peach',
-        'setenv',
+        'setenv', 'set',
         'div', 'mod', // interger
         'wavg', 'wsum', // weighted
         'cor', 'cov', 'scov', // stats
