@@ -60,6 +60,7 @@ module.exports = grammar({
           $.progn,
           $.system_command,
           alias(token(/[kp]\)[^\r\n]*/), $.dsl),
+          alias($._line_comment, $.comment),
           alias($.comment_terminal,$.comment))) // due to EOF
       ))),
 
@@ -67,7 +68,7 @@ module.exports = grammar({
       seq($.system_command, /\r?\n/),
       seq($.progn, /\r?\n/),
       seq(alias(token(/[kp]\)[^\r\n]*/), $.dsl), token.immediate(/\r?\n/)),
-      alias(token(prec(100, /\/[^\r\n]*[^ \t\r\n][^\r\n]*\r?\n/)), $.comment),
+      seq(alias($._line_comment, $.comment),  token.immediate(/\r?\n/)),
       /\r?\n/
     ),
 
@@ -577,6 +578,8 @@ module.exports = grammar({
     )),
 
     comment: $ => /(\r?\n)?\/[^\n]*/,
+
+    _line_comment: $ => token(prec(100, /\/[^\r\n]*[^ \t\r\n][^\r\n]*/)),
 
     // multiline coments have to start with / then end with \
     // comment blocks have the flush with left side
