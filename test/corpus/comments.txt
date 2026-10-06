@@ -283,3 +283,20 @@ sweet
   (progn
     (variable
       (identifier))))
+
+===
+comment bock and comment line
+===
+/ abcd
+/
+asdf
+\
+sweet
+---
+
+(program
+  (comment)
+  (comment_block)
+  (progn
+    (variable
+      (identifier))))
